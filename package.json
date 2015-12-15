@@ -1,0 +1,22 @@
+{
+  "name": "feat-ttadag",
+  "version": "1.0.0",
+  "description": "따닥 프로젝트 1차 테스트",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yoobin/feat-ttadag.git"
+  },
+  "author": "yoobin with sihyun",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yoobin/feat-ttadag/issues"
+  },
+  "homepage": "https://github.com/yoobin/feat-ttadag#readme",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}
