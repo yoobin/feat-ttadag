@@ -1,0 +1,16 @@
+{
+  "name": "feat-ttadag",
+  "description": "따닥 프로젝트 1차 테스트",
+  "main": "index.js",
+  "authors": [
+    "yoobin with sihyun"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/yoobin/feat-ttadag",
+  "moduleType": [
+    "node"
+  ],
+  "dependencies": {
+    "angular-material": "~1.0.0"
+  }
+}

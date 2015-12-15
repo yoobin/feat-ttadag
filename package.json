@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/yoobin/feat-ttadag#readme",
   "dependencies": {
+    "bower": "^1.7.1",
     "express": "^4.13.3"
-  }
+  },
+  "devDependencies": {}
 }
