@@ -47,7 +47,18 @@ angular.module('container', [])
 		this.container = function() {
 			return this;
 		}
+	})
+	.directive('appContainers', function() {
+		return {
+			restrict : 'C',
+			replace : true,
+			template : '<div class="container">{{ CONTENT }}</div>',
+			link : function($scope, $el, attr) {
+				$scope.CONTENT = 'content....';
+			}
+		}
 	});
+
 /**
 angular.module('footer', [])
 	.service('footer', function() {
@@ -58,25 +69,11 @@ angular.module('footer', [])
 	});
 */
 
-var app = angular.module('ttadagApp',['ngRoute', 'container']);
-app.controller('ttadagAppController', ['$scope', 'containerService', function($scope, containerService) {
-
-	//console.log(headerService.header().title);
-	//console.log(container.container().title);
-	//console.log(footer.footer().title);
-
-}]);
+var app = angular.module('ttadagApp', ['ngMaterial', 'ngRoute', 'container']);
+//app.controller('ttadagAppController', ['$scope', 'containerService', function($scope, containerService) {
+//	console.log('app!!');
+//	//console.log(headerService.header().title);
+//	//console.log(container.container().title);
+//	//console.log(footer.footer().title);
 //
-//app.directive('appContainer', function() {
-//	return {
-//		restrict : 'A',
-//		replace : true,
-//		template : '<button ng-click="clickTest();">test!!!</button>',
-//		link : function($scope, $el, attr) {
-//
-//			$scope.clickTest = function() {
-//				alert('test!!');
-//			}
-//		}
-//	}
-//});
+//}]);
