@@ -42,20 +42,13 @@ angular.module('header', [])
  */
 
 angular.module('container', [])
+	.controller('controllerContainer',['$scope', function($scope) {
+		console.log($scope, 'controllerContainer');
+	}])
 	.service('containerService', function() {
 		this.title = 'container';
 		this.container = function() {
 			return this;
-		}
-	})
-	.directive('appContainers', function() {
-		return {
-			restrict : 'C',
-			replace : true,
-			template : '<div class="container">{{ CONTENT }}</div>',
-			link : function($scope, $el, attr) {
-				$scope.CONTENT = 'content....';
-			}
 		}
 	});
 
@@ -70,10 +63,10 @@ angular.module('footer', [])
 */
 
 var app = angular.module('ttadagApp', ['ngMaterial', 'ngRoute', 'container']);
-//app.controller('ttadagAppController', ['$scope', 'containerService', function($scope, containerService) {
-//	console.log('app!!');
-//	//console.log(headerService.header().title);
-//	//console.log(container.container().title);
-//	//console.log(footer.footer().title);
-//
-//}]);
+app.controller('ttadagAppController', ['$scope', 'containerService', function($scope, containerService) {
+	console.log('app!!');
+	//console.log(headerService.header().title);
+	//console.log(container.container().title);
+	//console.log(footer.footer().title);
+
+}]);
