@@ -1,23 +1,26 @@
 <!DOCTYPE>
-<html>
+<html ng-app="ttadagApp">
 <head>
 	<title>TTadag!!</title>
 	<link href="/libs/angular-material/angular-material.css" rel="stylesheet" />
 </head>
 
-<body ng-app="ttadagApp">
+<body ng-controller="ttadagAppController">
 
 	<div class="containers">
-<ng-view>ddd</ng-view>
+
 		<div class="app-header"></div>
-		<input type="text" ng-model="CONTENT"/>
-		<div class="app-containers"></div>
+		<div class="app-containers">
+			<ng-view></ng-view>
+		</div>
 
 		<div class="app-footer"></div>
 
 	</div>
 
 	<script src="libs/angular/angular.js"></script>
+
+	<!-- Angular Material Dependencies -->
 	<script src="libs/angular-route/angular-route.js"></script>
 	<script src="libs/angular-animate/angular-animate.js"></script>
 	<script src="libs/angular-aria/angular-aria.js"></script>

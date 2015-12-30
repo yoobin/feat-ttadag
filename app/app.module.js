@@ -40,33 +40,90 @@ angular.module('header', [])
 		}
 	});
  */
-
-angular.module('container', [])
-	.controller('controllerContainer',['$scope', function($scope) {
-		console.log($scope, 'controllerContainer');
-	}])
-	.service('containerService', function() {
-		this.title = 'container';
-		this.container = function() {
-			return this;
-		}
-	});
+//
+///**
+// * @description 모듈 형태의 메인 컨테이너..
+// */
+//angular.module('container', [])
+////싱글턴 객체 반환
+//	.service('containerService', function() {
+//		this.title = 'container';
+//		this.container = function() {
+//			return this;
+//		}
+//	});
+//
+///**
+//angular.module('footer', [])
+//	.service('footer', function() {
+//		this.title = 'footer';
+//		this.footer = function() {
+//			return this;
+//		}
+//	});
+//*/
+//
+///**
+// * @description 메인 app
+// */
+//var app = angular.module('ttadagApp', ['ngMaterial', 'ngRoute', 'container']);
+////console.log(app);
+////console.log(angular.module('ttadagApp'));
+//app.controller('ttadagAppController', ['$scope', 'containerService', function($scope, containerService) {
+//	console.log('ap!!!p!!');
+//	//console.log(headerService.header().title);
+//	//console.log(container.container().title);
+//	//console.log(footer.footer().title);
+//
+//}]);
+//
 
 /**
-angular.module('footer', [])
-	.service('footer', function() {
-		this.title = 'footer';
-		this.footer = function() {
-			return this;
-		}
+ * @description
+ * 여기에 헤더
+ */
+angular.module('header', []);
+angular.module('header')
+	.service('headerService', function() {
+		this.headerYoobin = 'yoobin with sihyun for header';
+		return this;
 	});
-*/
 
-var app = angular.module('ttadagApp', ['ngMaterial', 'ngRoute', 'container']);
-app.controller('ttadagAppController', ['$scope', 'containerService', function($scope, containerService) {
-	console.log('app!!');
-	//console.log(headerService.header().title);
-	//console.log(container.container().title);
-	//console.log(footer.footer().title);
 
-}]);
+/**
+ * @description
+ * 여기에 컨테이너
+ */
+angular.module('containers', []);
+angular.module('containers')
+	.service('containersService', function() {
+
+		this.containerYoobin = 'yoobin with sihyun for containers';
+		return this;
+	});
+/**
+ * @description
+ * 여기에 푸터
+ */
+angular.module('footer', []);
+angular.module('footer')
+	.service('footerService', function() {
+
+		this.footerYoobin = 'yoobin with sihyun for footer';
+		return this;
+	});
+
+
+/**
+ * @description
+ * 통합 모듈...
+ * ttadagApp을 전체를 관리하며 제어함
+ */
+angular.module('ttadagApp',['header', 'containers', 'footer']);
+angular.module('ttadagApp')
+	.controller('ttadagAppController', ['$scope', 'headerService', 'containersService', 'footerService', function($scope, headerService, containersService, footerService) {
+		console.log($scope);
+		console.log(headerService);
+		console.log(containersService);
+		console.log(footerService);
+	}]);
