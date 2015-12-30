@@ -119,7 +119,7 @@ angular.module('footer')
  * 통합 모듈...
  * ttadagApp을 전체를 관리하며 제어함
  */
-angular.module('ttadagApp',['header', 'containers', 'footer']);
+angular.module('ttadagApp',['ngAnimate', 'header', 'containers', 'footer']);
 angular.module('ttadagApp')
 	.controller('ttadagAppController', ['$scope', 'headerService', 'containersService', 'footerService', function($scope, headerService, containersService, footerService) {
 		console.log($scope);
