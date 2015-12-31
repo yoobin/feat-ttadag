@@ -1,3 +1,6 @@
+	'use strict';
+(function(){
+
 /**
  * @description AngularJS의존성 앱 init관련 부분설정
  * 1. 이부분에서 app을 관련된 데이터를 관리할수있는 싱글톤 객체가 필요할거같은데... 일단 고려
@@ -87,6 +90,39 @@ angular.module('header')
 	.service('headerService', function() {
 		this.headerYoobin = 'yoobin with sihyun for header';
 		return this;
+	})
+	.directive('appHeader', function() {
+		console.log('angular module in execute...');
+		return {
+			restrict: 'E',
+			template: '<div>11111aaaaa</div>',
+			//templateUrl: 'directive.html',
+			replace: true,
+			priority: 0,
+			transclude: false,
+			scope: false,
+			terminal: false,
+			require: false,
+			controller: function($scope, $element, $attrs, $transclude) {
+				console.log($scope);
+				console.log("directive Controller");
+			},
+			compile: function compile(tElement, tAttrs, transclude) {
+				return {
+					pre: function preLink(scope, iElement, iAttrs, controller) {
+						console.log('compile pre');
+					},
+					post: function postLink(scope, iElement, iAttrs, controller) {
+						console.log('compile post');
+					}
+				}
+			},
+			link: function postLink(scope, iElement, iAttrs) {
+				console.log('link!!');
+			}
+		};
+
+
 	});
 
 
@@ -127,3 +163,4 @@ angular.module('ttadagApp')
 		console.log(containersService);
 		console.log(footerService);
 	}]);
+})();
