@@ -1,6 +1,5 @@
-	'use strict';
 (function(){
-
+	'use strict';
 /**
  * @description AngularJS의존성 앱 init관련 부분설정
  * 1. 이부분에서 app을 관련된 데이터를 관리할수있는 싱글톤 객체가 필요할거같은데... 일단 고려
