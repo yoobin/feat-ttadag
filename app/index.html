@@ -8,13 +8,20 @@
 <body ng-controller="ttadagAppController">
 
 	<div class="containers">
+
 		<app-header></app-header>
-		<div class="app-containers">
+
+		<!--<div class="app-containers">-->
+		<app-containers>
+
 			<!--contentChange가 발생할곳...-->
 			<ng-view></ng-view>
-		</div>
 
-		<div class="app-footer"></div>
+		</app-containers>
+		<!--<div class="app-footer"></div>-->
+
+
+		<app-footer></app-footer>
 
 	</div>
 
@@ -25,7 +32,10 @@
 	<script src="libs/angular-animate/angular-animate.js"></script>
 	<script src="libs/angular-aria/angular-aria.js"></script>
 	<script src="libs/angular-material/angular-material.js"></script>
+
 	<script src="app.module.js"></script>
+
+	<script src="components/home/homeController.js"></script>
 	<script src="app.routes.js"></script>
 
 </body>

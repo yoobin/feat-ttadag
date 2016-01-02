@@ -91,33 +91,32 @@ angular.module('header')
 		return this;
 	})
 	.directive('appHeader', function() {
-		console.log('angular module in execute...');
+		console.log('angular module appHeader in execute...');
 		return {
 			restrict: 'E',
-			template: '<div>11111aaaaa</div>',
+			template: '<div>{{yoobin}}</div>',
 			//templateUrl: 'directive.html',
 			replace: true,
 			priority: 0,
 			transclude: false,
-			scope: false,
-			terminal: false,
-			require: false,
+			scope: true,
 			controller: function($scope, $element, $attrs, $transclude) {
 				console.log($scope);
-				console.log("directive Controller");
+				$scope.yoobin = 'yoobin header...^^';
+				console.log("directive header Controller");
 			},
 			compile: function compile(tElement, tAttrs, transclude) {
 				return {
 					pre: function preLink(scope, iElement, iAttrs, controller) {
-						console.log('compile pre');
+						console.log('header compile pre');
 					},
 					post: function postLink(scope, iElement, iAttrs, controller) {
-						console.log('compile post');
+						console.log('header compile post');
 					}
 				}
 			},
-			link: function postLink(scope, iElement, iAttrs) {
-				console.log('link!!');
+			link: function postLink($scope, iElement, iAttrs) {
+				console.log('header link!!');
 			}
 		};
 
@@ -129,13 +128,48 @@ angular.module('header')
  * @description
  * 여기에 컨테이너
  */
+
 angular.module('containers', []);
 angular.module('containers')
 	.service('containersService', function() {
-
 		this.containerYoobin = 'yoobin with sihyun for containers';
 		return this;
+	})
+	.directive('appContainers', function() {
+		console.log('angular module containers in execute...');
+		return {
+			restrict: 'E',
+			template: '<div>{{yoobin}}</div>',
+			//templateUrl: 'directive.html',
+			replace: true,
+			priority: 0,
+			transclude: false,
+			scope: true,
+			controller: function($scope, $element, $attrs, $transclude) {
+				console.log($scope);
+				$scope.yoobin = 'yoobin containers...^^';
+				console.log("directive containers Controller");
+			},
+			compile: function compile(tElement, tAttrs, transclude) {
+				return {
+					pre: function preLink(scope, iElement, iAttrs, controller) {
+						console.log('containers compile pre');
+					},
+					post: function postLink(scope, iElement, iAttrs, controller) {
+						console.log('containers compile post');
+					}
+				}
+			},
+			link: function postLink($scope, iElement, iAttrs) {
+				console.log('containers link!!');
+				//$scope.yoobin = 'yoobin';
+
+			}
+		};
+
+
 	});
+
 /**
  * @description
  * 여기에 푸터
@@ -146,20 +180,55 @@ angular.module('footer')
 
 		this.footerYoobin = 'yoobin with sihyun for footer';
 		return this;
+	})
+	.directive('appFooter', function() {
+		console.log('angular module footerService in execute...');
+		return {
+			restrict: 'E',
+			template: '<div>{{yoobin}}</div>',
+			//templateUrl: 'directive.html',
+			replace: true,
+			priority: 0,
+			transclude: false,
+			scope: true,
+			controller: function($scope, $element, $attrs, $transclude) {
+				console.log($scope);
+				$scope.yoobin = 'yoobin footer...^^';
+				console.log("footer directive Controller");
+			},
+			compile: function compile(tElement, tAttrs, transclude) {
+				return {
+					pre: function preLink(scope, iElement, iAttrs, controller) {
+						console.log('footer compile pre');
+					},
+					post: function postLink(scope, iElement, iAttrs, controller) {
+						console.log('footer compile post');
+					}
+				}
+			},
+			link: function postLink($scope, iElement, iAttrs) {
+				console.log('footer link!!');
+				//$scope.yoobin = 'yoobin';
+
+			}
+		};
+
+
 	});
 
+	angular.module('ttadagApp.home.controller',[]);
 
 /**
  * @description
  * 통합 모듈...
  * ttadagApp을 전체를 관리하며 제어함
  */
-angular.module('ttadagApp',['ngAnimate', 'header', 'containers', 'footer']);
+angular.module('ttadagApp',['ngRoute', 'ngAnimate', 'header', 'footer', 'ttadagApp.home.controller']);
 angular.module('ttadagApp')
-	.controller('ttadagAppController', ['$scope', 'headerService', 'containersService', 'footerService', function($scope, headerService, containersService, footerService) {
-		console.log($scope);
+	.controller('ttadagAppController', ['$scope', 'headerService', 'footerService', function($scope, headerService, footerService) {
+		console.log('ttadagApp!!!');
 		console.log(headerService);
-		console.log(containersService);
 		console.log(footerService);
 	}]);
+
 })();
