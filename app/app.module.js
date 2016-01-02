@@ -224,6 +224,7 @@ angular.module('footer')
  * ttadagApp을 전체를 관리하며 제어함
  */
 angular.module('ttadagApp',[
+	'ngMaterial',
 	'ngRoute',
 	'ngAnimate',
 	'header',

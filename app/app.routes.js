@@ -6,7 +6,7 @@ angular.module('ttadagApp')
 	.config(['$routeProvider', function($routeProvider) {
 		$routeProvider
 			.when('/', {
-				controller : 'homeController',
+				controller : 'homeController as ctrl',
 				templateUrl : 'components/home/homeView.html'
 			})
 			.when('/account/signUp', {
