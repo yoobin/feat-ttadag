@@ -8,6 +8,14 @@ angular.module('ttadagApp')
 			.when('/', {
 				controller : 'homeController',
 				templateUrl : 'components/home/homeView.html'
+			})
+			.when('/account/signUp', {
+				controller : 'signUpController',
+				templateUrl : 'components/account/signUp/signUpView.html'
+			})
+			.when('/account/signIn', {
+				controller : 'signInController',
+				templateUrl : 'components/account/signIn/signInView.html'
 			});
 
 	}]);

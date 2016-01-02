@@ -94,7 +94,7 @@ angular.module('header')
 		console.log('angular module appHeader in execute...');
 		return {
 			restrict: 'E',
-			template: '<div>{{yoobin}}</div>',
+			template: '<div>{{yoobin}} <a href="#/">최초</a> <a href="#/account/signIn">로그인</a><a href="#/account/signUp">회원가입</a></div>',
 			//templateUrl: 'directive.html',
 			replace: true,
 			priority: 0,
@@ -217,13 +217,23 @@ angular.module('footer')
 	});
 
 	angular.module('ttadagApp.home.controller',[]);
+	angular.module('ttadagApp.account.signUp.controller',[]);
+	angular.module('ttadagApp.account.signIn.controller',[]);
 
 /**
  * @description
  * 통합 모듈...
  * ttadagApp을 전체를 관리하며 제어함
  */
-angular.module('ttadagApp',['ngRoute', 'ngAnimate', 'header', 'footer', 'ttadagApp.home.controller']);
+angular.module('ttadagApp',[
+	'ngRoute',
+	'ngAnimate',
+	'header',
+	'footer',
+	'ttadagApp.home.controller',
+	'ttadagApp.account.signUp.controller',
+	'ttadagApp.account.signIn.controller'
+]);
 angular.module('ttadagApp')
 	.controller('ttadagAppController', ['$scope', 'headerService', 'footerService', function($scope, headerService, footerService) {
 		console.log('ttadagApp!!!');
