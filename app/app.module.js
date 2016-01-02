@@ -94,7 +94,7 @@ angular.module('header')
 		console.log('angular module appHeader in execute...');
 		return {
 			restrict: 'E',
-			template: '<div>{{yoobin}} <a href="#/">최초</a> <a href="#/account/signIn">로그인</a><a href="#/account/signUp">회원가입</a></div>',
+			template: '<div>{{yoobin}} <a href="#/">최초</a> <a href="#/account/signIn">로그인</a> <a href="#/account/signUp">회원가입</a></div>',
 			//templateUrl: 'directive.html',
 			replace: true,
 			priority: 0,
@@ -212,8 +212,6 @@ angular.module('footer')
 
 			}
 		};
-
-
 	});
 
 	angular.module('ttadagApp.home.controller',[]);
