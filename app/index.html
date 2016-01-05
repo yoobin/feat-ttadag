@@ -23,8 +23,35 @@
 	<!--<div class="app-footer"></div>-->
 
 
-	<app-footer flex="20"></app-footer>
+	<app-footer flex="20">
 
+	</app-footer>
+
+	<!--
+	이곳에서 팝업창이 나타남. 추후에 테스트 필요함...
+	-->
+	<div ng-if="alert">
+		<br>
+		<b layout="row" layout-align="center center" class="md-padding">
+			{{alert}}
+		</b>
+	</div>
+
+
+	<script type="text/ng-template" id="test.tmp.html">
+		<md-bottom-sheet class="md-list md-has-header" ng-cloak>
+			<md-subheader>Comment Actions</md-subheader>
+			<div>
+				email 또는 비밀번호가 잘못 입력되었습니다.<br/>
+				다시 입력해주세요.
+				<hr/>
+				비밀번호가 기억이 나지 않으세요?
+				<md-button ng-click="listItemClick('9999')">
+					<div> email로 재설정하기</div>
+				</md-button>
+			</div>
+		</md-bottom-sheet>
+	</script>
 </div>
 
 	<script src="libs/angular/angular.js"></script>
