@@ -183,13 +183,29 @@ angular.module('footer')
 		console.log('angular module footerService in execute...');
 		return {
 			restrict: 'E',
-			template: '<div>{{yoobin}}</div>',
+			template: "<div> " +
+			"<md-button ng-click='openBottomSheet()'> " +
+					" 버튼 레이어 테스트하고 있어요.." +
+			" </md-button> " +
+			"</div>",
 			//templateUrl: 'directive.html',
 			replace: true,
 			priority: 0,
 			transclude: false,
 			scope: true,
-			controller: function($scope, $element, $attrs, $transclude) {
+			controller: function($scope, $element, $attrs, $transclude, $mdBottomSheet) {
+
+
+
+
+				//.controller('MyController', function($scope, $mdBottomSheet) {
+					$scope.openBottomSheet = function() {
+						$mdBottomSheet.show({
+							template: '<md-bottom-sheet>Hel!!!!!lo!</md-bottom-sheet>'
+						});
+					};
+				//})
+
 				console.log($scope);
 				$scope.yoobin = 'yoobin footer...^^';
 				console.log("footer directive Controller");
@@ -212,6 +228,7 @@ angular.module('footer')
 		};
 	});
 
+
 	angular.module('ttadagApp.home.controller',[]);
 	angular.module('ttadagApp.account.signUp.controller',[]);
 	angular.module('ttadagApp.account.signIn.controller',[]);
@@ -233,11 +250,22 @@ angular.module('ttadagApp',[
 	'ttadagApp.account.signIn.controller'
 ]);
 angular.module('ttadagApp')
-	.controller('ttadagAppController', ['$scope', 'headerService', 'footerService', function($scope, headerService, footerService, $mdBottomSheet) {
+	.controller('TtadagAppController', ['$scope', 'headerService', 'footerService', function($scope, headerService, footerService, $mdBottomSheet) {
+
 		console.log($mdBottomSheet);
 		console.log('ttadagApp!!!');
 		console.log(headerService);
 		console.log(footerService);
+
+
+
+		//$scope.openBottomSheet = function() {
+		//	$mdBottomSheet.show({
+		//		template: '<md-bottom-sheet>Hello!</md-bottom-sheet>'
+		//	});
+		//};
+
+
 	}]);
 
 })();
