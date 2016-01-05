@@ -94,15 +94,13 @@ angular.module('header')
 		console.log('angular module appHeader in execute...');
 		return {
 			restrict: 'E',
-			template: '<div>{{yoobin}} <a href="#/">최초</a> <a href="#/account/signIn">로그인</a> <a href="#/account/signUp">회원가입</a></div>',
+			template: '<div><a href="#/">최초</a> <a href="#/account/signIn">로그인</a> <a href="#/account/signUp">회원가입</a></div>',
 			//templateUrl: 'directive.html',
 			replace: true,
 			priority: 0,
 			transclude: false,
 			scope: true,
 			controller: function($scope, $element, $attrs, $transclude) {
-				console.log($scope);
-				$scope.yoobin = 'yoobin header...^^';
 				console.log("directive header Controller");
 			},
 			compile: function compile(tElement, tAttrs, transclude) {
@@ -139,7 +137,7 @@ angular.module('containers')
 		console.log('angular module containers in execute...');
 		return {
 			restrict: 'E',
-			template: '<div>{{yoobin}}</div>',
+			template: '<div><div>{{yoobin}}</div></div>',
 			//templateUrl: 'directive.html',
 			replace: true,
 			priority: 0,

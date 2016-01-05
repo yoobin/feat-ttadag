@@ -2,27 +2,31 @@
 <html ng-app="ttadagApp">
 <head>
 	<title>TTadag!!</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
 	<link href="/libs/angular-material/angular-material.css" rel="stylesheet" />
 </head>
 
 <body ng-controller="ttadagAppController">
 
-	<div class="containers">
-		<app-header></app-header>
-
-		<!--<div class="app-containers">-->
-		<app-containers>
-
-			<!--contentChange가 발생할곳...-->
-			<ng-view></ng-view>
-
-		</app-containers>
-		<!--<div class="app-footer"></div>-->
+<div class="containers" layout="column">
 
 
-		<app-footer></app-footer>
+	<app-header flex="20"></app-header>
 
-	</div>
+	<!--<div class="app-containers">-->
+	<app-containers flex="20">
+
+		<!--contentChange가 발생할곳...-->
+		<ng-view></ng-view>
+
+	</app-containers>
+	<!--<div class="app-footer"></div>-->
+
+
+	<app-footer flex="20"></app-footer>
+
+</div>
 
 	<script src="libs/angular/angular.js"></script>
 
