@@ -223,6 +223,7 @@ angular.module('footer')
  */
 angular.module('ttadagApp',[
 	'ngMaterial',
+	'ngMessages',
 	'ngRoute',
 	'ngAnimate',
 	'header',
@@ -232,7 +233,8 @@ angular.module('ttadagApp',[
 	'ttadagApp.account.signIn.controller'
 ]);
 angular.module('ttadagApp')
-	.controller('ttadagAppController', ['$scope', 'headerService', 'footerService', function($scope, headerService, footerService) {
+	.controller('ttadagAppController', ['$scope', 'headerService', 'footerService', function($scope, headerService, footerService, $mdBottomSheet) {
+		console.log($mdBottomSheet);
 		console.log('ttadagApp!!!');
 		console.log(headerService);
 		console.log(footerService);
