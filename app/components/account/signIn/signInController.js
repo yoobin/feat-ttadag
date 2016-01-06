@@ -1,5 +1,5 @@
 (function() {
-	angular.module('ttadagApp.account.signIn.controller')
+	angular.module('ngTtadagApp.account.signIn.controller')
 		.controller('signInController', ['$scope', function($scope) {
 			$scope.yoobin = 'signInController';
 			$scope.popTest = function() {

@@ -1,6 +1,6 @@
-(function(){
 	'use strict';
-/**
+	(function(){
+		/**
  * @description AngularJS의존성 앱 init관련 부분설정
  * 1. 이부분에서 app을 관련된 데이터를 관리할수있는 싱글톤 객체가 필요할거같은데... 일단 고려
  * 2. 1번에서 싱긅톤 객체를 고려하여 로그인 회원관련 설정부분을 통신을 할수있는 객체를 마찬가지로 고려..
@@ -13,8 +13,8 @@
  * @description
  * 여기에 헤더
  */
-angular.module('header', []);
-angular.module('header')
+angular.module('ngTtadagAppHeader', []);
+angular.module('ngTtadagAppHeader')
 	.service('headerService', function() {
 		this.headerYoobin = 'yoobin with sihyun for header';
 		return this;
@@ -50,59 +50,12 @@ angular.module('header')
 
 	});
 
-
-/**
- * @description
- * 여기에 컨테이너
- */
-
-angular.module('containers', []);
-angular.module('containers')
-	.service('containersService', function() {
-		this.containerYoobin = 'yoobin with sihyun for containers';
-		return this;
-	})
-	.directive('appContainers', function() {
-		console.log('angular module containers in execute...');
-		return {
-			restrict: 'E',
-			template: '<div><div>{{yoobin}}</div></div>',
-			//templateUrl: 'directive.html',
-			replace: true,
-			priority: 0,
-			transclude: false,
-			scope: true,
-			controller: function($scope, $element, $attrs, $transclude) {
-				console.log($scope);
-				$scope.yoobin = 'yoobin containers...^^';
-				console.log("directive containers Controller");
-			},
-			compile: function compile(tElement, tAttrs, transclude) {
-				return {
-					pre: function preLink(scope, iElement, iAttrs, controller) {
-						console.log('containers compile pre');
-					},
-					post: function postLink(scope, iElement, iAttrs, controller) {
-						console.log('containers compile post');
-					}
-				}
-			},
-			link: function postLink($scope, iElement, iAttrs) {
-				console.log('containers link!!');
-				//$scope.yoobin = 'yoobin';
-
-			}
-		};
-
-
-	});
-
 /**
  * @description
  * 여기에 푸터
  */
-angular.module('footer', []);
-angular.module('footer')
+angular.module('ngTtadagAppFooter', []);
+angular.module('ngTtadagAppFooter')
 	.service('footerService', function() {
 
 		this.footerYoobin = 'yoobin with sihyun for footer';
@@ -112,11 +65,15 @@ angular.module('footer')
 		console.log('angular module footerService in execute...');
 		return {
 			restrict: 'E',
+
+			/**
 			template: "<div> " +
 			"<md-button ng-click='openBottomSheet()'> " +
 					" 푸터 버튼 레이어 테스트하고 있어요.." +
 			" </md-button> " +
 			"</div>",
+			*/
+			template : '<div>이곳이 레이어 팝업 뷰 보통때는 보이지 않거나 다른 레이아웃으로 대체됨.</div>',
 			//templateUrl: 'directive.html',
 			replace: true,
 			priority: 0,
@@ -151,9 +108,13 @@ angular.module('footer')
 	});
 
 
-	angular.module('ttadagApp.home.controller',[]);
-	angular.module('ttadagApp.account.signUp.controller',[]);
-	angular.module('ttadagApp.account.signIn.controller',[]);
+/**
+ * @description
+ * 각 페이지 모듈 dependency manage....
+ */
+angular.module('ngTtadagApp.home.controller',[]);
+angular.module('ngTtadagApp.account.signUp.controller',[]);
+angular.module('ngTtadagApp.account.signIn.controller',[]);
 
 /**
  * @description
@@ -165,11 +126,11 @@ angular.module('ttadagApp',[
 	'ngMessages',
 	'ngRoute',
 	'ngAnimate',
-	'header',
-	'footer',
-	'ttadagApp.home.controller',
-	'ttadagApp.account.signUp.controller',
-	'ttadagApp.account.signIn.controller'
+	'ngTtadagAppHeader',
+	'ngTtadagAppFooter',
+	'ngTtadagApp.home.controller',
+	'ngTtadagApp.account.signUp.controller',
+	'ngTtadagApp.account.signIn.controller'
 ]);
 angular.module('ttadagApp')
 	.controller('TtadagAppController', ['$scope', 'headerService', 'footerService', 'SignInFactory', function($scope, headerService, footerService, SignInFactory) {
