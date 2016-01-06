@@ -10,6 +10,13 @@
  * 4. 위 사항을 고려하여 의존성을 설정....
  */
 
+
+/**
+ * @description
+ * ttadagApp에서 전역으로 데이터나 current정보를 관리함 이름선언.
+ */
+angular.module('ngSharedServices',[]);
+
 /**
  * @description
  * 여기에 헤더
@@ -25,11 +32,25 @@ angular.module('ngTtadagAppFooter', []);
 
 /**
  * @description
- * 각 페이지 모듈 dependency manage....
+ * 각 페이지 모듈 dependency manage.... and define
  */
 angular.module('ngTtadagApp.home.controller',[]);
 angular.module('ngTtadagApp.account.signUp.controller',[]);
 angular.module('ngTtadagApp.account.signIn.controller',[]);
+
+/**
+ * @description
+ * ttadagApp에서 전역으로 데이터나 current정보를 관리함.
+ */
+angular.module('ngSharedServices')
+	.service('NetworkService', function() {
+
+		//....
+		this.setName = function() {
+			return '1999';
+		};
+
+	});
 
 /**
  * @description
@@ -41,12 +62,19 @@ angular.module('ttadagApp',[
 	'ngMessages',
 	'ngRoute',
 	'ngAnimate',
+	'ngSharedServices',
 	'ngTtadagAppHeader',
 	'ngTtadagAppFooter',
 	'ngTtadagApp.home.controller',
 	'ngTtadagApp.account.signUp.controller',
 	'ngTtadagApp.account.signIn.controller'
 ]);
+
+
+/**
+ * @description
+ * 이하 개발정의...
+ */
 
 angular.module('ngTtadagAppHeader')
 	.service('headerService', function() {
@@ -83,6 +111,7 @@ angular.module('ngTtadagAppHeader')
 
 
 	});
+
 
 angular.module('ngTtadagAppFooter')
 	.service('footerService', function() {
@@ -136,14 +165,25 @@ angular.module('ngTtadagAppFooter')
 		};
 	});
 
+
+
+
 angular.module('ttadagApp')
-	.controller('TtadagAppController', ['$scope', 'headerService', 'footerService', 'SignInFactory', function($scope, headerService, footerService, SignInFactory) {
+	.controller('TtadagAppController', ['$scope', '$location', 'headerService', 'footerService', 'SignInFactory', 'NetworkService', function($scope, $location, headerService, footerService, SignInFactory, NetworkService) {
 
-		console.log('ttadagApp!!!');
-		console.log(headerService);
-		console.log(footerService);
-		console.log(SignInFactory.yoobin);
+		$scope.$on('$routeChangeSuccess', function(next, current) {
+			console.log(NetworkService.setName());
 
+			//console.log(appService.getName($location.url()));
+
+
+			////console.log(next, current);
+			//console.log('$routeChangeStart');
+			//console.log('ttadagApp!!!');
+			//console.log(headerService);
+			//console.log(footerService);
+			//console.log(SignInFactory.yoobin);
+		});
 		//$scope.openBottomSheet = function() {
 		//	$mdBottomSheet.show({
 		//		template: '<md-bottom-sheet>Hello!</md-bottom-sheet>'
