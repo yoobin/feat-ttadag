@@ -1,7 +1,8 @@
+(function(){
 	'use strict';
-	(function(){
-		/**
- * @description AngularJS의존성 앱 init관련 부분설정
+/**
+ * @description
+ * AngularJS의존성 앱 init관련 부분설정
  * 1. 이부분에서 app을 관련된 데이터를 관리할수있는 싱글톤 객체가 필요할거같은데... 일단 고려
  * 2. 1번에서 싱긅톤 객체를 고려하여 로그인 회원관련 설정부분을 통신을 할수있는 객체를 마찬가지로 고려..
  * 3. 로그인 라이브러리 혹은 로직을 별도로 빼내어 최초 진입 할경우에만 라이브러리를 사용하고 그이외에는 checkAuth같은 개념으로 로그인을 항상
@@ -14,6 +15,39 @@
  * 여기에 헤더
  */
 angular.module('ngTtadagAppHeader', []);
+
+/**
+ * @description
+ * 여기에 푸터
+ */
+angular.module('ngTtadagAppFooter', []);
+
+
+/**
+ * @description
+ * 각 페이지 모듈 dependency manage....
+ */
+angular.module('ngTtadagApp.home.controller',[]);
+angular.module('ngTtadagApp.account.signUp.controller',[]);
+angular.module('ngTtadagApp.account.signIn.controller',[]);
+
+/**
+ * @description
+ * 통합 모듈...
+ * ttadagApp을 전체를 관리하며 제어함
+ */
+angular.module('ttadagApp',[
+	'ngMaterial',
+	'ngMessages',
+	'ngRoute',
+	'ngAnimate',
+	'ngTtadagAppHeader',
+	'ngTtadagAppFooter',
+	'ngTtadagApp.home.controller',
+	'ngTtadagApp.account.signUp.controller',
+	'ngTtadagApp.account.signIn.controller'
+]);
+
 angular.module('ngTtadagAppHeader')
 	.service('headerService', function() {
 		this.headerYoobin = 'yoobin with sihyun for header';
@@ -50,11 +84,6 @@ angular.module('ngTtadagAppHeader')
 
 	});
 
-/**
- * @description
- * 여기에 푸터
- */
-angular.module('ngTtadagAppFooter', []);
 angular.module('ngTtadagAppFooter')
 	.service('footerService', function() {
 
@@ -107,31 +136,6 @@ angular.module('ngTtadagAppFooter')
 		};
 	});
 
-
-/**
- * @description
- * 각 페이지 모듈 dependency manage....
- */
-angular.module('ngTtadagApp.home.controller',[]);
-angular.module('ngTtadagApp.account.signUp.controller',[]);
-angular.module('ngTtadagApp.account.signIn.controller',[]);
-
-/**
- * @description
- * 통합 모듈...
- * ttadagApp을 전체를 관리하며 제어함
- */
-angular.module('ttadagApp',[
-	'ngMaterial',
-	'ngMessages',
-	'ngRoute',
-	'ngAnimate',
-	'ngTtadagAppHeader',
-	'ngTtadagAppFooter',
-	'ngTtadagApp.home.controller',
-	'ngTtadagApp.account.signUp.controller',
-	'ngTtadagApp.account.signIn.controller'
-]);
 angular.module('ttadagApp')
 	.controller('TtadagAppController', ['$scope', 'headerService', 'footerService', 'SignInFactory', function($scope, headerService, footerService, SignInFactory) {
 
