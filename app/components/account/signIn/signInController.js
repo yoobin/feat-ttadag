@@ -1,16 +1,14 @@
 (function() {
 	angular.module('ttadagApp.account.signIn.controller')
 		.controller('signInController', ['$scope', function($scope) {
-			console.log('signInController');
 			$scope.yoobin = 'signInController';
+			$scope.popTest = function() {
+				alert($scope.yoobin);
+			}
 		}])
-		.config(function($mdThemingProvider) {
-
-			// Configure a dark theme with primary foreground yellow
-
-			$mdThemingProvider.theme('docs-dark', 'default')
-			.primaryPalette('yellow')
-			.dark();
-
-		});
+		.factory('SignInFactory', [function() {
+			return {
+				yoobin : 'factory test....'
+			}
+		}]);
 })();
