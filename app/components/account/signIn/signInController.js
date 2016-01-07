@@ -1,10 +1,12 @@
 (function() {
 	angular.module('ngTtadagApp.account.signIn.controller')
-		.controller('signInController', ['$scope', function($scope) {
+		.controller('signInController', ['$scope', 'NetworkService', function($scope, NetworkService) {
+
 			$scope.yoobin = 'signInController';
 			$scope.popTest = function() {
-				alert($scope.yoobin);
-			}
+				NetworkService.yoobinEventClick();
+			};
+
 		}])
 		.factory('SignInFactory', [function() {
 			return {

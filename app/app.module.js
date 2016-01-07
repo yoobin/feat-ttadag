@@ -32,8 +32,11 @@ angular.module('ngTtadagApp.account.signIn.controller',[]);
 angular.module('ngSharedServices')
 	.service('NetworkService', function($rootScope) {
 
-		this.name = 'yoobin test..';
-		return this;
+		return {
+			yoobinEventClick : function() {
+				$rootScope.$broadcast('sihyunChanged');
+			}
+		};
 		//
 		//var sharedService = {};
 		//
@@ -143,11 +146,14 @@ angular.module('ttadagApp')
 			controller: function($scope, $element, $attrs, $transclude, $mdBottomSheet, NetworkService) {
 
 
-				console.log(NetworkService, 'footer');
+				//console.log(NetworkService, 'footer');
 
-				$scope.footerAlert = function() {
-					alert('app tooer controller added....');
-				};
+
+				$scope.$on('sihyunChanged', function() {
+
+					alert('sihyunChanged!!! app tooer controller added....');
+				});
+
 
 				//.controller('MyController', function($scope, $mdBottomSheet) {
 				$scope.openBottomSheet = function() {
