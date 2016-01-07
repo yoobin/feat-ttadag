@@ -143,25 +143,38 @@ angular.module('ttadagApp')
 			priority: 0,
 			transclude: false,
 			scope: true,
-			controller: function($scope, $element, $attrs, $transclude, $mdBottomSheet, NetworkService) {
+			controller: function($scope, $element, $attrs, $transclude, $mdBottomSheet, NetworkService, $mdToast) {
 
 
-				//console.log(NetworkService, 'footer');
+	//			console.log(NetworkService, 'footer
 
 
 				$scope.$on('sihyunChanged', function() {
+					console.log($mdBottomSheet);
+					//alert('sihyunChanged!!! app tooer controller added....');
+					$mdBottomSheet.show({
+						//template: '<md-bottom-sheet>Hel!!!!!lo!</md-bottom-sheet>'
+						templateUrl : 'test.tmp.html',
+						controller : 'testPOP',
+					}).then(function(testItem) {
+						$mdToast.show(
+								$mdToast.simple()
+									.textContent('clicked!')
+									.position('top right')
+									.hideDelay(1500)
+						);
+					});
 
-					alert('sihyunChanged!!! app tooer controller added....');
 				});
 
 
 				//.controller('MyController', function($scope, $mdBottomSheet) {
-				$scope.openBottomSheet = function() {
-					$mdBottomSheet.show({
-						//template: '<md-bottom-sheet>Hel!!!!!lo!</md-bottom-sheet>'
-						templateUrl : 'test.tmp.html'
-					});
-				};
+				//$scope.openBottomSheet = function() {
+				//	$mdBottomSheet.show({
+				//		//template: '<md-bottom-sheet>Hel!!!!!lo!</md-bottom-sheet>'
+				//		templateUrl : 'test.tmp.html'
+				//	});
+				//};
 				//})
 
 			},
@@ -181,6 +194,19 @@ angular.module('ttadagApp')
 		};
 
 
+	})
+	.controller('testPOP', function($scope, $mdBottomSheet) {
+		$scope.items = [
+			{ name: 'Share', icon: 'share-arrow' },
+			{ name: 'Upload', icon: 'upload' },
+			{ name: 'Copy', icon: 'copy' },
+			{ name: 'Print this page', icon: 'print' },
+		];
+
+		$scope.listItemClick = function($index) {
+			var clickedItem = $scope.items[$index];
+			$mdBottomSheet.hide(clickedItem);
+		};
 	});
 
 })();
