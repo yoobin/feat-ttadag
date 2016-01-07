@@ -157,11 +157,15 @@ angular.module('ttadagApp')
 						templateUrl : 'test.tmp.html',
 						controller : 'testPOP',
 					}).then(function(testItem) {
-						$mdToast.show(
-								$mdToast.simple()
-									.textContent('clicked!')
-									.position('top right')
-									.hideDelay(1500)
+						$mdToast.show({
+
+									template: '<div>clicked!!</div>'
+
+								}
+								//$mdToast.simple()
+								//	.textContent('clicked!')
+								//	.position('top right')
+								//	.hideDelay(1500)
 						);
 					});
 
