@@ -19,19 +19,6 @@ angular.module('ngSharedServices',[]);
 
 /**
  * @description
- * 여기에 헤더
- */
-angular.module('ngTtadagAppHeader', []);
-
-/**
- * @description
- * 여기에 푸터
- */
-angular.module('ngTtadagAppFooter', []);
-
-
-/**
- * @description
  * 각 페이지 모듈 dependency manage.... and define
  */
 angular.module('ngTtadagApp.home.controller',[]);
@@ -67,8 +54,6 @@ angular.module('ttadagApp',[
 	'ngRoute',
 	'ngAnimate',
 	'ngSharedServices',
-	//'ngTtadagAppHeader',
-	//'ngTtadagAppFooter',
 	'ngTtadagApp.home.controller',
 	'ngTtadagApp.account.signUp.controller',
 	'ngTtadagApp.account.signIn.controller'
@@ -79,103 +64,6 @@ angular.module('ttadagApp',[
  * @description
  * 이하 개발정의...
  */
-/**
-angular.module('ngTtadagAppHeader')
-	.service('headerService', function() {
-		this.headerYoobin = 'yoobin with sihyun for header';
-		return this;
-	})
-	.directive('appHeader', function() {
-		console.log('angular module appHeader in execute...');
-		return {
-			restrict: 'E',
-			template: '<div><a href="/">최초</a> <a href="/account/signIn">로그인</a> <a href="/account/signUp">회원가입</a></div>',
-			//templateUrl: 'directive.html',
-			replace: true,
-			priority: 0,
-			transclude: false,
-			scope: true,
-			controller: function($scope, $element, $attrs, $transclude) {
-				console.log("directive header Controller");
-			},
-			compile: function compile(tElement, tAttrs, transclude) {
-				return {
-					pre: function preLink(scope, iElement, iAttrs, controller) {
-						console.log('header compile pre');
-					},
-					post: function postLink(scope, iElement, iAttrs, controller) {
-						console.log('header compile post');
-					}
-				}
-			},
-			link: function postLink($scope, iElement, iAttrs) {
-				console.log('header link!!');
-			}
-		};
-
-
-	});
-
-
-angular.module('ngTtadagAppFooter')
-	.service('footerService', function() {
-
-		this.footerYoobin = 'yoobin with sihyun for footer';
-		return this;
-	})
-	.directive('appFooter', function() {
-		console.log('angular module footerService in execute...');
-		return {
-			restrict: 'E',
-
-			/**
-			template: "<div> " +
-			"<md-button ng-click='openBottomSheet()'> " +
-					" 푸터 버튼 레이어 테스트하고 있어요.." +
-			" </md-button> " +
-			"</div>",
-
-			template : '<div>이곳이 레이어 팝업 뷰 보통때는 보이지 않거나 다른 레이아웃으로 대체됨.</div>',
-			//templateUrl: 'directive.html',
-			replace: true,
-			priority: 0,
-			transclude: false,
-			scope: true,
-			controller: function($scope, $element, $attrs, $transclude, $mdBottomSheet) {
-
-
-				$scope.footerAlert = function() {
-					alert('app tooer controller added....');
-				};
-
-				//.controller('MyController', function($scope, $mdBottomSheet) {
-					$scope.openBottomSheet = function() {
-						$mdBottomSheet.show({
-							//template: '<md-bottom-sheet>Hel!!!!!lo!</md-bottom-sheet>'
-							templateUrl : 'test.tmp.html'
-						});
-					};
-				//})
-
-			},
-			compile: function compile(tElement, tAttrs, transclude) {
-				return {
-					pre: function preLink(scope, iElement, iAttrs, controller) {
-						console.log('footer compile pre');
-					},
-					post: function postLink(scope, iElement, iAttrs, controller) {
-						console.log('footer compile post');
-					}
-				}
-			},
-			link: function postLink($scope, iElement, iAttrs) {
-				console.log('footer link!!');
-			}
-		};
-	});
-*/
-
-
 
 angular.module('ttadagApp')
 	.controller('TtadagAppController', ['$scope', '$location', 'SignInFactory', 'NetworkService', function($scope, $location, SignInFactory, NetworkService) {
