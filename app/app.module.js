@@ -72,24 +72,9 @@ angular.module('ttadagApp')
 	.controller('TtadagAppController', ['$scope', '$location', 'SignInFactory', 'NetworkService', function($scope, $location, SignInFactory, NetworkService) {
 
 		$scope.$on('$routeChangeSuccess', function(next, current) {
-
-
-
-			//console.log(appService.getName($location.url()));
-
-
-			////console.log(next, current);
-			//console.log('$routeChangeStart');
-			//console.log('ttadagApp!!!');
-			//console.log(headerService);
-			//console.log(footerService);
-			//console.log(SignInFactory.yoobin);
+			//angularjs route가 changed되면 이벤트 발생되는 구간..
+			//아 일단 개발하기 간단하게라도 코드 리펙토링 조금씩하면서 해야겟다.; 일정의 압박이 걱정되는구나..;;
 		});
-		//$scope.openBottomSheet = function() {
-		//	$mdBottomSheet.show({
-		//		template: '<md-bottom-sheet>Hello!</md-bottom-sheet>'
-		//	});
-		//};
 
 
 	}])
@@ -157,29 +142,15 @@ angular.module('ttadagApp')
 						templateUrl : 'test.tmp.html',
 						controller : 'testPOP',
 					}).then(function(testItem) {
-						$mdToast.show({
-
-									template: '<div>clicked!!</div>'
-
-								}
-								//$mdToast.simple()
-								//	.textContent('clicked!')
-								//	.position('top right')
-								//	.hideDelay(1500)
+						$mdToast.show(
+								$mdToast.simple()
+									.textContent('clicked!')
+									.position('top right')
+									.hideDelay(1500)
 						);
 					});
 
 				});
-
-
-				//.controller('MyController', function($scope, $mdBottomSheet) {
-				//$scope.openBottomSheet = function() {
-				//	$mdBottomSheet.show({
-				//		//template: '<md-bottom-sheet>Hel!!!!!lo!</md-bottom-sheet>'
-				//		templateUrl : 'test.tmp.html'
-				//	});
-				//};
-				//})
 
 			},
 			compile: function compile(tElement, tAttrs, transclude) {
