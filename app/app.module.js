@@ -141,12 +141,9 @@ angular.module('ttadagApp')
 						//template: '<md-bottom-sheet>Hel!!!!!lo!</md-bottom-sheet>'
 						templateUrl : 'test.tmp.html',
 						controller : 'testPOP',
-					}).then(function(testItem) {
+					}).then(function() {
 						$mdToast.show(
-								$mdToast.simple()
-									.textContent('clicked!')
-									.position('top right')
-									.hideDelay(1500)
+							$scope.alert = clickedItem['name'] + ' clicked!';
 						);
 					});
 
@@ -179,6 +176,8 @@ angular.module('ttadagApp')
 		];
 
 		$scope.listItemClick = function($index) {
+
+
 			var clickedItem = $scope.items[$index];
 			$mdBottomSheet.hide(clickedItem);
 		};
