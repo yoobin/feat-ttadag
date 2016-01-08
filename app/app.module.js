@@ -136,15 +136,23 @@ angular.module('ttadagApp')
 
 				$scope.$on('sihyunChanged', function() {
 					console.log($mdBottomSheet);
-					//alert('sihyunChanged!!! app tooer controller added....');
+
 					$mdBottomSheet.show({
 						//template: '<md-bottom-sheet>Hel!!!!!lo!</md-bottom-sheet>'
-						templateUrl : 'test.tmp.html',
-						controller : 'testPOP',
+						templateUrl : 'testSimple01.tmp.html',
+						controller : 'testPOP'
 					}).then(function() {
-						$mdToast.show(
-							$scope.alert = clickedItem['name'] + ' clicked!';
-						);
+
+						$mdBottomSheet.show({
+							templateUrl : 'testSimple02.tmp.html',
+							controller : 'testPOP'
+						});
+						//$mdToast.show(
+						//		$mdToast.simple()
+						//				.textContent(' clicked!')
+						//				.position('top right')
+						//				.hideDelay(1500)
+						//);
 					});
 
 				});
@@ -176,10 +184,7 @@ angular.module('ttadagApp')
 		];
 
 		$scope.listItemClick = function($index) {
-
-
-			var clickedItem = $scope.items[$index];
-			$mdBottomSheet.hide(clickedItem);
+			$mdBottomSheet.hide();
 		};
 	});
 
