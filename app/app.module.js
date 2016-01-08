@@ -37,12 +37,6 @@ angular.module('ngSharedServices')
 				$rootScope.$broadcast('sihyunChanged');
 			}
 		};
-		//
-		//var sharedService = {};
-		//
-		//sharedService.testForBroadcast = function(mes) {
-		//	this.message = msg;
-		//}
 
 	});
 
