@@ -1,1 +1,33 @@
-{{yoobin}}
+<md-content layout-gt-sm="row" layout-padding="">
+	<div layout-align="center">
+
+		<h1>Welcome to button!</h1>
+
+		<md-input-container>
+			<label>이메일</label>
+			<input ng-model="user.email" type="email">
+		</md-input-container>
+
+		<md-input-container>
+			<label>비밀번호(영문, 숫자 조합 8~20자)</label>
+			<input ng-model="user.password" type="password">
+		</md-input-container>
+
+		<md-input-container>
+			<label>비밀번호 확인</label>
+			<input ng-model="user.password" type="password">
+		</md-input-container>
+
+		<md-input-container>
+			<label>닉네임(닉네임은 수정 가능합니다.)</label>
+			<input ng-model="user.nickName" type="password">
+		</md-input-container>
+
+		<div layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+			<md-button>약관 및 개인정보 수집/이용에 동의합니다.</md-button>
+			<md-button class="md-raised">가입하기</md-button>
+		</div>
+
+		<div>by ttadag!</div>
+	</div>
+</md-content>
