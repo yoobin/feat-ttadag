@@ -74,7 +74,6 @@ angular.module('ttadagApp')
 	}])
 	.directive('appHeader', function() {
 
-		console.log('angular module appHeader in execute...');
 		return {
 			restrict: 'E',
 			template: '<div><a href="#/">최초</a> <a href="#/account/signIn">로그인</a> <a href="#/account/signUp">회원가입</a></div>',
@@ -84,8 +83,7 @@ angular.module('ttadagApp')
 			transclude: false,
 			scope: true,
 			controller: function($scope, $element, $attrs, $transclude, NetworkService) {
-				console.log("directive header Controller");
-				console.log(NetworkService, 'header');
+
 			},
 			compile: function compile(tElement, tAttrs, transclude) {
 				return {
@@ -116,7 +114,7 @@ angular.module('ttadagApp')
 			 " </md-button> " +
 			 "</div>",
 			 */
-			template : '<div>이곳이 레이어 팝업 뷰 보통때는 보이지 않거나 다른 레이아웃으로 대체됨.</div>',
+			template : '<div></div>',
 			//templateUrl: 'directive.html',
 			replace: true,
 			priority: 0,
@@ -124,15 +122,9 @@ angular.module('ttadagApp')
 			scope: true,
 			controller: function($scope, $element, $attrs, $transclude, $mdBottomSheet, NetworkService, $mdToast) {
 
-
-	//			console.log(NetworkService, 'footer
-
-
 				$scope.$on('sihyunChanged', function() {
-					console.log($mdBottomSheet);
-
 					$mdBottomSheet.show({
-						//template: '<md-bottom-sheet>Hel!!!!!lo!</md-bottom-sheet>'
+
 						templateUrl : 'testSimple01.tmp.html',
 						controller : 'testPOP'
 					}).then(function() {
@@ -141,12 +133,6 @@ angular.module('ttadagApp')
 							templateUrl : 'testSimple02.tmp.html',
 							controller : 'testPOP'
 						});
-						//$mdToast.show(
-						//		$mdToast.simple()
-						//				.textContent(' clicked!')
-						//				.position('top right')
-						//				.hideDelay(1500)
-						//);
 					});
 
 				});
