@@ -32,6 +32,8 @@ angular.module('ngTtadagApp.account.signIn.controller',[]);
 angular.module('ngSharedServices')
 	.service('NetworkService', function($rootScope) {
 
+
+
 		return {
 			yoobinEventClick : function() {
 				$rootScope.$broadcast('sihyunChanged');
