@@ -32,14 +32,18 @@ angular.module('ngTtadagApp.account.signIn.controller',[]);
 angular.module('ngSharedServices')
 	.service('NetworkService', function($rootScope) {
 
-
-
 		return {
 			yoobinEventClick : function() {
 				$rootScope.$broadcast('sihyunChanged');
 			}
 		};
 
+	})
+	.factory('ServerInfo', function() {
+
+		return {
+			TESTPUBLICIP : 'http://192.168.0.201:8080'
+		}
 	});
 
 /**
