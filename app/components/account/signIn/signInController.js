@@ -3,24 +3,12 @@
 		.controller('signInController', ['$scope', '$http', 'NetworkService', 'ServerInfo', function($scope, $http, NetworkService, ServerInfo) {
 
 			$scope.loginAction = function() {
-				//$scope.user.bssId = 'bssid';
-			//
-			var p =  {
-				'id' : 'sihyun@hotmail.com',
-				'password' : '11111',
-				'bssId' : 'bssid'
-			};
-			//////console.log($scope.user);
-			//$http({
-			//	method : 'post',
-			//	url : 'http://192.168.0.4:8080/user/login',
-			//	data :p
-			//}).then(function successCallback(response) {
-			//	console.log(response);
-			//}, function errorCallback(response) {
-			//	console.log(response);
-			//});
 
+				var p =  {
+					'id' : 'sihyun@hotmail.com',
+					'password' : '11111',
+					'bssId' : 'bssid'
+				};
 
 				$http.post(ServerInfo.TESTPUBLICIP + '/user/login', p)
 					.success(function(response) {
