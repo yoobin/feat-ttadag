@@ -16,6 +16,10 @@ angular.module('ttadagApp')
 			.when('/account/signIn', {
 				controller : 'signInController',
 				templateUrl : 'components/account/signIn/signInView.html'
+			})
+			.when('/space/groupList', {
+				controller : 'spaceGroupListController',
+				templateUrl : 'components/spaceGroupList/spaceGroupListView.html'
 			});
 
 	}]);

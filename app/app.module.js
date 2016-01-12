@@ -24,6 +24,7 @@ angular.module('ngSharedServices',[]);
 angular.module('ngTtadagApp.home.controller',[]);
 angular.module('ngTtadagApp.account.signUp.controller',[]);
 angular.module('ngTtadagApp.account.signIn.controller',[]);
+angular.module('ngTtadagApp.spaceGroupList.spaceGroupListController', []);
 
 /**
  * @description
@@ -59,7 +60,8 @@ angular.module('ttadagApp',[
 	'ngSharedServices',
 	'ngTtadagApp.home.controller',
 	'ngTtadagApp.account.signUp.controller',
-	'ngTtadagApp.account.signIn.controller'
+	'ngTtadagApp.account.signIn.controller',
+	'ngTtadagApp.spaceGroupList.spaceGroupListController'
 ]);
 
 
