@@ -25,7 +25,7 @@
 			};
 
 			$scope.yoobin = 'signInController';
-			$scope.popTest = function() {
+			$scope.FBLogin = function() {
 				NetworkService.yoobinEventClick();
 			};
 
