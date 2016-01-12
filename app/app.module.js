@@ -82,8 +82,7 @@ angular.module('ttadagApp')
 
 		return {
 			restrict: 'E',
-			template: '<div><a href="#/">최초</a> <a href="#/account/signIn">로그인</a> <a href="#/account/signUp">회원가입</a></div>',
-			//templateUrl: 'directive.html',
+			templateUrl: 'shared/header/headerView.html',
 			replace: true,
 			priority: 0,
 			transclude: false,
