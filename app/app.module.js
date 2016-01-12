@@ -110,7 +110,6 @@ angular.module('ttadagApp')
 	})
 	.directive('appFooter', function() {
 
-		console.log('angular module footerService in execute...');
 		return {
 			restrict: 'E',
 
