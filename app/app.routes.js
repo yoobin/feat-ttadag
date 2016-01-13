@@ -22,7 +22,7 @@ angular.module('ttadagApp')
 				templateUrl : 'components/spaceGroupList/spaceGroupListView.html'
 			})
 			.when('/space/taskList', {
-				//controller : 'spaceTaskListController',
+				controller : 'spaceTaskListController',
 				templateUrl : 'components/spaceTaskList/spaceTaskListView.html'
 			});
 
