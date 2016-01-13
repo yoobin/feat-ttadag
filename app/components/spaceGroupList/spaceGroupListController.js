@@ -7,7 +7,7 @@
 (function() {
 	'use strict';
 	angular.module('ngTtadagApp.spaceGroupList.spaceGroupListController')
-		.controller('spaceGroupListController', ['$scope', function($scope, $http) {
+		.controller('spaceGroupListController', ['$scope', '$location',function($scope, $location, $http) {
 
 			/**
 			 $http({
@@ -23,6 +23,9 @@
 			});
 			 */
 
+			$scope.spaceSetUrl = function() {
+				$location.path('/space/taskList');
+			};
 
 		}]);
 

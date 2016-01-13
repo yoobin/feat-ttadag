@@ -20,6 +20,10 @@ angular.module('ttadagApp')
 			.when('/space/groupList', {
 				controller : 'spaceGroupListController',
 				templateUrl : 'components/spaceGroupList/spaceGroupListView.html'
+			})
+			.when('/space/taskList', {
+				//controller : 'spaceTaskListController',
+				templateUrl : 'components/spaceTaskList/spaceTaskListView.html'
 			});
 
 	}]);
