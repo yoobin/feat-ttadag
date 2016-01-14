@@ -7,7 +7,7 @@
 	angular.module('ngTtadagApp.spaceTaskList.spaceTaskListController')
 		.controller('spaceTaskListController', ['$scope', function($scope, $http) {
 
-			alert('스페이스 테스크리스트 컨트롤러 진입...!!!');
+			$scope.text = '테스크 리스트 페이지 진입...';
 
 		}]);
 })();
