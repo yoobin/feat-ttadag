@@ -57,6 +57,7 @@ angular.module('ngSharedServices')
 angular.module('ttadagApp',[
 	'ngMaterial',
 	'ngMessages',
+	'ngAria',
 	'ngRoute',
 	'ngAnimate',
 	'ngSharedServices',
