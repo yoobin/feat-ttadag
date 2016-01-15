@@ -12,9 +12,11 @@
 				alert('계정추가');
 			};
 
-			$scope.checkPassword = function() {
-				return $scope.userForm.confirmPassword.$error.dontMatch = $scope.user.password !== $scope.user.confirmPassword;
-			};
+			//$scope.$watch('user.confirmPassword', function() {
+			//
+			//	console.log($scope.userForm.confirmPassword.$error.dontMatch = $scope.user.password !== $scope.user.confirmPassword);
+			//
+			//});
 
 
 			/**
@@ -32,5 +34,21 @@
 			*/
 
 
-		}]);
+		}])
+		.directive('compareTo', function() {
+			return {
+				require : 'ngModel',
+				scope : {
+					otherModelValue : '=compareTo'
+				},
+				link : function(scope, el, attributes, ngModel) {
+
+					ngModel.$validators.compareTo = function(modelValue) {
+
+						return modelValue == scope.otherModelValue;
+
+					};
+				}
+			}
+		});
 })();

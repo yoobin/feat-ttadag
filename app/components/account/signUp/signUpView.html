@@ -28,12 +28,13 @@
 			</div>
 		</md-input-container>
 
+		<!--패스워드 입력 확인-->
 		<md-input-container class="md-block">
 			<label>비밀번호 확인</label>
-			<input required type="password" name="confirmPassword" ng-model="user.confirmPassword" ng-change="checkPassword();"/>
+			<input required type="password" name="confirmPassword" ng-model="user.confirmPassword" compare-to="user.password"/>
 
 			<div ng-messages="userForm.confirmPassword.$error" role="alert">
-				<div ng-message-exp="['required', 'dontMatch']">
+				<div ng-message-exp="['required', 'compareTo']">
 					패스워드가 일치하지 않습니다.
 				</div>
 			</div>
