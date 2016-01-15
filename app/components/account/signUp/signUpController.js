@@ -4,27 +4,47 @@
  */
 (function() {
 	angular.module('ngTtadagApp.account.signUp.controller')
-		.controller('signUpController', ['$scope', function($scope, $http) {
+		.controller('signUpController', ['$scope', '$http', '$location', function($scope, $http, $location) {
 
 			$scope.user = {};
 			$scope.user.isAcceptCheck = false;
 			$scope.addAccount = function() {
-				alert('계정추가');
+
+				$http({
+					method : 'POST',
+					url : 'http://192.168.0.4:8080/v2/users/register',
+					data : {
+						email : $scope.user.email,
+						password : $scope.user.password,
+						nickname : $scope.user.nickName,
+						bssId : '90:9f:33:66:48:36'
+
+					}
+				}).then(function successCallback(response) {
+
+
+					if (!!response.data.result) {
+
+						$location.path('/account/signIn');
+
+					} else {
+
+						alert(response.data.error.message);
+
+					}
+
+				}, function errorCallback(response) {
+					/**
+					 * @description
+					 * 아직 에러처리의 대한 문제대응은 없음.
+					 */
+					console.log(response);
+
+				});
+
 			};
 
-			/**
-			$http({
-				method : 'POST',
-				url : 'http://192.168.0.4:8080/v2/users/register',
-				data : {
 
-				}
-			}).then(function successCallback(response) {
-				console.log(response);
-			}, function errorCallback(response) {
-				console.log(response);
-			});
-			*/
 		}])
 		/**
 		 * @description
