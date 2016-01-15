@@ -12,13 +12,6 @@
 				alert('계정추가');
 			};
 
-			//$scope.$watch('user.confirmPassword', function() {
-			//
-			//	console.log($scope.userForm.confirmPassword.$error.dontMatch = $scope.user.password !== $scope.user.confirmPassword);
-			//
-			//});
-
-
 			/**
 			$http({
 				method : 'POST',
@@ -32,9 +25,11 @@
 				console.log(response);
 			});
 			*/
-
-
 		}])
+		/**
+		 * @description
+		 * 이해가 지금 잘 안되는부분.. 일단 일정때문에 받아 들이고 넘어감..;;
+		 */
 		.directive('compareTo', function() {
 			return {
 				require : 'ngModel',
