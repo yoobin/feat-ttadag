@@ -19,7 +19,7 @@
 
 		<!--패스워드 입력-->
 		<md-input-container class="md-block">
-			<label>비밀번호(영문, 숫자 조합 8~20자)</label>
+			<label>비밀번호</label>
 			<input required type="password" name="password" ng-model="user.password" minlength="8" maxlength="20"/>
 			<div ng-messages="userForm.password.$error" role="alert">
 				<div ng-message-exp="['required', 'minlength', 'maxlength']">
@@ -28,34 +28,10 @@
 			</div>
 		</md-input-container>
 
-		<!--패스워드 입력 확인-->
-		<md-input-container class="md-block">
-			<label>비밀번호 확인</label>
-			<input required type="password" name="confirmPassword" ng-model="user.confirmPassword" compare-to="user.password"/>
-
-			<div ng-messages="userForm.confirmPassword.$error" role="alert">
-				<div ng-message-exp="['required', 'compareTo']">
-					패스워드가 일치하지 않습니다.
-				</div>
-			</div>
-		</md-input-container>
-
-		<!--닉네임 입력-->
-		<md-input-container class="md-block">
-			<label>닉네임(닉네임은 수정 가능합니다.)</label>
-			<input required type="text" name="nickName" ng-model="user.nickName"/>
-			<div ng-messages="userForm.nickName.$error" role="alert">
-				<div ng-message-exp="['required']">
-					영문, 숫자 조합 8~20자로 입력해주세요.
-				</div>
-			</div>
-		</md-input-container>
-
-		<!--약관동의 체크-->
-		<md-checkbox class="md-block" name="isAcceptCheck" ng-model="user.isAcceptCheck" aria-label="" checked="checked">약관 및 개인정보 수집/이용에 동의합니다.</md-checkbox>
-		<md-button ng-click="addAccount()" class="md-primary" ng-disabled="userForm.$invalid || !user.isAcceptCheck">Create account</md-button>
-
-
+		<!--<md-button ng-click="addAccount()" class="md-block md-primary" ng-disabled="userForm.$invalid || !user.isAcceptCheck">Create account</md-button>-->
+		<md-button ng-click="resetPassword();">> 비밀번호 재설정</md-button>
+		<md-button class="md-raised" ng-click="loginAction();">로그인</md-button>
+		<md-button class="md-raised" ng-click="FBLogin();">페이스북 로그인</md-button>
 	</form>
 	<div>by ttadag!</div>
 </md-content>

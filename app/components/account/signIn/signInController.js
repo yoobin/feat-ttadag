@@ -26,7 +26,8 @@
 
 			$scope.yoobin = 'signInController';
 			$scope.FBLogin = function() {
-				NetworkService.yoobinEventClick();
+				alert('추후 연동예정');
+				//NetworkService.yoobinEventClick();
 			};
 
 		}])
