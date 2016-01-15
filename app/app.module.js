@@ -41,6 +41,21 @@ angular.module('ngSharedServices')
 		};
 
 	})
+	.service('AuthInfoService', function() {
+
+		var self = this;
+
+		this.setAuthInfo = function(authInfo) {
+			self.user = authInfo;
+		};
+
+		this.getAuthInfo = function() {
+			console.log(this);
+			return this.user;
+
+		};
+
+	})
 	.factory('ServerInfo', function() {
 
 		return {

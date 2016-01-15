@@ -1,9 +1,12 @@
 (function() {
 	angular.module('ngTtadagApp.account.signIn.controller')
-		.controller('signInController', ['$scope', '$http', 'NetworkService', 'ServerInfo', function($scope, $http, NetworkService, ServerInfo) {
+		.controller('signInController', ['$scope', '$http', 'NetworkService', 'ServerInfo', 'AuthInfoService', function($scope, $http, NetworkService, ServerInfo, AuthInfoService) {
 
 			$scope.loginAction = function() {
 
+				console.log($scope.user.email);
+				console.log($scope.user.password);
+				/**
 				var p =  {
 					'id' : 'sihyun@hotmail.com',
 					'password' : '11111',
@@ -17,6 +20,39 @@
 					//.then(function(response) {
 					//	console.log(response.data.result);
 					//});
+				*/
+
+				$http({
+					method : 'POST',
+					url : 'http://192.168.0.4:8080/v2/users/login',
+					data : {
+						email : $scope.user.email,
+						password : $scope.user.password,
+						bssId : '90:9f:33:66:48:36'
+
+					}
+				}).then(function successCallback(response) {
+
+
+					if (!!response.data.result) {
+
+						AuthInfoService.setAuthInfo(response.data.result.user);
+						window.test = AuthInfoService.getAuthInfo();
+
+					} else {
+
+						alert(response.data.error.message);
+
+					}
+
+				}, function errorCallback(response) {
+					/**
+					 * @description
+					 * 아직 에러처리의 대한 문제대응은 없음.
+
+					console.log(response);
+					 */
+				});
 
 			};
 
