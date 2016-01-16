@@ -29,13 +29,11 @@
 			};
 
 
-			/**
-
 			$scope.resetPassword = function() {
 				console.log(AccountService.getUser());
 				alert('비밀번호를 변경할 수 있도록 메일로 보냈습니다.');
 			};
-
+			/**
 
 			$scope.resetPassword1 = function() {
 				console.log(AccountService.getIsAuthorize());
