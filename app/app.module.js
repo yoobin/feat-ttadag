@@ -32,6 +32,87 @@ angular.module('ngTtadagApp.spaceTaskList.spaceTaskListController', []);
  * ttadagApp에서 전역으로 데이터나 current정보를 관리함.
  */
 angular.module('ngSharedServices')
+	.service('AccountService', function($http) {
+
+		var isAuthorize = false,
+			token = false,
+			user = {},
+			isLogin = false;
+
+
+		this.signIn = signIn;
+		this.getUser = getUser;
+		this.getIsAuthorize = getIsAuthorize;
+		this.getToken = getToken;
+		this.getIsLogin = getIsLogin;
+
+
+
+		/**
+		 * @description 로그인
+		 * @param userEmail
+		 * @param userPassword
+		 * @returns {*}
+		 */
+		function signIn(userEmail, userPassword) {
+
+			$http({
+				method : 'POST',
+				url : 'http://192.168.0.4:8080/v2/users/login',
+				data : {
+					email : userEmail,
+					password : userPassword,
+					bssId : '90:9f:33:66:48:36'
+				}
+			}).then(function successCallback(response) {
+				if (!!response.data.result) {
+
+					user = response.data.result.user;
+					isAuthorize = response.data.result.isAuthorize;
+					token = response.data.result.token;
+					isLogin = true;
+
+				} else {
+
+					alert(response.data.error.message);
+
+				}
+			});
+
+		}
+
+		/**
+		 * @description 로그인정보 얻기
+		 * @returns {expected.user|{name, email}|{}|*}
+		 */
+		function getUser() {
+			return user;
+		}
+
+		/**
+		 * @description 버튼인증 상태 얻기
+		 * @returns {boolean|*}
+		 */
+		function getIsAuthorize() {
+			return isAuthorize;
+		}
+
+		/**
+		 * @description 토큰 얻기
+		 * @returns {boolean}
+		 */
+		function getToken() {
+			return token;
+		}
+
+		/**
+		 * @descriptuon 로그인 상태 얻기
+		 * @returns {boolean}
+		 */
+		function getIsLogin() {
+			return isLogin;
+		}
+	})
 	.service('NetworkService', function($rootScope) {
 
 		return {
