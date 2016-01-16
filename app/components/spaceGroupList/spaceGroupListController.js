@@ -7,21 +7,19 @@
 (function() {
 	'use strict';
 	angular.module('ngTtadagApp.spaceGroupList.spaceGroupListController')
-		.controller('spaceGroupListController', ['$scope', '$location', '$http',function($scope, $location, $http) {
+		.controller('spaceGroupListController', ['$scope', '$location', 'AccountService', function($scope, $location, AccountService) {
 
-			/**
-			 $http({
-				method : 'POST',
-				url : 'http://192.168.0.201:8080/user/join',
-				data : {
+			console.log(AccountService.getUser());
+			console.log(AccountService.getIsAuthorize());
+			console.log(AccountService.getToken());
+			console.log(AccountService.getIsLogin());
 
-				}
-			}).then(function successCallback(response) {
-				console.log(response);
-			}, function errorCallback(response) {
-				console.log(response);
-			});
-			 */
+			console.log('스페이스 그룹 테스크 리스트 뷰 진입...');
+
+			if (!AccountService.getIsLogin()) {
+				$location.path('/account/signIn');
+			}
+
 
 			$scope.spaceSetUrl = function() {
 				$location.path('/space/taskList');

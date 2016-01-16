@@ -32,7 +32,7 @@ angular.module('ngTtadagApp.spaceTaskList.spaceTaskListController', []);
  * ttadagApp에서 전역으로 데이터나 current정보를 관리함.
  */
 angular.module('ngSharedServices')
-	.service('AccountService', function($http) {
+	.service('AccountService', function($http, $location) {
 
 		var isAuthorize = false,
 			token = false,
@@ -71,6 +71,7 @@ angular.module('ngSharedServices')
 					isAuthorize = response.data.result.isAuthorize;
 					token = response.data.result.token;
 					isLogin = true;
+					$location.path('/space/groupList');
 
 				} else {
 
