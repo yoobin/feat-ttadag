@@ -171,7 +171,7 @@ angular.module('ttadagApp',[
  */
 
 angular.module('ttadagApp')
-	.controller('TtadagAppController', ['$scope', '$location', 'SignInFactory', 'NetworkService', function($scope, $location, SignInFactory, NetworkService) {
+	.controller('TtadagAppController', ['$scope', '$location', 'NetworkService', function($scope, $location, NetworkService) {
 
 		$scope.$on('$routeChangeSuccess', function(next, current) {
 			//angularjs route가 changed되면 이벤트 발생되는 구간..

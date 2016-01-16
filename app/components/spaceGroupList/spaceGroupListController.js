@@ -7,7 +7,7 @@
 (function() {
 	'use strict';
 	angular.module('ngTtadagApp.spaceGroupList.spaceGroupListController')
-		.controller('spaceGroupListController', ['$scope', '$location',function($scope, $location, $http) {
+		.controller('spaceGroupListController', ['$scope', '$location', '$http',function($scope, $location, $http) {
 
 			/**
 			 $http({
