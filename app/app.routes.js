@@ -28,6 +28,10 @@ angular.module('ttadagApp')
 			.when('/space/add', {
 				controller : 'addController',
 				templateUrl : 'components/space/add/addView.html'
+			})
+			.when('/space/redemand', {
+				controller : 'redemandController',
+				templateUrl : 'components/space/redemand/redemandView.html'
 			});
 
 	}]);

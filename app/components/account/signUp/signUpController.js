@@ -18,10 +18,8 @@
 						password : $scope.user.password,
 						nickname : $scope.user.nickName,
 						bssId : AccountService.getCookesInfoBssId()
-
 					}
 				}).then(function successCallback(response) {
-
 
 					if (!!response.data.result) {
 
