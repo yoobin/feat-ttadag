@@ -70,9 +70,6 @@
 				$timeout(buttonCount, 1000);
 			}
 
-
-			console.log('!!!!!');
-
 		}]);
 
 })();

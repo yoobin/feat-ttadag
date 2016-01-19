@@ -4,7 +4,7 @@
  */
 (function() {
 	angular.module('ngTtadagApp.account.signUp.controller')
-		.controller('signUpController', ['$scope', '$http', '$location', function($scope, $http, $location) {
+		.controller('signUpController', ['$scope', '$http', '$location', 'AccountService',function($scope, $http, $location, AccountService) {
 
 			$scope.user = {};
 			$scope.user.isAcceptCheck = false;
@@ -17,7 +17,7 @@
 						email : $scope.user.email,
 						password : $scope.user.password,
 						nickname : $scope.user.nickName,
-						bssId : '90:9f:33:66:48:36'
+						bssId : AccountService.getCookesInfoBssId()
 
 					}
 				}).then(function successCallback(response) {
