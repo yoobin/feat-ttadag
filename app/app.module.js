@@ -38,7 +38,8 @@ angular.module('ngSharedServices')
 		var isAuthorize = false,
 			token = false,
 			user = {},
-			isLogin = false;
+			isLogin = false,
+			bssId = '90:9f:33:66:48:36';
 
 
 		this.signIn = signIn;
@@ -52,6 +53,7 @@ angular.module('ngSharedServices')
 		this.getCookesInfoUserNickname = getCookesInfoUserNickname;
 		this.getCookesInfoUserId = getCookesInfoUserId;
 		this.getCookesInfoUserEmail = getCookesInfoUserEmail;
+		this.getCookesInfoBssId = getCookesInfoBssId;
 
 
 
@@ -70,7 +72,7 @@ angular.module('ngSharedServices')
 				data : {
 					email : userEmail,
 					password : userPassword,
-					bssId : '90:9f:33:66:48:36'
+					bssId : bssId
 				}
 			}).then(function successCallback(response) {
 
@@ -88,6 +90,7 @@ angular.module('ngSharedServices')
 					$cookies.put('isAuthorize', response.data.result.isAuthorize);
 					$cookies.put('token', response.data.result.token);
 					$cookies.put('isLogin',true);
+					$cookies.put('bssId', bssId);
 
 
 					// Retrieving a cookie
@@ -195,6 +198,13 @@ angular.module('ngSharedServices')
 		 */
 		function getCookesInfoUserEmail() {
 			return $cookies.get('userEmail');
+		}
+
+		/**
+		 * @desciprion 임시로 bssId고정
+		 */
+		function getCookesInfoBssId() {
+			return $cookies.get('bssId');
 		}
 	})
 	.service('NetworkService', function($rootScope) {

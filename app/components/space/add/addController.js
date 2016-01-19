@@ -10,7 +10,7 @@
 		.controller('addController', ['$scope', '$location', 'AccountService', '$timeout', function($scope, $location, AccountService, $timeout) {
 
 			$scope.count = 30;
-			
+
 
 			var buttonCount = function() {
 
