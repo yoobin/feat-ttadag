@@ -32,7 +32,7 @@ angular.module('ngTtadagApp.spaceTaskList.spaceTaskListController', []);
  * ttadagApp에서 전역으로 데이터나 current정보를 관리함.
  */
 angular.module('ngSharedServices')
-	.service('AccountService', function($http, $location) {
+	.service('AccountService', function($http, $cookies, $location) {
 
 		var isAuthorize = false,
 			token = false,
@@ -71,6 +71,14 @@ angular.module('ngSharedServices')
 					isAuthorize = response.data.result.isAuthorize;
 					token = response.data.result.token;
 					isLogin = true;
+
+
+					// Retrieving a cookie
+					//var favoriteCookie = $cookies.get('myFavorite');
+					// Setting a cookie
+					$cookies.put('myFavorite', 'oatmeal');
+
+
 					$location.path('/space/groupList');
 
 				} else {
@@ -157,6 +165,7 @@ angular.module('ttadagApp',[
 	'ngAria',
 	'ngRoute',
 	'ngAnimate',
+	'ngCookies',
 	'ngSharedServices',
 	'ngTtadagApp.home.controller',
 	'ngTtadagApp.account.signUp.controller',
