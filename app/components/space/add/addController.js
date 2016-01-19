@@ -14,9 +14,10 @@
 
 			var buttonCount = function() {
 
+
 				if ($scope.count >= 1) {
-					$scope.count--;
 					$timeout(buttonCount, 1000);
+					$scope.count--;
 				} else {
 					$timeout.cancel(buttonCount);
 					//재인증 페이지로 이동
@@ -73,7 +74,7 @@
 			if (!AccountService.getCookiesInfoIsLogin()) {
 				$location.path('/account/signIn');
 			} else {
-				buttonCount();
+				$timeout(buttonCount, 1000);
 			}
 
 		}]);
