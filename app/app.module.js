@@ -46,6 +46,13 @@ angular.module('ngSharedServices')
 		this.getIsAuthorize = getIsAuthorize;
 		this.getToken = getToken;
 		this.getIsLogin = getIsLogin;
+		this.getCookiesInfoIsLogin = getCookiesInfoIsLogin;
+		this.getCookesInfoToken = getCookesInfoToken;
+		this.getCookesInfoIsAuthorize = getCookesInfoIsAuthorize;
+		this.getCookesInfoUserNickname = getCookesInfoUserNickname;
+		this.getCookesInfoUserId = getCookesInfoUserId;
+		this.getCookesInfoUserEmail = getCookesInfoUserEmail;
+
 
 
 
@@ -66,6 +73,8 @@ angular.module('ngSharedServices')
 					bssId : '90:9f:33:66:48:36'
 				}
 			}).then(function successCallback(response) {
+
+
 				if (!!response.data.result) {
 
 					user = response.data.result.user;
@@ -73,11 +82,24 @@ angular.module('ngSharedServices')
 					token = response.data.result.token;
 					isLogin = true;
 
+					$cookies.put('userEmail', response.data.result.user.email);
+					$cookies.put('userId', response.data.result.user.id);
+					$cookies.put('userNickname', response.data.result.user.nickname);
+					$cookies.put('isAuthorize', response.data.result.isAuthorize);
+					$cookies.put('token', response.data.result.token);
+					$cookies.put('isLogin',true);
+
 
 					// Retrieving a cookie
 					//var favoriteCookie = $cookies.get('myFavorite');
 					// Setting a cookie
-					$cookies.put('myFavorite', 'oatmeal');
+					//$cookies.put('myFavorite', 'oatmeal');
+
+
+
+
+
+
 
 					if(isAuthorize) {
 						$location.path('/space/groupList');
@@ -120,11 +142,59 @@ angular.module('ngSharedServices')
 		}
 
 		/**
-		 * @descriptuon 로그인 상태 얻기
+		 * @description 로그인 상태 얻기
 		 * @returns {boolean}
 		 */
 		function getIsLogin() {
 			return isLogin;
+		}
+
+		/**
+		 * @description 쿠키정보에서 로그인 상태 얻기
+		 * @returns {*|string}
+		 */
+		function getCookiesInfoIsLogin() {
+			return $cookies.get('isLogin');
+		}
+
+		/**
+		 * @description 쿠키정보에서 토트값 얻기
+		 * @returns {*|string}
+		 */
+		function getCookesInfoToken() {
+			return $cookies.get('token');
+		}
+
+		/**
+		 * @description 쿠키정보에서 버튼 인증정보 얻기
+		 * @returns {*|string}
+		 */
+		function getCookesInfoIsAuthorize() {
+			return $cookies.get('isAuthorize');
+		}
+
+		/**
+		 * @description 쿠키정보에서 닉네임 얻기
+		 * @returns {*|string}
+		 */
+		function getCookesInfoUserNickname() {
+			return $cookies.get('userNickname');
+		}
+
+		/**
+		 * @description 쿠키정보에서 서버에서의 유니크 값 얻기
+		 * @returns {*|string}
+		 */
+		function getCookesInfoUserId() {
+			return $cookies.get('userId');
+		}
+
+		/**
+		 * @description 쿠키정보에서 이메일 얻기
+		 * @returns {*|string}
+		 */
+		function getCookesInfoUserEmail() {
+			return $cookies.get('userEmail');
 		}
 	})
 	.service('NetworkService', function($rootScope) {
