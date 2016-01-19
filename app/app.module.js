@@ -79,8 +79,12 @@ angular.module('ngSharedServices')
 					// Setting a cookie
 					$cookies.put('myFavorite', 'oatmeal');
 
+					if(isAuthorize) {
+						$location.path('/space/groupList');
+					} else {
+						$location.path('/space/add');
+					}
 
-					$location.path('/space/groupList');
 
 				} else {
 
