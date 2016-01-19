@@ -7,7 +7,7 @@
 //ngTtadagApp.space.add.addSpaceController
 
 	angular.module('ngTtadagApp.space.add.controller')
-		.controller('addController', ['$scope', '$location', 'AccountService', '$timeout', function($scope, $location, AccountService, $timeout) {
+		.controller('addController', ['$scope', '$http','$location', 'AccountService', '$timeout', function($scope, $http, $location, AccountService, $timeout) {
 
 			$scope.count = 30;
 
@@ -23,6 +23,43 @@
 					//$location.path('/account/signIn');
 				}
 			};
+
+
+			/**
+			 * @description 스페이스가 없는 경우 버튼 키 요청
+			 */
+
+			//console.log(AccountService.getCookesInfoBssId());
+			console.log(AccountService.getCookesInfoToken());
+			$http({
+				method : 'post',
+				url : 'http://192.168.0.4:8080/v2/button/authRequest/' + AccountService.getCookesInfoBssId(),
+				headers : {
+					'X-Auth-Token' : AccountService.getCookesInfoToken()
+				}
+			}).then(function successCallback(response) {
+
+				//console.log(response);
+				//if (!!response.data.result) {
+				//
+				//
+				//} else {
+				//
+				//	alert(response.data.error.message);
+				//
+				//}
+			});
+
+
+			$http({
+				method : 'GET',
+				url : 'http://192.168.0.4:8080/v2/button/authPolling/ay172916s',
+				headers : {
+					'X-Auth-Token' : '77c1b477-8375-4003-abd1-dc876490cb6c'
+				}
+			}).then(function successCallback(response) {
+				console.log(response)
+			});
 
 
 			if (!AccountService.getCookiesInfoIsLogin()) {
