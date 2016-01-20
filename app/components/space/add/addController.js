@@ -30,8 +30,6 @@
 			 * @description 스페이스가 없는 경우 버튼 키 요청
 			 */
 
-			/**
-			 * 일단 api작업이 완료될때까지 보류...
 			//console.log(AccountService.getCookesInfoBssId());
 			//console.log(AccountService.getCookesInfoToken());
 			$http({
@@ -70,7 +68,7 @@
 				console.log(response)
 			});
 
-			*/
+
 			if (!AccountService.getCookiesInfoIsLogin()) {
 				$location.path('/account/signIn');
 			} else {

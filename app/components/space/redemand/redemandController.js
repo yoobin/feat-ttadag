@@ -9,7 +9,7 @@
 	angular.module('ngTtadagApp.space.redemand.redemandController')
 		.controller('redemandController', ['$scope', '$http','$location', 'AccountService', '$timeout', function($scope, $http, $location, AccountService, $timeout) {
 
-			$scope.text = '재요청페이지 진입';
+			$scope.text = '재 요청페이지 진입';
 
 		}]);
 
