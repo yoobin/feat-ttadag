@@ -10,10 +10,11 @@
 		.controller('spaceGroupListController', ['$scope', '$location', 'AccountService', '$http', function($scope, $location, AccountService, $http) {
 
 
+			console.log(AccountService.getCookiesInfoUserEmail());
 
 			$http({
 				method : 'GET',
-				url : 'http://192.168.0.201:8080/v2/spaces/get/' + AccountService.getCookiesInfoUserId(),
+				url : 'http://192.168.0.201:8080/v2/spaces/get/' + AccountService.getSpaceId(),
 				headers : {
 					'X-Auth-token' :AccountService.getCookiesInfoToken()
 				}

@@ -58,6 +58,7 @@ angular.module('ngSharedServices')
 		this.getCookiesInfoUserEmail = getCookiesInfoUserEmail;
 		this.getCookiesInfoBssId = getCookiesInfoBssId;
 		this.setCookiesInfoIsAuthorize = setCookiesInfoIsAuthorize;
+		this.getSpaceId = getSpaceId;
 
 
 
@@ -91,7 +92,15 @@ angular.module('ngSharedServices')
 					$cookies.put('userEmail', response.data.result.user.email);
 					$cookies.put('userId', response.data.result.user.id);
 					$cookies.put('userNickname', response.data.result.user.nickname);
-					$cookies.put('isAuthorize', response.data.result.isAuthorize);
+
+					if (!response.data.result.isAuthorize) {
+						$cookies.put('isAuthorize', response.data.result.isAuthorize);
+					} else {
+						$cookies.put('spaceId', response.data.result.space.id);
+					}
+
+
+
 					$cookies.put('token', response.data.result.token);
 					$cookies.put('isLogin',true);
 					$cookies.put('bssId', bssId);
@@ -119,6 +128,13 @@ angular.module('ngSharedServices')
 		 */
 		function getUser() {
 			return user;
+		}
+
+		/**
+		 * @description 스페이스 아이디 리턴
+		 */
+		function getSpaceId() {
+			return $cookies.get('spaceId');
 		}
 
 		/**
