@@ -1,6 +1,6 @@
 (function() {
 	angular.module('ngTtadagApp.account.signIn.controller')
-		.controller('signInController', ['$scope', 'NetworkService', 'ServerInfo', 'AccountService', function($scope, NetworkService, ServerInfo, AccountService) {
+		.controller('signInController', ['$scope', 'NetworkService', 'AccountService', function($scope, NetworkService, AccountService) {
 
 			$scope.loginAction = function() {
 

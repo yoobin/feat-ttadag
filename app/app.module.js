@@ -40,7 +40,9 @@ angular.module('ngSharedServices')
 			token = false,
 			user = {},
 			isLogin = false,
-			bssId = '90:9f:33:66:48:36';
+			bssId = '90:9f:33:66:48:36',
+			DevAPI_IP = 'http://192.168.0.201:8080',
+			API_Version = 'v2';
 
 
 		this.signIn = signIn;
@@ -69,7 +71,7 @@ angular.module('ngSharedServices')
 
 			$http({
 				method : 'POST',
-				url : 'http://192.168.0.4:8080/v2/users/login',
+				url : DevAPI_IP + '/v2/users/login',
 				data : {
 					email : userEmail,
 					password : userPassword,
@@ -92,17 +94,6 @@ angular.module('ngSharedServices')
 					$cookies.put('token', response.data.result.token);
 					$cookies.put('isLogin',true);
 					$cookies.put('bssId', bssId);
-
-
-					// Retrieving a cookie
-					//var favoriteCookie = $cookies.get('myFavorite');
-					// Setting a cookie
-					//$cookies.put('myFavorite', 'oatmeal');
-
-
-
-
-
 
 
 					if(isAuthorize) {
@@ -231,13 +222,6 @@ angular.module('ngSharedServices')
 
 		};
 
-	})
-	.factory('ServerInfo', function() {
-
-		return {
-			DevAPI_IP : 'http://192.168.0.4:8080',
-			API_Version : 'v2'
-		}
 	});
 
 /**

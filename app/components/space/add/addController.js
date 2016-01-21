@@ -34,7 +34,7 @@
 			//console.log(AccountService.getCookesInfoToken());
 			$http({
 				method : 'POST',
-				url : 'http://192.168.0.4:8080/v2/button/authRequest/' + AccountService.getCookesInfoBssId(),
+				url : 'http://192.168.0.201:8080/v2/button/authRequest/' + AccountService.getCookesInfoBssId(),
 				data : {
 					'X-Auth-Token' : AccountService.getCookesInfoToken()
 				}
@@ -55,18 +55,18 @@
 			});
 
 
-			$http({
-				method : 'POST',
-				url : 'http://192.168.0.4:8080/v2/button/authPolling/ay172916s',
-				data : {
-					'X-Auth-Token' : AccountService.getCookesInfoToken()
-				}
-				//headers : {
-				//	'X-Auth-Token' : '77c1b477-8375-4003-abd1-dc876490cb6c'
-				//}
-			}).then(function successCallback(response) {
-				console.log(response)
-			});
+			//$http({
+			//	method : 'POST',
+			//	url : 'http://192.168.0.201:8080/v2/button/authPolling/ay172916s',
+			//	data : {
+			//		'X-Auth-Token' : AccountService.getCookesInfoToken()
+			//	}
+			//	//headers : {
+			//	//	'X-Auth-Token' : '77c1b477-8375-4003-abd1-dc876490cb6c'
+			//	//}
+			//}).then(function successCallback(response) {
+			//	console.log(response)
+			//});
 
 
 			if (!AccountService.getCookiesInfoIsLogin()) {
