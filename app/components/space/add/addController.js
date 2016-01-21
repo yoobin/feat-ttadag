@@ -17,7 +17,7 @@
 			 */
 			$http({
 				method : 'GET',
-				url : 'http://192.168.0.201:8080/v2/button/authRequest/' + AccountService.getCookesInfoBssId(),
+				url : 'http://192.168.0.201:8080/v2/button/authRequest/' + AccountService.getCookiesInfoBssId(),
 				headers : {
 					'X-Auth-Token' : AccountService.getCookiesInfoToken()
 				}
@@ -38,11 +38,12 @@
 								method : 'GET',
 								url : 'http://192.168.0.201:8080/v2/button/authPolling/' + response.data.result.authKey,
 								headers : {
-									'X-Auth-Token' : AccountService.getCookesInfoToken()
+									'X-Auth-Token' : AccountService.getCookiesInfoToken()
 								}
 							}).then(function successCallback(response) {
 
 								if(response.data.result.confirm) {
+									AccountService.setCookiesInfoIsAuthorize(true);
 									$location.path('space/groupList');
 								}
 							});

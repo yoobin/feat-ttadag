@@ -57,6 +57,7 @@ angular.module('ngSharedServices')
 		this.getCookiesInfoUserId = getCookiesInfoUserId;
 		this.getCookiesInfoUserEmail = getCookiesInfoUserEmail;
 		this.getCookiesInfoBssId = getCookiesInfoBssId;
+		this.setCookiesInfoIsAuthorize = setCookiesInfoIsAuthorize;
 
 
 
@@ -171,8 +172,8 @@ angular.module('ngSharedServices')
 		/**
 		 * @description 쿠키정보 버튼 인증정보 업데이트
 		 */
-		function setCo() {
-			//$cookies.put('isAuthorize', response.data.result.isAuthorize);
+		function setCookiesInfoIsAuthorize(isAuthorize) {
+			$cookies.put('isAuthorize', isAuthorize);
 		}
 
 		/**

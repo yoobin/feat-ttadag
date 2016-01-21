@@ -10,11 +10,11 @@
 		.controller('redemandController', ['$scope', '$http','$location', 'AccountService', '$timeout', function($scope, $http, $location, AccountService, $timeout) {
 
 
-			if (AccountService.getCookesInfoIsAuthorize()) {
+			if (AccountService.getCookiesInfoIsAuthorize()) {
 
 				$http({
 					method: 'GET',
-					url: 'http://192.168.0.201:8080/v2/button/authRequest/' + AccountService.getCookesInfoBssId(),
+					url: 'http://192.168.0.201:8080/v2/button/authRequest/' + AccountService.getCookiesInfoBssId(),
 					headers: {
 						'X-Auth-Token': AccountService.getCookiesInfoToken()
 					}
@@ -36,6 +36,7 @@
 
 								if (response.data.result.confirm) {
 									$timeout.cancel(timecancel);
+									AccountService.setCookiesInfoIsAuthorize(true);
 									$location.path('space/groupList');
 								}
 							});
