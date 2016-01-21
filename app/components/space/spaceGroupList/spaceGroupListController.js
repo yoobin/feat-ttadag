@@ -14,19 +14,12 @@
 
 			$http({
 				method : 'GET',
-				url : 'http://192.168.0.201:8080/v2/spaces/get/' + AccountService.getSpaceId(),
+				url : 'http://192.168.0.201:8080/v2/spaces/',
 				headers : {
 					'X-Auth-token' :AccountService.getCookiesInfoToken()
 				}
 			}).then(function successCallback(response) {
 
-				console.log(response);
-
-			}, function errorCallback(response) {
-				/**
-				 * @description
-				 * 아직 에러처리의 대한 문제대응은 없음.
-				 */
 				console.log(response);
 
 			});
