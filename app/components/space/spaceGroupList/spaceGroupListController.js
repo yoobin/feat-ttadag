@@ -9,9 +9,6 @@
 	angular.module('ngTtadagApp.spaceGroupList.spaceGroupListController')
 		.controller('spaceGroupListController', ['$scope', '$location', 'AccountService', '$http', function($scope, $location, AccountService, $http) {
 
-
-			console.log(AccountService.getCookiesInfoUserEmail());
-
 			$http({
 				method : 'GET',
 				url : 'http://192.168.0.201:8080/v2/spaces/',
@@ -20,7 +17,8 @@
 				}
 			}).then(function successCallback(response) {
 
-				console.log(response);
+				$scope.space = response.data.result.space;
+				$scope.cookiesInfoIsAuthorize = AccountService.getCookiesInfoIsAuthorize() == 'true' ? true : false;
 
 			});
 

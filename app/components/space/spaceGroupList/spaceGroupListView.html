@@ -1,5 +1,5 @@
 <md-content>
-	<div>
+	<div ng-show="!cookiesInfoIsAuthorize">
 		<md-button> + 스페이스 추가</md-button>
 		<p>+를 클릭하여 새로운 space를 만들 수 있습니다.</p>
 	</div>
@@ -7,12 +7,12 @@
 	<!--space list... start-->
 	<md-list>
 		<!--space list item... start-->
-		<md-list-item>
+		<md-list-item ng-repeat="spaceItem in space">
 			<div layout="column" layout-wrap>
 				<div layout="row">
 					<div flex>
-						<h2>따닥 사무실 01</h2>
-						<p>2 Tasks, 2 Nodes 사용중</p>
+						<h2>{{spaceItem.name}}</h2>
+						<p>{{spaceItem.enableTaskCount}} Tasks, {{spaceItem.enableNodeCount}}Nodes 사용중</p>
 					</div>
 					<div>
 						<md-button ng-click="spaceSetUrl();">space 설정변경</md-button>
@@ -21,13 +21,14 @@
 				<md-list>
 
 					<md-list>
-						<md-list-item>
+						<md-list-item ng-repeat="item in spaceItem.groups">
 							<div layout="row">
 								<div flex>
-									<h3>Group 01(3 tasks)</h3>
+									<h3>{{item.alias}}({{item.enableTaskCount}} tasks)</h3>
 									<p>
-										<md-icon>알람</md-icon>
-										<md-icon>조명</md-icon>
+										<md-list ng-repeat="unit in item.units">
+											<md-list-item><md-icon>{{unit}}</md-icon></md-list-item>
+										</md-list>
 									</p>
 								</div>
 								<div>
@@ -38,21 +39,21 @@
 					</md-list>
 
 
-					<md-list-item>
-						<div layout="row">
-							<div flex>
-								<h3>Group 02(3 tasks)</h3>
-								<p>
-									<md-icon>알람</md-icon>
-									<md-icon>조명</md-icon>
-									<md-icon>사용가능</md-icon>
-								</p>
-							</div>
-							<div>
-								<md-button>group 설졍변경</md-button>
-							</div>
-						</div>
-					</md-list-item>
+					<!--<md-list-item>-->
+						<!--<div layout="row">-->
+							<!--<div flex>-->
+								<!--<h3>Group 02(3 tasks)</h3>-->
+								<!--<p>-->
+									<!--<md-icon>알람</md-icon>-->
+									<!--<md-icon>조명</md-icon>-->
+									<!--<md-icon>사용가능</md-icon>-->
+								<!--</p>-->
+							<!--</div>-->
+							<!--<div>-->
+								<!--<md-button>group 설졍변경</md-button>-->
+							<!--</div>-->
+						<!--</div>-->
+					<!--</md-list-item>-->
 				</md-list>
 			</div>
 		</md-list-item>

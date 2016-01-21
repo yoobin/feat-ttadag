@@ -92,10 +92,9 @@ angular.module('ngSharedServices')
 					$cookies.put('userEmail', response.data.result.user.email);
 					$cookies.put('userId', response.data.result.user.id);
 					$cookies.put('userNickname', response.data.result.user.nickname);
+					$cookies.put('isAuthorize', response.data.result.isAuthorize);
 
-					if (!response.data.result.isAuthorize) {
-						$cookies.put('isAuthorize', response.data.result.isAuthorize);
-					} else {
+					if (response.data.result.isAuthorize) {
 						$cookies.put('spaceId', response.data.result.space.id);
 					}
 
