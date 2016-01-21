@@ -18,7 +18,7 @@
 			}).then(function successCallback(response) {
 
 				$scope.space = response.data.result.space;
-				$scope.cookiesInfoIsAuthorize = AccountService.getCookiesInfoIsAuthorize() == 'true' ? true : false;
+				$scope.cookiesInfoIsAuthorize = AccountService.getCookiesInfoIsAuthorize() != 'true' ? true : false;
 
 			});
 
