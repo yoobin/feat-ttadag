@@ -16,7 +16,7 @@
 					method: 'GET',
 					url: 'http://192.168.0.201:8080/v2/button/authRequest/' + AccountService.getCookesInfoBssId(),
 					headers: {
-						'X-Auth-Token': AccountService.getCookesInfoToken()
+						'X-Auth-Token': AccountService.getCookiesInfoToken()
 					}
 				}).then(function successCallback(response) {
 
@@ -30,7 +30,7 @@
 								method: 'GET',
 								url: 'http://192.168.0.201:8080/v2/button/authPolling/' + response.data.result.authKey,
 								headers: {
-									'X-Auth-Token': AccountService.getCookesInfoToken()
+									'X-Auth-Token': AccountService.getCookiesInfoToken()
 								}
 							}).then(function successCallback(response) {
 

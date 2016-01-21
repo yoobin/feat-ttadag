@@ -51,12 +51,12 @@ angular.module('ngSharedServices')
 		this.getToken = getToken;
 		this.getIsLogin = getIsLogin;
 		this.getCookiesInfoIsLogin = getCookiesInfoIsLogin;
-		this.getCookesInfoToken = getCookesInfoToken;
-		this.getCookesInfoIsAuthorize = getCookesInfoIsAuthorize;
-		this.getCookesInfoUserNickname = getCookesInfoUserNickname;
-		this.getCookesInfoUserId = getCookesInfoUserId;
-		this.getCookesInfoUserEmail = getCookesInfoUserEmail;
-		this.getCookesInfoBssId = getCookesInfoBssId;
+		this.getCookiesInfoToken = getCookiesInfoToken;
+		this.getCookiesInfoIsAuthorize = getCookiesInfoIsAuthorize;
+		this.getCookiesInfoUserNickname = getCookiesInfoUserNickname;
+		this.getCookiesInfoUserId = getCookiesInfoUserId;
+		this.getCookiesInfoUserEmail = getCookiesInfoUserEmail;
+		this.getCookiesInfoBssId = getCookiesInfoBssId;
 
 
 
@@ -156,7 +156,7 @@ angular.module('ngSharedServices')
 		 * @description 쿠키정보에서 토트값 얻기
 		 * @returns {*|string}
 		 */
-		function getCookesInfoToken() {
+		function getCookiesInfoToken() {
 			return $cookies.get('token');
 		}
 
@@ -164,15 +164,22 @@ angular.module('ngSharedServices')
 		 * @description 쿠키정보에서 버튼 인증정보 얻기
 		 * @returns {*|string}
 		 */
-		function getCookesInfoIsAuthorize() {
+		function getCookiesInfoIsAuthorize() {
 			return $cookies.get('isAuthorize');
+		}
+
+		/**
+		 * @description 쿠키정보 버튼 인증정보 업데이트
+		 */
+		function setCo() {
+			//$cookies.put('isAuthorize', response.data.result.isAuthorize);
 		}
 
 		/**
 		 * @description 쿠키정보에서 닉네임 얻기
 		 * @returns {*|string}
 		 */
-		function getCookesInfoUserNickname() {
+		function getCookiesInfoUserNickname() {
 			return $cookies.get('userNickname');
 		}
 
@@ -180,7 +187,7 @@ angular.module('ngSharedServices')
 		 * @description 쿠키정보에서 서버에서의 유니크 값 얻기
 		 * @returns {*|string}
 		 */
-		function getCookesInfoUserId() {
+		function getCookiesInfoUserId() {
 			return $cookies.get('userId');
 		}
 
@@ -188,14 +195,14 @@ angular.module('ngSharedServices')
 		 * @description 쿠키정보에서 이메일 얻기
 		 * @returns {*|string}
 		 */
-		function getCookesInfoUserEmail() {
+		function getCookiesInfoUserEmail() {
 			return $cookies.get('userEmail');
 		}
 
 		/**
 		 * @desciprion 임시로 bssId고정
 		 */
-		function getCookesInfoBssId() {
+		function getCookiesInfoBssId() {
 			return $cookies.get('bssId');
 		}
 	})
