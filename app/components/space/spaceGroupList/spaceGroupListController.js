@@ -7,11 +7,32 @@
 (function() {
 	'use strict';
 	angular.module('ngTtadagApp.spaceGroupList.spaceGroupListController')
-		.controller('spaceGroupListController', ['$scope', '$location', 'AccountService', function($scope, $location, AccountService) {
+		.controller('spaceGroupListController', ['$scope', '$location', 'AccountService', '$http', function($scope, $location, AccountService, $http) {
 
-			console.log('스페이스 그룹 테스크 리스트 뷰 진입...');
 
-			//console.log(AccountService.getCookiesInfoIsLogin());
+
+			$http({
+				method : 'GET',
+				url : 'http://192.168.0.201:8080/v2/spaces/get/' + AccountService.getCookiesInfoUserId(),
+				headers : {
+					'X-Auth-token' :AccountService.getCookiesInfoToken()
+				}
+			}).then(function successCallback(response) {
+
+				console.log(response);
+
+			}, function errorCallback(response) {
+				/**
+				 * @description
+				 * 아직 에러처리의 대한 문제대응은 없음.
+				 */
+				console.log(response);
+
+			});
+
+
+
+
 			if (!AccountService.getCookiesInfoIsLogin()) {
 				$location.path('/account/signIn');
 			}
