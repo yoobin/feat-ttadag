@@ -11,8 +11,7 @@
 
 			$scope.count = 30;
 
-
-
+			//console.log(AccountService.getCookesInfoIsAuthorize());
 			/**
 			 * @description 스페이스가 없는 경우 버튼 키 요청
 			 */
@@ -27,6 +26,8 @@
 				if (!!response.data.result) {
 
 					var buttonCount = function() {
+
+
 
 						if ($scope.count >= 1) {
 							$timeout(buttonCount, 1000);
@@ -52,6 +53,10 @@
 							//재인증 페이지로 이동
 							$location.path('/space/redemand');
 						}
+
+
+
+
 					};
 
 
@@ -59,7 +64,11 @@
 					if (!AccountService.getCookiesInfoIsLogin()) {
 						$location.path('/account/signIn');
 					} else {
+
+
 						$timeout(buttonCount, 1000);
+
+
 					}
 
 
