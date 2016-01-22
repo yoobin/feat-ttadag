@@ -22,17 +22,24 @@
 
 			});
 
-
-
-
 			if (!AccountService.getCookiesInfoIsLogin()) {
 				$location.path('/account/signIn');
 			}
 
 
 			$scope.spaceSetUrl = function() {
-				$location.path('/space/taskList');
+				//$location.path('/space/taskList');
+				alert('스페이스 환경설정 이동');
 			};
+			$scope.groupSetUrl = function(title) {
+				alert(title + '그룹 환경설정');
+			};
+			$scope.spaceTaskListLocation = function() {
+				alert('스페이스 데스크 리스트 이동');
+			};
+			$scope.spaceGroupTaskListLocation = function() {
+				alert('스페이스 그룹 테스크 리스트 이동')
+			}
 
 		}]);
 
