@@ -26,13 +26,8 @@ angular.module('ttadagApp')
 			})
 				//스페이스 테스크 리스트
 			.when('/space/taskList', {
-				controller : 'spaceTaskListController',
-				templateUrl : 'components/space/spaceTaskList/spaceTaskListView.html'
-			})
-				//스페이스 그룹 테스크 리스트
-			.when('/space/GroupTaskList', {
-				controller : 'spaceGroupTaskListController',
-				templateUrl : 'components/space/spaceGroupTaskList/spaceGroupTaskListView.html'
+				controller : 'taskListController',
+				templateUrl : 'components/space/taskList/taskListView.html'
 			})
 				//스페이스 버튼 인증 추가
 			.when('/space/add', {
