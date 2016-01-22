@@ -34,10 +34,13 @@
 			$scope.groupSetUrl = function(title) {
 				alert(title + '그룹 환경설정');
 			};
-			$scope.spaceTaskListLocation = function() {
+			$scope.spaceTaskListLocation = function(id, type) {
+				console.log(id, type);
+				$location.path('/space/taskList/' + type + '/' + id);
 				alert('스페이스 데스크 리스트 이동');
 			};
-			$scope.spaceGroupTaskListLocation = function() {
+			$scope.spaceGroupTaskListLocation = function(id, type) {
+				$location.path('/space/taskList/' + type + '/' + id);
 				alert('스페이스 그룹 테스크 리스트 이동')
 			};
 

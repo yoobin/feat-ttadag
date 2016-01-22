@@ -263,7 +263,7 @@ angular.module('ttadagApp',[
 	'ngTtadagApp.home.controller',
 	'ngTtadagApp.account.signUp.controller',
 	'ngTtadagApp.account.signIn.controller',
-	//'ngTtadagApp.spaceGroupList.spaceGroupListController',
+	'ngTtadagApp.spaceGroupList.spaceGroupListController',
 	'ngTtadagApp.spaceTaskList.taskListController',
 	'ngTtadagApp.space.add.addController',
 	'ngTtadagApp.space.redemand.redemandController'

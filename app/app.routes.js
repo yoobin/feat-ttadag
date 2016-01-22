@@ -25,7 +25,7 @@ angular.module('ttadagApp')
 				templateUrl : 'components/space/spaceGroupList/spaceGroupListView.html'
 			})
 				//스페이스 테스크 리스트
-			.when('/space/taskList', {
+			.when('/space/taskList/:type/:id', {
 				controller : 'taskListController',
 				templateUrl : 'components/space/taskList/taskListView.html'
 			})
