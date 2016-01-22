@@ -9,26 +9,37 @@ angular.module('ttadagApp')
 				controller : 'homeController as yoobin',
 				templateUrl : 'components/home/homeView.html'
 			})
+				//회원가입
 			.when('/account/signUp', {
 				controller : 'signUpController',
 				templateUrl : 'components/account/signUp/signUpView.html'
 			})
+				//로그인
 			.when('/account/signIn', {
 				controller : 'signInController',
 				templateUrl : 'components/account/signIn/signInView.html'
 			})
+				//스페이스 그룹 리스트
 			.when('/space/groupList', {
 				controller : 'spaceGroupListController',
 				templateUrl : 'components/space/spaceGroupList/spaceGroupListView.html'
 			})
+				//스페이스 테스크 리스트
 			.when('/space/taskList', {
 				controller : 'spaceTaskListController',
 				templateUrl : 'components/space/spaceTaskList/spaceTaskListView.html'
 			})
+				//스페이스 그룹 테스크 리스트
+			.when('/space/GroupTaskList', {
+				controller : 'spaceGroupTaskListController',
+				templateUrl : 'components/space/spaceGroupTaskList/spaceGroupTaskListView.html'
+			})
+				//스페이스 버튼 인증 추가
 			.when('/space/add', {
 				controller : 'addController',
 				templateUrl : 'components/space/add/addView.html'
 			})
+				//스페이스 버튼 인증 재요청
 			.when('/space/redemand', {
 				controller : 'redemandController',
 				templateUrl : 'components/space/redemand/redemandView.html'

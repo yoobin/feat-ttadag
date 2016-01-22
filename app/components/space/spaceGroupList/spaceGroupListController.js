@@ -39,7 +39,7 @@
 			};
 			$scope.spaceGroupTaskListLocation = function() {
 				alert('스페이스 그룹 테스크 리스트 이동')
-			}
+			};
 
 		}]);
 
