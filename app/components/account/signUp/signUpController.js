@@ -12,7 +12,7 @@
 
 				$http({
 					method : 'POST',
-					url : 'http://192.168.0.201:8080/v2/users/register',
+					url : 'http://192.168.0.4:8080/v2/users/register',
 					data : {
 						email : $scope.user.email,
 						password : $scope.user.password,

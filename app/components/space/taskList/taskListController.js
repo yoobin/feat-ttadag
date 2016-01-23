@@ -14,7 +14,7 @@
 
 			$http({
 				method : 'GET',
-				url : 'http://192.168.0.201:8080/v2/tasks/list/' + $scope.type + '/' + $scope.id,
+				url : 'http://192.168.0.4:8080/v2/tasks/list/' + $scope.type + '/' + $scope.id,
 				headers : {
 					'X-Auth-token' :AccountService.getCookiesInfoToken()
 				}

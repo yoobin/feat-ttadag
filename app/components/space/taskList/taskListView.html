@@ -17,7 +17,9 @@
 					</md-button>
 				</div>
 				<p style="position: absolute;top: 30px;left: 15px;width: 100%;">{{task.name}}</p>
-				<md-switch ng-model="task.usable" aria-label="Switch 1" style="position:absolute;right:0;margin:0;"></md-switch>
+				<md-input-container>
+					<md-switch ng-model="task.usable" aria-label="Switch 1" style="position:absolute;right:0;margin:0;"></md-switch>
+				</md-input-container>
 				<md-divider ></md-divider>
 			</md-list-item>
 
