@@ -41,7 +41,7 @@ angular.module('ngSharedServices')
 			user = {},
 			isLogin = false,
 			bssId = '90:9f:33:66:48:36',
-			DevAPI_IP = 'http://192.168.0.4:8080',
+			DevAPI_IP = 'http://192.168.0.201:8080',
 			API_Version = 'v2';
 
 

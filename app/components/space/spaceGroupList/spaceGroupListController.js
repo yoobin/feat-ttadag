@@ -11,7 +11,7 @@
 
 			$http({
 				method : 'GET',
-				url : 'http://192.168.0.4:8080/v2/spaces/',
+				url : 'http://192.168.0.201:8080/v2/spaces/',
 				headers : {
 					'X-Auth-token' :AccountService.getCookiesInfoToken()
 				}
