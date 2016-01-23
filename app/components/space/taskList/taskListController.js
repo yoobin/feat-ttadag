@@ -27,6 +27,15 @@
 
 			$scope.unitClick = function(item) {
 				console.log(item);
+			};
+
+			$scope.onChange = function(cbState) {
+				console.log(cbState);
+				$scope.message = cbState;
+			};
+
+			$scope.moveSettingUrl = function(id) {
+				console.log(id);
 			}
 
 		}]);
