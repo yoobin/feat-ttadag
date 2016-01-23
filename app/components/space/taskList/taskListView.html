@@ -1,5 +1,31 @@
 <md-content layout="column" layout-align="center center">
-	{{text}}
-	{{id}}
-	{{type}}
+	<div layout="column" layout-wrap style="width:100%;">
+		<div layout="row" style="position:relative;width:100%;">
+			<md-button style="position: relative;width: 100%;">
+				<h2>{{taskInfo.name}}</h2>
+				<p>{{taskInfo.enableTaskCount}}Tasks, {{taskInfo.enableNodeCount}}Nodes 사용중</p>
+			</md-button>
+			<div style="position:absolute;right:0;">
+				<md-button>space 설정변경</md-button>
+			</div>
+		</div>
+		<md-list>
+			<md-list-item ng-repeat="task in taskInfo.tasks">
+				<div layout="row" style="position:relative;width:100%;">
+					<md-button ng-repeat="unit in task.units" style="margin:0;padding:0; width:auto;" ng-click="unitClick(unit)">
+						{{unit}}
+					</md-button>
+				</div>
+				<p style="position: absolute;top: 30px;left: 15px;width: 100%;">{{task.name}}</p>
+				<md-switch ng-model="task.usable" aria-label="Switch 1" style="position:absolute;right:0;margin:0;"></md-switch>
+				<md-divider ></md-divider>
+			</md-list-item>
+
+		</md-list>
+	</div>
+	<!--enableNodeCount-->
+	<!--enableTaskCount-->
+	<!--{{text}}-->
+	<!--{{id}}-->
+	<!--{{type}}-->
 </md-content>

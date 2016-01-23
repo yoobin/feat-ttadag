@@ -11,6 +11,7 @@
 			$scope.type = $routeParams.type;
 			$scope.id = $routeParams.id;
 
+
 			$http({
 				method : 'GET',
 				url : 'http://192.168.0.201:8080/v2/tasks/list/' + $scope.type + '/' + $scope.id,
@@ -19,12 +20,14 @@
 				}
 			}).then(function successCallback(response) {
 				console.log(response);
-				//$scope.space = response.data.result.space;
+				$scope.taskInfo = response.data.result;
 				//$scope.cookiesInfoIsAuthorize = AccountService.getCookiesInfoIsAuthorize() != 'true' ? true : false;
 
 			});
 
-
+			$scope.unitClick = function(item) {
+				console.log(item);
+			}
 
 		}]);
 })();
