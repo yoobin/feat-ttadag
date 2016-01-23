@@ -5,7 +5,7 @@
  */
 (function() {
 	angular.module('ngTtadagApp.spaceTaskList.taskListController')
-		.controller('taskListController', ['$scope', '$routeParams', '$http', 'AccountService', function($scope, $routeParams, $http, AccountService) {
+		.controller('taskListController', ['$scope', '$routeParams', '$http', 'AccountService', '$location', function($scope, $routeParams, $http, AccountService, $location) {
 
 			//$scope.text = '스페이스 그룹 테스크 리스트 페이지 진입...';
 			$scope.type = $routeParams.type;
@@ -35,8 +35,8 @@
 			};
 
 			$scope.moveSettingUrl = function(id) {
-				console.log(id);
-			}
+				$location.path('/space/taskEdit/' + id);
+			};
 
 		}]);
 })();

@@ -38,6 +38,11 @@ angular.module('ttadagApp')
 			.when('/space/redemand', {
 				controller : 'redemandController',
 				templateUrl : 'components/space/redemand/redemandView.html'
+			})
+			//스페이스 Task 리스트 편집
+			.when('/space/taskEdit/:id', {
+				controller : 'taskEditController',
+				templateUrl : 'components/space/taskEdit/taskEditView.html'
 			});
 
 	}]);

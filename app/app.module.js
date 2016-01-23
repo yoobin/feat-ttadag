@@ -26,6 +26,7 @@ angular.module('ngTtadagApp.account.signUp.controller',[]);
 angular.module('ngTtadagApp.account.signIn.controller',[]);
 angular.module('ngTtadagApp.spaceGroupList.spaceGroupListController', []);
 angular.module('ngTtadagApp.spaceTaskList.taskListController', []);
+angular.module('ngTtadagApp.spaceEditList.taskEditController', []);
 angular.module('ngTtadagApp.space.add.addController', []);
 angular.module('ngTtadagApp.space.redemand.redemandController',[]);
 
@@ -265,6 +266,7 @@ angular.module('ttadagApp',[
 	'ngTtadagApp.account.signIn.controller',
 	'ngTtadagApp.spaceGroupList.spaceGroupListController',
 	'ngTtadagApp.spaceTaskList.taskListController',
+	'ngTtadagApp.spaceEditList.taskEditController',
 	'ngTtadagApp.space.add.addController',
 	'ngTtadagApp.space.redemand.redemandController'
 ]);
