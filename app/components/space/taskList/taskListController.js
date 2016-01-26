@@ -19,7 +19,6 @@
 					'X-Auth-token' :AccountService.getCookiesInfoToken()
 				}
 			}).then(function successCallback(response) {
-				console.log(response);
 				$scope.taskInfo = response.data.result;
 				//$scope.cookiesInfoIsAuthorize = AccountService.getCookiesInfoIsAuthorize() != 'true' ? true : false;
 
@@ -34,6 +33,19 @@
 				$scope.message = cbState;
 			};
 
+			$scope.stateUdate = function(id) {
+				$http({
+					method : 'POST',
+					url : 'http://192.168.0.201:8080/v2/tasks/update/status/' + id,
+					headers : {
+						'X-Auth-token' :AccountService.getCookiesInfoToken()
+					}
+				}).then(function successCallback(response) {
+					console.log(response.data.result);
+					//$scope.cookiesInfoIsAuthorize = AccountService.getCookiesInfoIsAuthorize() != 'true' ? true : false;
+
+				});
+			};
 			$scope.moveSettingUrl = function(id) {
 				$location.path('/space/taskEdit/' + id);
 			};
