@@ -8,17 +8,12 @@
 	</div>
 
 
-	<div ng-include src="template.url"></div>
+	<div ng-include src="template.url" style="width: 100%;text-align: center;"></div>
 
 
 
-	<md-button ng-click="nodeClickSave()">ok!!!!!</md-button>
+	<md-button ng-click="taskEditsave()">ok!!!!!</md-button>
 </md-content>
-
-
-
-
-
 
 
 
@@ -26,21 +21,77 @@
 <script type="text/ng-template" id="ALARM.html">
 
 	<div>TIME</div>
-	<md-button ng-click="nodeClick1()">
-		알람
-	</md-button>
+	<md-select ng-model="taskUnits.ALARM.hours" aria-label="test" style="display: inline-block">
+		<md-option ng-repeat="hour in hours" value="{{hour.value}}" >
+			{{hour.displayName}}
+		</md-option>
+	</md-select> :
+	<md-select ng-model="taskUnits.ALARM.minutes" aria-label="test" style="display: inline-block">
+		<md-option ng-repeat="minute in minutes" value="{{minute.value}}" >
+			{{minute.displayName}}
+		</md-option>
+	</md-select>
+	<md-divider ></md-divider>
+	<div>DAY</div>
+	<div layout="row" layout-wrap="">
+
+		<div flex="100" flex-gt-sm="50" layout="column">
+			<div>
+				<div flex="50" ng-repeat="item in items">
+					<md-checkbox ng-checked="exists(item, taskUnits.ALARM.week)" ng-click="toggle(item, taskUnits.ALARM.week)">
+						{{ weeksText[item] }}
+					</md-checkbox>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<br/>
+	<md-checkbox ng-model="taskUnits.ALARM.recursive" aria-label="repeat">반복하기</md-checkbox>
+	<br/>
 </script>
 
 <!-- template2.html -->
 <script type="text/ng-template" id="LIGHT.html">
-	<md-button ng-click="nodeClick2()">
-		라이트
-	</md-button>
+	<div>
+		<div>ON/OFF</div>
+		<md-switch ng-model="taskUnits.LIGHT.power" aria-label="on/off"></md-switch>
+	</div>
+	<md-divider ></md-divider>
+	<div>
+		<div>COLOR</div>
+		<!--{{colorData.color}}-->
+		<md-radio-group ng-model="taskUnits.LIGHT.color">
+			<md-radio-button value="255,255,255" class="md-primary">white</md-radio-button>
+			<md-radio-button value="255,0,0" class="md-primary">red</md-radio-button>
+			<md-radio-button value="255,94,0" class="md-primary">orange</md-radio-button>
+			<md-radio-button value="0,216,255" class="md-primary">blue</md-radio-button>
+			<md-radio-button value="29,219,22" class="md-primary">green</md-radio-button>
+			<md-radio-button value="255,0,221" class="md-primary">violet</md-radio-button>
+			<md-radio-button value="255,255,0" class="md-primary">yellow</md-radio-button>
+		</md-radio-group>
+		<br/>
+	</div>
+	<div>
+		<md-divider ></md-divider>
+		<div>INTENSITY</div>
+		<md-slider flex min="0" max="10" ng-model="taskUnits.LIGHT.intensity" aria-label="intensity">
+	</div>
 </script>
 
 <!-- template3.html -->
 <script type="text/ng-template" id="SPEAKER.html">
-	<md-button ng-click="nodeClick3()">
-		스피커
-	</md-button>
+	<div>
+		<div>ON/OFF</div>
+		<md-switch ng-model="taskUnits.SPEAKER.power" aria-label="on/off"></md-switch>
+	</div>
+	<md-divider ></md-divider>
+	<div>
+		<div>INTENSITY</div>
+		<md-slider flex min="0" max="10" ng-model="taskUnits.SPEAKER.volume" aria-label="volume">
+	</div>
+	<md-divider ></md-divider>
+	<div>
+		<div>라디오 추가예정..</div>
+	</div>
 </script>
