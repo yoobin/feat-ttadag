@@ -1,10 +1,12 @@
 (function() {
 	angular.module('ngTtadagApp.spaceEditList.taskEditController')
 		.controller('taskEditController', ['$scope', '$routeParams', '$http', 'AccountService', function($scope, $routeParams, $http, AccountService) {
+
 			var i = 0;
-			$scope.index = 0;
-			$scope.id = $routeParams.id;
-			$scope.nodes = [];
+			$scope.nodeNames = [];
+			$scope.taskUnits = {};
+			$scope.templates = {};
+			$scope.template = {};
 
 			$http({
 				method : 'GET',
@@ -15,23 +17,47 @@
 			}).then(function successCallback(response) {
 
 				if (!!response.data.result) {
-
+				//
 					for(; i < response.data.result.taskUnits.length; i++) {
-
+				//
 						if(response.data.result.taskUnits[i].hasOwnProperty('ALARM')) {
-							$scope.nodes.push('ALARM');
+							$scope.nodeNames.push('ALARM');
+							$scope.taskUnits.ALARM = response.data.result.taskUnits[i].ALARM;
+							$scope.templates.ALARM = 'ALARM.html';
+
 						} else if(response.data.result.taskUnits[i].hasOwnProperty('LIGHT')) {
-							$scope.nodes.push('LIGHT');
+							$scope.nodeNames.push('LIGHT');
+							$scope.taskUnits.LIGHT = response.data.result.taskUnits[i].LIGHT;
+							$scope.templates.LIGHT = 'LIGHT.html';
+
 						} else if(response.data.result.taskUnits[i].hasOwnProperty('SPEAKER')) {
-							$scope.nodes.push('SPEAKER');
+							$scope.nodeNames.push('SPEAKER');
+							$scope.taskUnits.SPEAKER = response.data.result.taskUnits[i].SPEAKER;
+							$scope.templates.SPEAKER = 'SPEAKER.html';
 						} else if(response.data.result.taskUnits[i].hasOwnProperty('BUTTON')) {
-							$scope.nodes.push('BUTTON');
+							$scope.taskUnits.BUTTON = response.data.result.taskUnits[i].BUTTON;
+
 						}
 					}
 
-					//console.log(response.data.result.taskUnits);
-				} else {
+					$scope.template.url = $scope.templates[$scope.nodeNames[0]];
+					$scope.nodeClick = function(nodeName) {
+						$scope.template.url = $scope.templates[nodeName];
+					};
 
+
+					$scope.nodeClick1 = function() {
+						console.log('1');
+					};
+					$scope.nodeClick2 = function() {
+						console.log('2');
+					};
+					$scope.nodeClick3 = function() {
+						console.log('3');
+					};
+
+
+				} else {
 					alert(response.data.error.message);
 
 				}
@@ -39,19 +65,5 @@
 			});
 
 
-		}])
-		.directive('nodeSettingSection', function() {
-			return {
-				restrict: 'E',
-				//template : '<div></div>',
-				//templateUrl: 'directive.html',
-				replace: true,
-				priority: 0,
-				transclude: false,
-				scope: true,
-				controller: function($scope, $element, $attrs, $transclude, $mdBottomSheet, NetworkService, $mdToast) {
-
-				}
-			}
-		});
+		}]);
 })();

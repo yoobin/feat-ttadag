@@ -1,7 +1,46 @@
 <md-content layout="column" layout-align="center center">
 
-	<node-setting-section>
-		aaaa
-	</node-setting-section>
-	<!--<md-icon ng-repeat="node in nodes">{{node}}</md-icon>-->
+	<div style="background-color: #8c9eff;">
+		<md-icon ng-repeat="nodeName in nodeNames" style="margin: 20px;margin-top: 0;width:auto;">
+			<md-button ng-click="nodeClick(nodeName)" style="margin: 0px;">{{nodeName}}</md-button>
+		</md-icon>
+		<p style="text-align: center;">{{alias}}</p>
+	</div>
+
+
+	<div ng-include src="template.url"></div>
+
+
+
+	<md-button ng-click="nodeClickSave()">ok!!!!!</md-button>
 </md-content>
+
+
+
+
+
+
+
+
+<!-- template1.html -->
+<script type="text/ng-template" id="ALARM.html">
+
+	<div>TIME</div>
+	<md-button ng-click="nodeClick1()">
+		알람
+	</md-button>
+</script>
+
+<!-- template2.html -->
+<script type="text/ng-template" id="LIGHT.html">
+	<md-button ng-click="nodeClick2()">
+		라이트
+	</md-button>
+</script>
+
+<!-- template3.html -->
+<script type="text/ng-template" id="SPEAKER.html">
+	<md-button ng-click="nodeClick3()">
+		스피커
+	</md-button>
+</script>
