@@ -2,11 +2,12 @@
 	<md-input-container class="md-block">
 		<h3>Group 이름</h3>
 		<input type="text" name="name" ng-model="alias" placeholder="변경할 이름을 입력해주세요">
+		<md-button ng-click="groupChangeName()">이름 바꾸기</md-button>
 	</md-input-container>
 
 	<div>
 		<h3>Group 나가기</h3>
-		<md-button>지금 나가기</md-button>
+		<md-button ng-click="groupRemove()">지금 나가기</md-button>
 	</div>
 
 	<div>
