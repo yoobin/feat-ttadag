@@ -24,6 +24,11 @@ angular.module('ttadagApp')
 				controller : 'spaceGroupListController',
 				templateUrl : 'components/space/spaceGroupList/spaceGroupListView.html'
 			})
+				//스페이스 그룹 설정
+			.when('/space/groupSetting/:id', {
+				controller : 'spaceGroupSettingController',
+				templateUrl : 'components/space/spaceGroupSetting/spaceGroupSettingView.html'
+			})
 				//스페이스 테스크 리스트
 			.when('/space/taskList/:type/:id', {
 				controller : 'taskListController',
