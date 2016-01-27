@@ -31,6 +31,8 @@ angular.module('ngTtadagApp.space.add.addController', []);
 angular.module('ngTtadagApp.space.redemand.redemandController',[]);
 angular.module('ngTtadagApp.spaceGroupSetting.spaceGroupSettingController',[]);
 angular.module('ngTtadagApp.spaceGroupSetting.groupSettingController',[]);
+angular.module('ngTtadagApp.spaceCategoryListController.categoryListController',[]);
+
 /**
  * @description
  * ttadagApp에서 전역으로 데이터나 current정보를 관리함.
@@ -271,7 +273,8 @@ angular.module('ttadagApp',[
 	'ngTtadagApp.space.add.addController',
 	'ngTtadagApp.space.redemand.redemandController',
 	'ngTtadagApp.spaceGroupSetting.spaceGroupSettingController',
-	'ngTtadagApp.spaceGroupSetting.groupSettingController'
+	'ngTtadagApp.spaceGroupSetting.groupSettingController',
+	'ngTtadagApp.spaceCategoryListController.categoryListController'
 ]);
 
 

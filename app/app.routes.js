@@ -53,6 +53,10 @@ angular.module('ttadagApp')
 			.when('/space/:type/setting/:id', {
 				controller : 'groupSettingController',
 				templateUrl : 'components/space/groupSetting/groupSettingView.html'
+			})
+			.when('/space/categoryList/:type/:id', {
+				controller : 'categoryListController',
+				templateUrl : 'components/space/spaceCategory/spaceCategoryListView.html'
 			});
 
 	}]);

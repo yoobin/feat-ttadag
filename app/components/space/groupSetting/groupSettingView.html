@@ -14,9 +14,9 @@
 </script>
 <script type="text/ng-template" id="taskAdd.html">
 
-	<md-button ng-repeat="catalog in catalogs" style="margin:0;width:auto;">
+	<md-button ng-repeat="category in categorys" ng-click="categoryLocation(category)" style="margin:0;width:auto;">
 		<md-icon style="margin:0;width:auto;">
-			{{catalog}}
+			{{category}}
 		</md-icon>
 	</md-button>
 

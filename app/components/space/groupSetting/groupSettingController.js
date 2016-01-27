@@ -22,7 +22,7 @@
 						}
 					}).then(function successCallback(response) {
 
-						$scope.catalogs = response.data.result
+						$scope.categorys = response.data.result
 
 					});
 
@@ -35,6 +35,9 @@
 			};
 
 			$scope.tabEvent();
+			$scope.categoryLocation = function(category) {
+				$location.path('/space/categoryList/' + category +'/' + $routeParams.id);
+			}
 
 		}]);
 })();
