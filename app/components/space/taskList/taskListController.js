@@ -24,6 +24,15 @@
 
 			});
 
+
+			$scope.settingChange = function() {
+				if($scope.type === 'group') {
+					$location.path('/space/' + $scope.type +'/setting/' + $scope.id);
+				} else {
+					alert('아직 준비중입니다.');
+				}
+			};
+
 			$scope.unitClick = function(item) {
 				console.log(item);
 			};

@@ -48,6 +48,11 @@ angular.module('ttadagApp')
 			.when('/space/taskEdit/:id', {
 				controller : 'taskEditController',
 				templateUrl : 'components/space/taskEdit/taskEditView.html'
+			})
+			//스페이스 그룹 셋팅
+			.when('/space/:type/setting/:id', {
+				controller : 'groupSettingController',
+				templateUrl : 'components/space/groupSetting/groupSettingView.html'
 			});
 
 	}]);
