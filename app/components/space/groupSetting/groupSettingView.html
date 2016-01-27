@@ -1,1 +1,26 @@
-....
+<md-content layout="column" layout-align="center center">
+
+	<div style="background-color: #473B30;">
+		<md-button ng-click="tabEvent('group')">Group</md-button>
+		<md-button ng-click="tabEvent('taskAdd')">Task 추가</md-button>
+		<md-button ng-click="tabEvent('groupAuthMethod')">그룹인증방식</md-button>
+	</div>
+	<div ng-include src="template.url" style="width: 100%;text-align: center;"></div>
+
+</md-content>
+
+<script type="text/ng-template" id="group.html">
+메인에서 그룹설정에서 변경해주세요.(개발진행중...)
+</script>
+<script type="text/ng-template" id="taskAdd.html">
+
+	<md-button ng-repeat="catalog in catalogs" style="margin:0;width:auto;">
+		<md-icon style="margin:0;width:auto;">
+			{{catalog}}
+		</md-icon>
+	</md-button>
+
+</script>
+<script type="text/ng-template" id="groupAuthMethod.html">
+그룹인증방식 개발 진행중입니다.
+</script>
