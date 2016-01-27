@@ -17,7 +17,8 @@
 						email : $scope.user.email,
 						password : $scope.user.password,
 						nickname : $scope.user.nickName,
-						bssId : AccountService.getCookiesInfoBssId()
+						//bssId : AccountService.getCookiesInfoBssId()
+						bssId : '90:9f:33:66:48:36'
 					}
 				}).then(function successCallback(response) {
 
