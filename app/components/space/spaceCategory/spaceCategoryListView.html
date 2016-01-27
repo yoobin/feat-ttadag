@@ -4,11 +4,15 @@
 	</div>
 	<div>
 		<div ng-repeat="task in CategoryContent.tasks" style="padding:20px 0">
-			<md-checkbox style="display:block;margin-bottom:0;">
+
+			<md-checkbox ng-checked="exists(task.id, selected)" ng-click="toggle(task.id, selected)" style="display:block;margin-bottom:0;">
 				<md-icon ng-repeat="unit in task.units" style="margin:0 30px;">{{unit}}</md-icon>
 			</md-checkbox>
+
+
 			{{task.alias}}
 		</div>
 	</div>
-		<md-button aria-label="taskSelected" ng-click="selectedItem()">선택 완료</md-button>
+
+		<md-button aria-label="taskSelected" ng-click="selectedItemComplete()">선택 완료</md-button>
 </md-content>
