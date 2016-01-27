@@ -176,12 +176,36 @@
 
 					$scope.taskEditsave = function() {
 						$scope.taskUnits.id = $routeParams.id;
+
+						//console.log($scope.taskUnits.LIGHT.color);
+						//console.log($scope.taskUnits.ALARM);
+						//console.log($scope.taskUnits.BUTTON);
+						//console.log($scope.taskUnits.LIGHT);
+						//console.log($scope.taskUnits.SPEAKER);
+						//console.log($scope.taskUnits.id);
+						var data = {
+							id : $scope.taskUnits.id
+						};
+
+						if($scope.taskUnits.hasOwnProperty('ALARM')) {
+							data.alarm = $scope.taskUnits.ALARM;
+						}
+						if ($scope.taskUnits.hasOwnProperty('BUTTON')){
+							data.button = $scope.taskUnits.BUTTON;
+						}
+						if ($scope.taskUnits.hasOwnProperty('LIGHT')){
+							data.light = $scope.taskUnits.LIGHT;
+						}
+						if ($scope.taskUnits.hasOwnProperty('SPEAKER')){
+							data.speaker = $scope.taskUnits.SPEAKER;
+						}
 						console.log($scope.taskUnits);
-						console.log($scope.taskUnits.LIGHT.color);
+						console.log(data);
+
 						$http({
 							method : 'POST',
 							url : 'http://192.168.0.201:8080/v2/tasks/update/' + $routeParams.id,
-							data : $scope.taskUnits,
+							data : data,
 							headers : {
 								'X-Auth-Token' : AccountService.getCookiesInfoToken()
 							}
