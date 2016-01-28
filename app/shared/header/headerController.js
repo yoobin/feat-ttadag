@@ -11,7 +11,7 @@
 			$scope.$on('$routeChangeSuccess', function(next, current) {
 
 				if (($location.path() !== '/account/signIn') && ($location.path() !== '/account/signUp')) {
-
+					$scope.name = AccountService.getCookiesInfoUserNickname();
 					$scope.header01 = {'text-align': 'center','background-color':'#473B30'};
 					$scope.template.url = 'header02.html';
 
