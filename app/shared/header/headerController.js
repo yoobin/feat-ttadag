@@ -10,7 +10,7 @@
 
 			$scope.$on('$routeChangeSuccess', function(next, current) {
 
-				if (($location.path() === '/account/signIn') && ($location.path() === '/account/signUp')) {
+				if (($location.path() === '/account/signIn') || ($location.path() === '/account/signUp')) {
 					$scope.headerStyle = {'text-align': 'center','background-color':'#252032'};
 					$scope.template.url = 'header01.html';
 					$scope.headerEvent = function(type) {
