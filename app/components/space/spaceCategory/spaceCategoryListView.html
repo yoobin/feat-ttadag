@@ -1,18 +1,39 @@
 <md-content layout="column" layout-align="center center">
-	<div>
-		<h2>{{CategoryContent.name}}</h2>
+
+
+	<div ng-if="CategoryContent.name == 'Light'" style="width:100%;min-width:414px;min-height: 154px;background: url('http://192.168.0.201/ttadag_app/assets/images/K-1_light_bg.png') no-repeat center center; background-size: 100%;">
+		<h2 style="text-align: center;color:#fff;">
+			<div>
+				<img style="width:40px;height:45px;"src="http://192.168.0.201/ttadag_app/assets/images/K-0_light_02.png"/>
+			</div>
+			<div>
+				<span>{{CategoryContent.name}}</span>
+			</div>
+		</h2>
 	</div>
-	<div>
-		<div ng-repeat="task in CategoryContent.tasks" style="padding:20px 0">
+	<div ng-if="CategoryContent.name == 'Alarm'" style="width:100%;min-width:414px;min-height: 154px;background: url('http://192.168.0.201/ttadag_app/assets/images/K-1_alarm_bg.png') no-repeat center center; background-size: 100%;">
+		<h2 style="text-align: center;color:#fff;">
+			<div>
+				<img style="width:44px;height:40px;"src="http://192.168.0.201/ttadag_app/assets/images/K-1_alarm.png"/>
+			</div>
+			<div>
+				<span>{{CategoryContent.name}}</span>
+			</div>
+		</h2>
+	</div>
 
-			<md-checkbox ng-checked="exists(task.id, selected)" ng-click="toggle(task.id, selected)" style="display:block;margin-bottom:0;">
-				<md-icon ng-repeat="unit in task.units" style="margin:0 30px;">{{unit}}</md-icon>
-			</md-checkbox>
 
-
-			{{task.alias}}
+	<div style="margin:0 5%;">
+		<div>
+			<div ng-repeat="task in CategoryContent.tasks" style="padding:20px 0">
+				<md-checkbox ng-checked="exists(task.id, selected)" ng-click="toggle(task.id, selected)" style="display:block;margin-bottom:0;">
+					<md-icon ng-repeat="unit in task.units" style="margin:0 25px;">{{unit}}</md-icon>
+				</md-checkbox>
+				<div style="text-indent:40px;">{{task.alias}}</div>
+			</div>
+		</div>
+		<div style="width: 100%;">
+			<md-button style="width:100%;margin:0;background-color: #9574F6; color:#fff;" aria-label="taskSelected" ng-click="selectedItemComplete()">선택 완료</md-button>
 		</div>
 	</div>
-
-		<md-button aria-label="taskSelected" ng-click="selectedItemComplete()">선택 완료</md-button>
 </md-content>
