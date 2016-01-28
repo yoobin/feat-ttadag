@@ -42,10 +42,14 @@
 				$scope.message = cbState;
 			};
 
-			$scope.stateUdate = function(id) {
+			$scope.stateUdate = function(id, status) {
+
 				$http({
 					method : 'POST',
 					url : 'http://192.168.0.201:8080/v2/tasks/update/status/' + id,
+					data :{
+						"usable":status
+					},
 					headers : {
 						'X-Auth-token' :AccountService.getCookiesInfoToken()
 					}
