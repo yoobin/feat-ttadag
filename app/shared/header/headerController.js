@@ -10,14 +10,8 @@
 
 			$scope.$on('$routeChangeSuccess', function(next, current) {
 
-				if (($location.path() !== '/account/signIn') && ($location.path() !== '/account/signUp')) {
-					$scope.name = AccountService.getCookiesInfoUserNickname();
-					$scope.header01 = {'text-align': 'center','background-color':'#473B30'};
-					$scope.template.url = 'header02.html';
-
-				} else {
-
-					$scope.header01 = {'text-align': 'center','background-color':'#252032'};
+				if (($location.path() === '/account/signIn') && ($location.path() === '/account/signUp')) {
+					$scope.headerStyle = {'text-align': 'center','background-color':'#252032'};
 					$scope.template.url = 'header01.html';
 					$scope.headerEvent = function(type) {
 						if (type === 'signIn') {
@@ -28,6 +22,17 @@
 							$location.path('/account/signUp');
 						}
 					}
+				} else if (($location.path() === '/space/add') || ($location.path() === '/space/redemand')) {
+
+					$scope.headerStyle = {};
+					$scope.template.url = 'header03.html';
+
+				} else {
+
+					$scope.name = AccountService.getCookiesInfoUserNickname();
+					$scope.headerStyle = {'text-align': 'center', 'background-color': '#473B30'};
+					$scope.template.url = 'header02.html';
+
 				}
 
 
