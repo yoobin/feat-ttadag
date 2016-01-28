@@ -43,7 +43,7 @@
 			};
 
 			$scope.stateUdate = function(id, status) {
-
+				//console.log(id, status);
 				$http({
 					method : 'POST',
 					url : 'http://192.168.0.201:8080/v2/tasks/update/status/' + id,

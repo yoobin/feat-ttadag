@@ -1,21 +1,32 @@
 <md-content layout="column" layout-align="center center">
 	<div layout="column" layout-wrap style="width:100%;">
-		<div layout="row" style="position:relative;width:100%;">
+		<div layout="row" style="position:relative;width:100%;padding-bottom:15px;background: url('http://192.168.0.201/ttadag_app/assets/images/I-0_top.png');background-size:100%;">
 			<md-button style="position: relative;width: 100%;">
-				<h2>{{taskInfo.name}}</h2>
-				<p>{{taskInfo.enableTaskCount}}Tasks, {{taskInfo.enableNodeCount}}Nodes 사용중</p>
+				<div style="margin:0 20px;text-align: left;">
+					<h2 style="margin-bottom:0;color:#fff;">{{taskInfo.name}}</h2>
+					<p style="margin-top:0;color:#fff;">{{taskInfo.enableTaskCount}}Tasks, {{taskInfo.enableNodeCount}}Nodes 사용중</p>
+				</div>
 			</md-button>
-			<div style="position:absolute;right:0;">
-				<md-button ng-click="settingChange()">설정변경</md-button>
+			<div style="position: absolute;right: 0;top: 50%;margin-top: -24px;">
+				<md-button ng-click="settingChange()">
+					<img aria-label="img" src="http://192.168.0.201/ttadag_app/assets/images/D-0_option_01.png" style="width:24px;height:24px;"/>
+				</md-button>
 			</div>
 		</div>
 		<md-list ng-cloak>
-			<md-list-item ng-repeat="task in taskInfo.tasks" ng-click="moveSettingUrl(task.id)">
-				<md-icon ng-repeat="unit in task.units" style="margin:-30px 0 0 0;padding:0; width:auto;">
-					{{unit}}
-				</md-icon>
-				<p style="position: absolute;top: 15px;left: 15px;">{{task.name}}</p>
-				<md-switch class="md-secondary" style="margin:0;" ng-model="task.usable" ng-click="stateUdate(task.id, task.usable)" aria-label="Switch"></md-switch>
+			<md-list-item class="md-3-line" ng-repeat="task in taskInfo.tasks" ng-click="moveSettingUrl(task.id)">
+				<div layout="column">
+					<div layout="row">
+						<md-icon ng-repeat="unit in task.units" style="margin:2px;">
+							<img ng-if="unit == 'ALARM'" src="http://192.168.0.201/ttadag_app/assets/images/D-0_alarm.png" style="width:100%;height:100%;"/>
+							<img ng-if="unit == 'LIGHT'" src="http://192.168.0.201/ttadag_app/assets/images/D-0_light.png" style="width:100%;height:100%;"/>
+							<img ng-if="unit == 'SPEAKER'" src="http://192.168.0.201/ttadag_app/assets/images/D-0_sound.png" style="width:100%;height:100%;"/>
+							<img ng-if="unit == 'BUTTON'" src="http://192.168.0.201/ttadag_app/assets/images/D-0_button.png" style="width:100%;height:100%;"/>
+						</md-icon>
+					</div>
+					<md-switch class="md-secondary" style="margin:0;" ng-model="task.usable" ng-change="stateUdate(task.id, task.usable)" aria-label="Switch"></md-switch>
+					<p style="margin:0;color:#616161;">{{task.alias}}</p>
+				</div>
 				<md-divider></md-divider>
 			</md-list-item>
 		</md-list>
