@@ -18,7 +18,7 @@
 			}).then(function successCallback(response) {
 
 				if (!!response.data.result) {
-				//
+					$scope.alias = response.data.result.alias;
 					for(; i < response.data.result.taskUnits.length; i++) {
 				//
 						if(response.data.result.taskUnits[i].hasOwnProperty('ALARM')) {
