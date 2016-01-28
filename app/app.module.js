@@ -21,6 +21,7 @@ angular.module('ngSharedServices',[]);
  * @description
  * 각 페이지 모듈 dependency manage.... and define
  */
+angular.module('header',[]);
 angular.module('ngTtadagApp.home.controller',[]);
 angular.module('ngTtadagApp.account.signUp.controller',[]);
 angular.module('ngTtadagApp.account.signIn.controller',[]);
@@ -264,6 +265,7 @@ angular.module('ttadagApp',[
 	'ngAnimate',
 	'ngCookies',
 	'ngSharedServices',
+	'header',
 	'ngTtadagApp.home.controller',
 	'ngTtadagApp.account.signUp.controller',
 	'ngTtadagApp.account.signIn.controller',
