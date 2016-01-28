@@ -1,39 +1,45 @@
-<md-content layout="column" layout-align="center center">
-	<h1>Welcome to button!</h1>
+<md-content layout="column" layout-align="center center" style="height:100%;background:url('http://192.168.0.201/ttadag_app/assets/images/B-0_bg.png') no-repeat;background-size:100%;">
+	<h1 style="display: block;width: 100%;text-align: center;font-size: 40px;color:#fff;">Welcome to <span style="font-size:51px;">button!</span></h1>
 
-	<form name="userForm">
+	<div style="width: 100%;">
+		<form name="userForm" style="margin:0 10%;">
 
-		<!--이메일 입력-->
-		<md-input-container class="md-block">
-			<label>이메일</label>
-			<input required type="email" name="email" ng-model="user.email" ng-pattern="/^.+@.+\..+$/" />
-			<div ng-messages="userForm.email.$error" role="alert">
-				<!--<div class="errors" ng-messages="userForm.email.$error" ng-if="userForm.$dirty">-->
-				<div ng-message-exp="['required', 'pattern']">
-					정확한 이메일을 작성해주세요.
+			<!--이메일 입력-->
+			<md-input-container class="md-block">
+				<label style="color:#fff;">이메일</label>
+				<input required type="email" name="email" ng-model="user.email" ng-pattern="/^.+@.+\..+$/" />
+				<div ng-messages="userForm.email.$error" role="alert">
+					<!--<div class="errors" ng-messages="userForm.email.$error" ng-if="userForm.$dirty">-->
+					<div ng-message-exp="['required', 'pattern']">
+						정확한 이메일을 작성해주세요.
+					</div>
+					<!--<div ng-message="required">필수입력값.</div>-->
+					<!--<div ng-message="pattern">형식에 맞게 넣어주세요.</div>-->
 				</div>
-				<!--<div ng-message="required">필수입력값.</div>-->
-				<!--<div ng-message="pattern">형식에 맞게 넣어주세요.</div>-->
+			</md-input-container>
+
+			<!--패스워드 입력-->
+			<md-input-container class="md-block" style="margin-bottom:0;">
+				<label style="color:#fff;">비밀번호</label>
+				<input required type="password" name="password" ng-model="user.password"  maxlength="20"/>
+				<div ng-messages="userForm.password.$error" role="alert">
+					<div ng-message-exp="['required']">
+						비밀번호를 입력해주세요.
+					</div>
+				</div>
+			</md-input-container>
+
+			<!--<md-button ng-click="addAccount()" class="md-block md-primary" ng-disabled="userForm.$invalid || !user.isAcceptCheck">Create account</md-button>-->
+			<div style="text-align: right">
+				<md-button ng-click="resetPassword();" style="margin:0;color:#fff;">> 비밀번호 재설정</md-button>
 			</div>
-		</md-input-container>
-
-		<!--패스워드 입력-->
-		<md-input-container class="md-block">
-			<label>비밀번호</label>
-			<input required type="password" name="password" ng-model="user.password"  maxlength="20"/>
-			<!--<div ng-messages="userForm.password.$error" role="alert">-->
-				<!--<div ng-message-exp="['required', 'minlength', 'maxlength']">-->
-					<!--영문, 숫자 조합 8~20자로 입력해주세요.-->
-				<!--</div>-->
-			<!--</div>-->
-		</md-input-container>
-
-		<!--<md-button ng-click="addAccount()" class="md-block md-primary" ng-disabled="userForm.$invalid || !user.isAcceptCheck">Create account</md-button>-->
-		<md-button ng-click="resetPassword();">> 비밀번호 재설정</md-button>
-		<md-button class="md-raised" ng-click="signInAction();">로그인</md-button>
-		<md-button class="md-raised" ng-click="FBLogin();" ng-disabled="userForm.$invalid">페이스북 로그인</md-button>
-	</form>
-	<div>by ttadag!</div>
+			<md-button style="background: #9574F6;width: 100%;color:#fff;" class="md-raised" ng-click="signInAction();">로그인</md-button>
+			<md-button style="width: 100%;background: #3B579A url('http://192.168.0.201/ttadag_app/assets/images/B-0_fb_logo.png') no-repeat 40% center;background-size: 20%;" class="md-raised" ng-click="FBLogin();" ng-disabled="userForm.$invalid"><span style="color: #fff;margin-left: 26%;">으로 로그인</span></md-button>
+		</form>
+	</div>
+	<div style="position: absolute;bottom: 9%;width: 100%;text-align: center;">
+		<span><span style="color:#A7A6A6">by</span> <span style="color:#837DFF">ttadag!</span></span>
+	</div>
 </md-content>
 
 
