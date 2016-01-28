@@ -1,4 +1,5 @@
 <div ng-controller="headerController" ng-style="headerStyle">
+	<!--$window.history.back();-->
 	<!--<a href="#/">최초</a>-->
 	<!--<a href="#/account/signIn">로그인</a>-->
 	<!--<a href="#/account/signUp">회원가입</a>-->
@@ -17,8 +18,11 @@
 	</script>
 
 	<script type="text/ng-template" id="header02.html">
+
 		<div style="color:#fff;position:relative;">
-			<h1>button</h1> <span style="position: absolute;right: 7%;top: 50%;margin-top: -10px;">{{name}}</span>
+			<md-button ng-click="historyBack()" aria-label="btn" style="background: url('http://192.168.0.201/ttadag_app/assets/images/F-0_back.png') no-repeat center center;background-size: 100%;margin: 0;padding: 0;width: 20px;height: 36px;min-width: 0;position: absolute;left: 7%;"></md-button>
+			<h1>button</h1>
+			<span style="position: absolute;right: 7%;top: 50%;margin-top: -10px;">{{name}}</span>
 		</div>
 	</script>
 	<script type="text/ng-template" id="header03.html"></script>

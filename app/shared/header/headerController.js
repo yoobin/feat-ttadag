@@ -5,7 +5,7 @@
 (function() {
 	'use strict';
 	angular.module('header')
-		.controller('headerController', ['$scope', '$location', 'AccountService', function($scope, $location, AccountService) {
+		.controller('headerController', ['$scope', '$location', 'AccountService', '$window', function($scope, $location, AccountService, $window) {
 			$scope.template = {};
 
 			$scope.$on('$routeChangeSuccess', function(next, current) {
@@ -31,6 +31,9 @@
 
 					$scope.name = AccountService.getCookiesInfoUserNickname();
 					$scope.headerStyle = {'text-align': 'center', 'background-color': '#473B30'};
+					$scope.historyBack = function() {
+						$window.history.back();
+					};
 					$scope.template.url = 'header02.html';
 
 				}
