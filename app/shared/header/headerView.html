@@ -12,9 +12,11 @@
 
 
 	<script type="text/ng-template" id="header01.html">
-		<md-button style="margin:0;color:#fff" ng-click="headerEvent('signIn')">로그인</md-button>
-		<span style="color:#66626F;">|</span>
-		<md-button style="margin:0;color:#fff;" ng-click="headerEvent('signUp')">회원가입</md-button>
+		<div style="padding-top: 20px;">
+			<md-button style="margin:0;color:#fff;font-size: 25px;" ng-click="headerEvent('signIn')">로그인</md-button>
+			<span style="color:#66626F;font-size:25px;">|</span>
+			<md-button style="margin:0;color:#fff;font-size: 25px;" ng-click="headerEvent('signUp')">회원가입</md-button>
+		</div>
 	</script>
 
 	<script type="text/ng-template" id="header02.html">
@@ -26,6 +28,14 @@
 		</div>
 	</script>
 	<script type="text/ng-template" id="header03.html"></script>
+	<script type="text/ng-template" id="header04.html">
+
+		<div style="color:#fff;position:relative;">
+			<md-button ng-click="historyBack()" aria-label="btn" style="background: url('http://192.168.0.201/ttadag_app/assets/images/F-0_back.png') no-repeat center center;background-size: 100%;margin: 0;padding: 0;width: 20px;height: 36px;min-width: 0;position: absolute;left: 7%;"></md-button>
+			<h1>따닥 그룹 <md-icon style="background: url('http://192.168.0.201/ttadag_app/assets/images/F-0_edit.png') no-repeat center center;background-size: 100%;margin: 0;padding: 0;width: 20px;height: 36px;min-width: 0;"></md-icon></h1>
+			<span style="position: absolute;right: 7%;top: 50%;margin-top: -10px;">{{name}}</span>
+		</div>
+	</script>
 </div>
 
 

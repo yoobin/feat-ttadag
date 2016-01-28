@@ -11,7 +11,7 @@
 			$scope.$on('$routeChangeSuccess', function(next, current) {
 
 				if (($location.path() === '/account/signIn') || ($location.path() === '/account/signUp')) {
-					$scope.headerStyle = {'text-align': 'center','background-color':'#252032'};
+					$scope.headerStyle = {'text-align': 'center','background-color':'#252032','height':'80px'};
 					$scope.template.url = 'header01.html';
 					$scope.headerEvent = function(type) {
 						if (type === 'signIn') {
@@ -26,7 +26,12 @@
 
 					$scope.headerStyle = {};
 					$scope.template.url = 'header03.html';
-
+				} else if($location.path().indexOf('/space/groupSetting') >= 0) {
+					$scope.headerStyle = {'text-align': 'center', 'background-color': '#473B30'};
+					$scope.historyBack = function() {
+						$window.history.back();
+					};
+					$scope.template.url = 'header04.html';
 				} else {
 
 					$scope.name = AccountService.getCookiesInfoUserNickname();
