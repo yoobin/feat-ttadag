@@ -281,7 +281,7 @@
 							data : {
 								"bssid":AccountService.getCookiesInfoBssId(),
 								"func":"setColor",
-								"params":[value],
+								"params":value.split(','),
 								"action":"command"
 							},
 							headers : {
