@@ -2,8 +2,8 @@
 	angular.module('ngTtadagApp.spaceEditList.taskEditController')
 		.controller('taskEditController', ['$scope', '$routeParams', '$http', 'AccountService', function($scope, $routeParams, $http, AccountService) {
 
-			var i = 0,
-				channelSelected = {};
+			var i = 0;
+			$scope.channelSelect = {};
 			$scope.nodeNames = [];
 			$scope.taskUnits = {};
 			$scope.templates = {};
@@ -164,7 +164,7 @@
 
 								if(channel.use) {
 									$scope.taskUnits.SPEAKER.channel = channel;
-									channelSelected = channel;
+									$scope.channelSelect = channel;
 								}
 
 							});
@@ -195,10 +195,10 @@
 
 								if(selectedChannel.use) {
 									selectedChannel.use = false;
-									channelSelected = {};
+									$scope.channelSelect = {};
 								} else {
 									selectedChannel.use = true;
-									channelSelected = selectedChannel;
+									$scope.channelSelect = selectedChannel;
 								}
 
 							} else {
@@ -210,10 +210,6 @@
 
 						});
 
-						//console.log(selectedChannel.use);
-						//console.log($scope.taskUnits.SPEAKER);
-						//$scope.selectedChannel
-						//console.log($scope.taskUnits.SPEAKER.channels);
 					};
 
 
@@ -241,7 +237,7 @@
 						}
 						if ($scope.taskUnits.hasOwnProperty('SPEAKER')){
 							data.speaker = $scope.taskUnits.SPEAKER;
-							data.speaker.channel = channelSelected;
+							data.speaker.channel = $scope.channelSelect;
 						}
 
 						if(Object.keys(data.speaker.channel).length === 0) {
@@ -260,6 +256,114 @@
 						}
 					};
 
+					//taskUnits.LIGHT
+					$scope.$watch('taskUnits.LIGHT.power', function(flag) {
+						$http({
+							method : 'POST',
+							url : 'http://192.168.0.201:8080/v2/nodes/execute',
+							data : {
+								"bssid":AccountService.bssId,
+								"func":"power",
+								"params":[flag],
+								"action":"command"
+							},
+							headers : {
+								'X-Auth-Token' : AccountService.getCookiesInfoToken()
+							}
+						}).then(function successCallback(response) {
+							console.log(response);
+						});
+					});
+					$scope.$watch('taskUnits.LIGHT.color', function(value) {
+						$http({
+							method : 'POST',
+							url : 'http://192.168.0.201:8080/v2/nodes/execute',
+							data : {
+								"bssid":AccountService.bssId,
+								"func":"setColor",
+								"params":[value],
+								"action":"command"
+							},
+							headers : {
+								'X-Auth-Token' : AccountService.getCookiesInfoToken()
+							}
+						}).then(function successCallback(response) {
+							console.log(response);
+						});
+					});
+					$scope.$watch('taskUnits.LIGHT.intensity', function(value) {
+						$http({
+							method : 'POST',
+							url : 'http://192.168.0.201:8080/v2/nodes/execute',
+							data : {
+								"bssid":AccountService.bssId,
+								"func":"setIntensity",
+								"params":[value],
+								"action":"command"
+							},
+							headers : {
+								'X-Auth-Token' : AccountService.getCookiesInfoToken()
+							}
+						}).then(function successCallback(response) {
+							console.log(response);
+						});
+					});
+
+					//taskUnits.SPEAKER
+					$scope.$watch('taskUnits.SPEAKER.power', function(flag) {
+						$http({
+							method : 'POST',
+							url : 'http://192.168.0.201:8080/v2/nodes/execute',
+							data : {
+								"bssid":AccountService.bssId,
+								"func":"speakerPower",
+								"params":[flag],
+								"action":"command"
+							},
+							headers : {
+								'X-Auth-Token' : AccountService.getCookiesInfoToken()
+							}
+						}).then(function successCallback(response) {
+							console.log(response);
+						});
+
+					});
+					$scope.$watch('taskUnits.SPEAKER.volume', function(value) {
+						$http({
+							method : 'POST',
+							url : 'http://192.168.0.201:8080/v2/nodes/execute',
+							data : {
+								"bssid":AccountService.bssId,
+								"func":"setVolume",
+								"params":[value],
+								"action":"command"
+							},
+							headers : {
+								'X-Auth-Token' : AccountService.getCookiesInfoToken()
+							}
+						}).then(function successCallback(response) {
+							console.log(response);
+						});
+
+					});
+					$scope.$watch('channelSelect', function(channel) {
+						$http({
+							method : 'POST',
+							url : 'http://192.168.0.201:8080/v2/nodes/execute',
+							data : {
+								"bssid":AccountService.bssId,
+								"func":"setChannel",
+								"params":[channel],
+								"action":"command"
+							},
+							headers : {
+								'X-Auth-Token' : AccountService.getCookiesInfoToken()
+							}
+						}).then(function successCallback(response) {
+							console.log(response);
+						});
+
+					});
 				} else {
 					alert(response.data.error.message);
 				}
