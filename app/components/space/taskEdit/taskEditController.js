@@ -262,7 +262,7 @@
 							method : 'POST',
 							url : 'http://192.168.0.201:8080/v2/nodes/execute',
 							data : {
-								"bssid":AccountService.bssId,
+								"bssid":AccountService.getCookiesInfoBssId(),
 								"func":"power",
 								"params":[flag],
 								"action":"command"
@@ -279,7 +279,7 @@
 							method : 'POST',
 							url : 'http://192.168.0.201:8080/v2/nodes/execute',
 							data : {
-								"bssid":AccountService.bssId,
+								"bssid":AccountService.getCookiesInfoBssId(),
 								"func":"setColor",
 								"params":[value],
 								"action":"command"
@@ -296,7 +296,7 @@
 							method : 'POST',
 							url : 'http://192.168.0.201:8080/v2/nodes/execute',
 							data : {
-								"bssid":AccountService.bssId,
+								"bssid":AccountService.getCookiesInfoBssId(),
 								"func":"setIntensity",
 								"params":[value],
 								"action":"command"
@@ -315,7 +315,7 @@
 							method : 'POST',
 							url : 'http://192.168.0.201:8080/v2/nodes/execute',
 							data : {
-								"bssid":AccountService.bssId,
+								"bssid":AccountService.getCookiesInfoBssId(),
 								"func":"speakerPower",
 								"params":[flag],
 								"action":"command"
@@ -333,7 +333,7 @@
 							method : 'POST',
 							url : 'http://192.168.0.201:8080/v2/nodes/execute',
 							data : {
-								"bssid":AccountService.bssId,
+								"bssid":AccountService.getCookiesInfoBssId(),
 								"func":"setVolume",
 								"params":[value],
 								"action":"command"
@@ -351,7 +351,7 @@
 							method : 'POST',
 							url : 'http://192.168.0.201:8080/v2/nodes/execute',
 							data : {
-								"bssid":AccountService.bssId,
+								"bssid":AccountService.getCookiesInfoBssId(),
 								"func":"setChannel",
 								"params":[channel],
 								"action":"command"
