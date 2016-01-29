@@ -150,7 +150,10 @@
 							//$scope.colorData = {
 							//	color : 'Banana'
 							//};
-
+							$scope.setColor = function(colorId) {
+								//console.log(colorId);
+								$scope.taskUnits.LIGHT.color = colorId;
+							};
 
 						} else if(response.data.result.taskUnits[i].hasOwnProperty('SPEAKER')) {
 							$scope.nodeNames.push('SPEAKER');
@@ -178,7 +181,7 @@
 
 
 					//이곳에서 기본 디폴트 템플릿설정..
-					$scope.template.url = $scope.templates[$scope.nodeNames[2]];
+					$scope.template.url = $scope.templates[$scope.nodeNames[1]];
 					$scope.nodeClick = function(nodeName) {
 						//상단 클릭경우 페이지 변경
 						$scope.template.url = $scope.templates[nodeName];
@@ -206,9 +209,6 @@
 
 
 						});
-
-
-
 
 						//console.log(selectedChannel.use);
 						//console.log($scope.taskUnits.SPEAKER);

@@ -87,28 +87,45 @@
 <!-- template2.html -->
 <script type="text/ng-template" id="LIGHT.html">
 	<div>
-		<div>ON/OFF</div>
-		<md-switch ng-model="taskUnits.LIGHT.power" aria-label="on/off"></md-switch>
+		<div style="margin-top:20px;color:#fff;">ON/OFF</div>
+		<div layout="row" layout-align="center center">
+			<md-switch ng-model="taskUnits.LIGHT.power" aria-label="on/off"></md-switch>
+		</div>
 	</div>
 	<md-divider style="border-top-color:#3F3460"></md-divider>
 	<div>
-		<div>COLOR</div>
+		<div style="margin-top:20px;color:#fff;">COLOR</div>
 		<!--{{colorData.color}}-->
-		<md-radio-group ng-model="taskUnits.LIGHT.color">
-			<md-radio-button value="255,255,255" class="md-primary">white</md-radio-button>
-			<md-radio-button value="255,0,0" class="md-primary">red</md-radio-button>
-			<md-radio-button value="255,94,0" class="md-primary">orange</md-radio-button>
-			<md-radio-button value="0,216,255" class="md-primary">blue</md-radio-button>
-			<md-radio-button value="29,219,22" class="md-primary">green</md-radio-button>
-			<md-radio-button value="255,0,221" class="md-primary">violet</md-radio-button>
-			<md-radio-button value="255,255,0" class="md-primary">yellow</md-radio-button>
-		</md-radio-group>
-		<br/>
+		<!--<md-radio-group ng-model="taskUnits.LIGHT.color">-->
+			<!--<md-radio-button value="255,255,255" class="md-primary">white</md-radio-button>-->
+			<!--<md-radio-button value="255,0,0" class="md-primary">red</md-radio-button>-->
+			<!--<md-radio-button value="255,94,0" class="md-primary">orange</md-radio-button>-->
+			<!--<md-radio-button value="0,216,255" class="md-primary">blue</md-radio-button>-->
+			<!--<md-radio-button value="29,219,22" class="md-primary">green</md-radio-button>-->
+			<!--<md-radio-button value="255,0,221" class="md-primary">violet</md-radio-button>-->
+			<!--<md-radio-button value="255,255,0" class="md-primary">yellow</md-radio-button>-->
+		<!--</md-radio-group>-->
+		<div style="margin-top:30px;">
+			<md-button aria-label="btn" style="margin:0 5px;padding:0;min-width:0;width:40px;height:40px;border-radius:35px;background-color: #fff;" value="255,255,255" ng-click="setColor('255,255,255')" class="md-primary"></md-button>
+			<md-button aria-label="btn" style="margin:0 5px;padding:0;min-width:0;width:40px;height:40px;border-radius:35px;background-color: #FF8484" value="255,0,0" ng-click="setColor('255,0,0')" class="md-primary"></md-button>
+			<md-button aria-label="btn" style="margin:0 5px;padding:0;min-width:0;width:40px;height:40px;border-radius:35px;background-color: #FFB400" value="255,94,0" ng-click="setColor('255,94,0')" class="md-primary"></md-button>
+			<md-button aria-label="btn" style="margin:0 5px;padding:0;min-width:0;width:40px;height:40px;border-radius:35px;background-color: #9CE8F1" value="0,216,255" ng-click="setColor('0,216,255')" class="md-primary"></md-button>
+			<md-button aria-label="btn" style="margin:0 5px;padding:0;min-width:0;width:40px;height:40px;border-radius:35px;background-color: #A8E48D" value="29,219,22" ng-click="setColor('29,219,22')" class="md-primary"></md-button>
+			<md-button aria-label="btn" style="margin:0 5px;padding:0;min-width:0;width:40px;height:40px;border-radius:35px;background-color: #D792E4" value="255,0,221" ng-click="setColor('255,0,221')" class="md-primary"></md-button>
+		</div>
 	</div>
-	<div>
+	<div style="margin-top:30px;">
 		<md-divider style="border-top-color:#3F3460"></md-divider>
-		<div>INTENSITY</div>
-		<md-slider flex min="0" max="10" ng-model="taskUnits.LIGHT.intensity" aria-label="intensity">
+		<div style="margin-top:20px;color:#fff;">INTENSITY</div>
+		<div layout="row" layout-align="center center">
+			<md-icon style="width:15px;height:13px;">
+				<img src="http://192.168.0.201/ttadag_app/assets/images/L-0_intensity_max.png" style="width:100%;height:100%;"/>
+			</md-icon>
+			<md-slider flex min="0" max="10" ng-model="taskUnits.LIGHT.intensity" aria-label="intensity"></md-slider>
+			<md-icon style="width:21px;height:19px;">
+				<img src="http://192.168.0.201/ttadag_app/assets/images/L-0_intensity_min.png" style="width:100%;height:100%;"/>
+			</md-icon>
+		</div>
 	</div>
 </script>
 
@@ -124,7 +141,13 @@
 	<div>
 		<div style="margin-top:20px;color:#fff;">VOLUME</div>
 		<div layout="row" layout-align="center center">
-			<md-icon style="width:15px;height:13px;"><img src="http://192.168.0.201/ttadag_app/assets/images/L-0_vol_min.png" style="width:100%;height:100%;"/></md-icon><md-slider flex min="0" max="10" ng-model="taskUnits.SPEAKER.volume" aria-label="volume"></md-slider><md-icon style="width:21px;height:19px;"><img src="http://192.168.0.201/ttadag_app/assets/images/L-0_vol_max.png" style="width:100%;height:100%;"/></md-icon>
+			<md-icon style="width:15px;height:13px;">
+				<img src="http://192.168.0.201/ttadag_app/assets/images/L-0_vol_min.png" style="width:100%;height:100%;"/>
+			</md-icon>
+			<md-slider flex min="0" max="10" ng-model="taskUnits.SPEAKER.volume" aria-label="volume"></md-slider>
+			<md-icon style="width:21px;height:19px;">
+				<img src="http://192.168.0.201/ttadag_app/assets/images/L-0_vol_max.png" style="width:100%;height:100%;"/>
+			</md-icon>
 		</div>
 	</div>
 	<md-divider style="border-top-color:#3F3460"></md-divider>
