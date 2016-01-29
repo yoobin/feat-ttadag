@@ -181,7 +181,7 @@
 
 
 					//이곳에서 기본 디폴트 템플릿설정..
-					$scope.template.url = $scope.templates[$scope.nodeNames[1]];
+					$scope.template.url = $scope.templates[$scope.nodeNames[0]];
 					$scope.nodeClick = function(nodeName) {
 						//상단 클릭경우 페이지 변경
 						$scope.template.url = $scope.templates[nodeName];
