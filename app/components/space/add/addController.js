@@ -44,6 +44,7 @@
 
 								if(response.data.result.confirm) {
 									AccountService.setCookiesInfoIsAuthorize(true);
+									$timeout.cancel(buttonCount);
 									$location.path('space/groupList');
 								}
 							});
@@ -63,6 +64,7 @@
 
 
 					if (!AccountService.getCookiesInfoIsLogin()) {
+						$timeout.cancel(buttonCount);
 						$location.path('/account/signIn');
 					} else {
 
