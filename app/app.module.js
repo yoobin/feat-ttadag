@@ -64,7 +64,7 @@ angular.module('ngSharedServices')
 		this.getCookiesInfoBssId = getCookiesInfoBssId;
 		this.setCookiesInfoIsAuthorize = setCookiesInfoIsAuthorize;
 		this.getSpaceId = getSpaceId;
-
+		this.removeCookiesInfo = removeCookiesInfo;
 
 
 
@@ -225,6 +225,14 @@ angular.module('ngSharedServices')
 		 */
 		function getCookiesInfoBssId() {
 			return $cookies.get('bssId');
+		}
+
+		function removeCookiesInfo(callback) {
+
+			if(!!callback){
+				callback();
+			}
+			return $cookies.remove('isLogin');
 		}
 	})
 	.service('NetworkService', function($rootScope) {

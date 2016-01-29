@@ -22,16 +22,18 @@
 							$location.path('/account/signUp');
 						}
 					}
-				} else if (($location.path() === '/space/add') || ($location.path() === '/space/redemand')) {
+				} else if (($location.path() === '/space/add') || ($location.path() === '/space/redemand') || ($location.path() === '/')) {
 
 					$scope.headerStyle = {};
 					$scope.template.url = 'header03.html';
 				} else if($location.path().indexOf('/space/groupSetting') >= 0) {
 					$scope.headerStyle = {'text-align': 'center', 'background-color': '#473B30'};
-					$scope.historyBack = function() {
+					$scope.historyBack = function () {
 						$window.history.back();
 					};
 					$scope.template.url = 'header04.html';
+				//} else if($location.path().indexOf('/') >= 0) {
+					//console.log('최초!');
 				} else {
 
 					$scope.name = AccountService.getCookiesInfoUserNickname();
