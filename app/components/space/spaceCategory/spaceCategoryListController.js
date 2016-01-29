@@ -4,8 +4,7 @@
 		.controller('categoryListController',['$scope', '$routeParams', '$http', '$location', 'AccountService', function($scope, $routeParams, $http, $location, AccountService) {
 			//$routeParams.type
 			//$routeParams.id
-			var tmpObj = {},
-				tmpArray = [];
+			var tmpArray = [];
 
 			$scope.selected = [];
 
@@ -38,9 +37,11 @@
 					//console.log($scope.selected);
 
 					angular.forEach($scope.selected, function(id) {
-						tmpObj.id = id;
-						tmpArray.push(tmpObj);
+						tmpArray.push({
+							id : id
+						});
 					});
+
 
 					$http({
 						method : 'POST',
