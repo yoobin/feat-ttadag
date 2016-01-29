@@ -2,7 +2,8 @@
 	angular.module('ngTtadagApp.spaceEditList.taskEditController')
 		.controller('taskEditController', ['$scope', '$routeParams', '$http', 'AccountService', function($scope, $routeParams, $http, AccountService) {
 
-			var i = 0;
+			var i = 0,
+				channelSelected = {};
 			$scope.nodeNames = [];
 			$scope.taskUnits = {};
 			$scope.templates = {};
@@ -154,6 +155,17 @@
 						} else if(response.data.result.taskUnits[i].hasOwnProperty('SPEAKER')) {
 							$scope.nodeNames.push('SPEAKER');
 							$scope.taskUnits.SPEAKER = response.data.result.taskUnits[i].SPEAKER;
+							$scope.taskUnits.SPEAKER.channels = response.data.result.channels;
+							$scope.taskUnits.SPEAKER.channel = {};
+							angular.forEach(response.data.result.channels, function(channel) {
+
+								if(channel.use) {
+									$scope.taskUnits.SPEAKER.channel = channel;
+									channelSelected = channel;
+								}
+
+							});
+
 							$scope.templates.SPEAKER = 'SPEAKER.html';
 
 
@@ -166,12 +178,43 @@
 
 
 					//이곳에서 기본 디폴트 템플릿설정..
-					$scope.template.url = $scope.templates[$scope.nodeNames[0]];
+					$scope.template.url = $scope.templates[$scope.nodeNames[2]];
 					$scope.nodeClick = function(nodeName) {
 						//상단 클릭경우 페이지 변경
 						$scope.template.url = $scope.templates[nodeName];
 					};
 
+					$scope.channelSelected = function(selectedChannel) {
+
+						angular.forEach($scope.taskUnits.SPEAKER.channels, function(channel) {
+
+							if(selectedChannel === channel) {
+
+								if(selectedChannel.use) {
+									selectedChannel.use = false;
+									channelSelected = {};
+								} else {
+									selectedChannel.use = true;
+									channelSelected = selectedChannel;
+								}
+
+							} else {
+								if(channel.use) {
+									channel.use = false;
+								}
+							}
+
+
+						});
+
+
+
+
+						//console.log(selectedChannel.use);
+						//console.log($scope.taskUnits.SPEAKER);
+						//$scope.selectedChannel
+						//console.log($scope.taskUnits.SPEAKER.channels);
+					};
 
 
 					$scope.taskEditsave = function() {
@@ -198,25 +241,27 @@
 						}
 						if ($scope.taskUnits.hasOwnProperty('SPEAKER')){
 							data.speaker = $scope.taskUnits.SPEAKER;
+							data.speaker.channel = channelSelected;
 						}
-						console.log($scope.taskUnits);
-						console.log(data);
 
-						$http({
-							method : 'POST',
-							url : 'http://192.168.0.201:8080/v2/tasks/update/' + $routeParams.id,
-							data : data,
-							headers : {
-								'X-Auth-Token' : AccountService.getCookiesInfoToken()
-							}
-						}).then(function successCallback(response) {
-							console.log(response);
-						});
+						if(Object.keys(data.speaker.channel).length === 0) {
+							alert('라디오 채널을 선택하셔야합니다.');
+						} else {
+							$http({
+								method : 'POST',
+								url : 'http://192.168.0.201:8080/v2/tasks/update/' + $routeParams.id,
+								data : data,
+								headers : {
+									'X-Auth-Token' : AccountService.getCookiesInfoToken()
+								}
+							}).then(function successCallback(response) {
+								console.log(response);
+							});
+						}
 					};
 
 				} else {
 					alert(response.data.error.message);
-
 				}
 
 			});
