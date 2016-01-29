@@ -26,7 +26,7 @@
 						<md-list-item ng-repeat="item in spaceItem.groups" style="margin-top:10px;background-color: #fff;">
 							<div layout="row" style="position:relative;width:100%;">
 								<md-button ng-click="spaceGroupTaskListLocation(item.id, 'group')" style="position: relative;width: 100%;">
-									<h3 style="text-align: left;">{{item.alias}}({{item.enableTaskCount}} tasks)</h3>
+									<h3 style="text-align: left;">{{item.alias}}({{item.enableTaskCount}} tasks <span ng-if="item.usable">사용중</span>)</h3>
 									<div style="text-align: left;">
 										<md-icon ng-repeat="unit in item.units" style="margin:0 5px 5px 5px;width: auto;height: 24px;">
 											<img ng-if="unit == 'ALARM'" src="http://192.168.0.201/ttadag_app/assets/images/D-0_alarm.png" style="width:25px;height:25px;"/>
@@ -35,7 +35,7 @@
 											<img ng-if="unit == 'BUTTON'" src="http://192.168.0.201/ttadag_app/assets/images/D-0_button.png" style="width:25px;height:25px;"/>
 										</md-icon>
 									</div>
-									<md-icon ng-if="!usable" style="margin: 0px;width: auto;padding: 0px 10px 9px 10px;height: 18px;position: absolute;bottom: 0;right: 0;background-color: #9574F6;border-radius: 20px;color:#fff;">사용가능</md-icon>
+									<md-icon ng-if="!item.usable" style="margin: 0px;width: auto;padding: 0px 10px 9px 10px;height: 18px;position: absolute;bottom: 0;right: 0;background-color: #9574F6;border-radius: 20px;color:#fff;">사용가능</md-icon>
 								</md-button>
 								<div style="position:absolute;right:0;">
 									<md-button aria-label="btn" ng-click="groupSettingLocation(item.id)" style="margin-left:0;margin-right:0;margin-bottom:0;padding:0;"><img src="http://192.168.0.201/ttadag_app/assets/images/D-0_option_02.png" style="width:23px;height:23px;"/></md-button>
