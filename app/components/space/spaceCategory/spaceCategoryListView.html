@@ -23,17 +23,24 @@
 	</div>
 
 
-	<div style="margin:0 5%;">
-		<div>
-			<div ng-repeat="task in CategoryContent.tasks" style="padding:20px 0">
-				<md-checkbox ng-checked="exists(task.id, selected)" ng-click="toggle(task.id, selected)" style="display:block;margin-bottom:0;">
-					<md-icon ng-repeat="unit in task.units" style="margin:0 25px;">{{unit}}</md-icon>
-				</md-checkbox>
-				<div style="text-indent:40px;">{{task.alias}}</div>
+	<div style="width: 100%;">
+		<div style="margin:0 10%;">
+			<div class="categoryIcon">
+				<div ng-repeat="task in CategoryContent.tasks" style="padding:20px 0" layout="column">
+					<md-checkbox layout="row" ng-checked="exists(task.id, selected)" ng-click="toggle(task.id, selected)" aria-label="checkbox">
+						<md-icon ng-repeat="unit in task.units" style="margin:0 3px;width:43px;height:43px;">
+							<img ng-if="unit === 'ALARM'" style="width:100%;height: 100%;"src="http://192.168.0.201/ttadag_app/assets/images/D-0_alarm.png"/>
+							<img ng-if="unit === 'LIGHT'" style="width:100%;height: 100%;"src="http://192.168.0.201/ttadag_app/assets/images/D-0_light.png"/>
+							<img ng-if="unit === 'BUTTON'" style="width:100%;height: 100%;"src="http://192.168.0.201/ttadag_app/assets/images/D-0_button.png"/>
+							<img ng-if="unit === 'SPEAKER'" style="width:100%;height: 100%;"src="http://192.168.0.201/ttadag_app/assets/images/D-0_sound.png"/>
+						</md-icon>
+					</md-checkbox>
+					<div style="color:#7F7F7F;text-indent: 40px;">{{task.alias}}</div>
+				</div>
 			</div>
-		</div>
-		<div style="width: 100%;">
-			<md-button style="width:100%;margin:0;background-color: #9574F6; color:#fff;" aria-label="taskSelected" ng-click="selectedItemComplete()">선택 완료</md-button>
+			<div style="width: 100%;">
+				<md-button style="width:100%;margin:0;background-color: #9574F6; color:#fff;" aria-label="taskSelected" ng-click="selectedItemComplete()">선택 완료</md-button>
+			</div>
 		</div>
 	</div>
 </md-content>
