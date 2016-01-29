@@ -48,34 +48,39 @@
 <!-- template1.html -->
 <script type="text/ng-template" id="ALARM.html">
 
-	<div>TIME</div>
-	<md-select ng-model="taskUnits.ALARM.hours" aria-label="test" style="display: inline-block">
+	<div style="margin-top:20px;color:#fff;">TIME</div>
+	<md-select ng-model="taskUnits.ALARM.hours" aria-label="test" style="display: inline-block;color:#fff;">
 		<md-option ng-repeat="hour in hours" value="{{hour.value}}" >
 			{{hour.displayName}}
 		</md-option>
-	</md-select> :
-	<md-select ng-model="taskUnits.ALARM.minutes" aria-label="test" style="display: inline-block">
+	</md-select>
+	<span style="color:#fff;">:</span>
+	<md-select ng-model="taskUnits.ALARM.minutes" aria-label="test" style="display: inline-block;color:#fff;">
 		<md-option ng-repeat="minute in minutes" value="{{minute.value}}" >
 			{{minute.displayName}}
 		</md-option>
 	</md-select>
-	<md-divider ></md-divider>
-	<div>DAY</div>
+	<md-divider style="border-top-color:#3F3460"></md-divider>
+	<div style="margin-top:20px;color:#fff;">DAY</div>
 	<div layout="row" layout-wrap="">
 
 		<div flex="100" flex-gt-sm="50" layout="column">
-			<div>
-				<div flex="50" ng-repeat="item in items">
-					<md-checkbox ng-checked="exists(item, taskUnits.ALARM.week)" ng-click="toggle(item, taskUnits.ALARM.week)">
-						{{ weeksText[item] }}
-					</md-checkbox>
-				</div>
-
+			<div style="margin-top:20px;">
+				<!--<div flex="50" ng-repeat="item in items">-->
+					<!--<md-checkbox ng-checked="exists(item, taskUnits.ALARM.week)" ng-click="toggle(item, taskUnits.ALARM.week)">-->
+						<!--<span style="color:#fff;">{{ weeksText[item] }}</span>-->
+					<!--</md-checkbox>-->
+					<md-button style="margin:0;min-height:0;min-width:0;" ng-repeat="item in items" aria-label="btn">
+						<!--{{exists(item, taskUnits.ALARM.week)}}-->
+						<span ng-if="!exists(item, taskUnits.ALARM.week)" style="color:#fff;width: 40px;display: inline-block;border-radius: 30px;">{{ weeksText[item] }}</span>
+						<span ng-if="exists(item, taskUnits.ALARM.week)" style="color:#392D5B;background-color:#fff;width: 40px;display: inline-block;border-radius: 30px;">{{ weeksText[item] }}</span>
+					</md-button>
+				<!--</div>-->
 			</div>
 		</div>
 	</div>
 	<br/>
-	<md-checkbox ng-model="taskUnits.ALARM.recursive" aria-label="repeat">반복하기</md-checkbox>
+	<md-checkbox style="color:#fff;" ng-model="taskUnits.ALARM.recursive" aria-label="repeat">반복하기</md-checkbox>
 	<br/>
 </script>
 
