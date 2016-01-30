@@ -239,22 +239,27 @@
 						if ($scope.taskUnits.hasOwnProperty('SPEAKER')){
 							data.speaker = $scope.taskUnits.SPEAKER;
 							data.speaker.channel = $scope.channelSelect;
+
+							if(Object.keys(data.speaker.channel).length === 0) {
+								alert('라디오 채널을 선택하셔야합니다.');
+								return false;
+							}
 						}
 
-						if(Object.keys(data.speaker.channel).length === 0) {
-							alert('라디오 채널을 선택하셔야합니다.');
-						} else {
-							$http({
-								method : 'POST',
-								url : 'http://192.168.0.201:8080/v2/tasks/update/' + $routeParams.id,
-								data : data,
-								headers : {
-									'X-Auth-Token' : AccountService.getCookiesInfoToken()
-								}
-							}).then(function successCallback(response) {
-								console.log(response);
-							});
-						}
+						$http({
+							method : 'POST',
+							url : 'http://192.168.0.201:8080/v2/tasks/update/' + $routeParams.id,
+							data : data,
+							headers : {
+								'X-Auth-Token' : AccountService.getCookiesInfoToken()
+							}
+						}).then(function successCallback(response) {
+							alert('저장되었습니다.');
+							//$location.path();
+						});
+
+
+
 					};
 
 					//taskUnits.LIGHT
