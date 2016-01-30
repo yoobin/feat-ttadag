@@ -5,13 +5,13 @@
 			<div style="margin-top:5%;">
 				<img style="width:75%;" src="http://192.168.0.201/ttadag_app/assets/images/LoadingScreen_ttl.png"/>
 			</div>
-			<div ng-if="!isLogin">
-			1. 자동로그인 정보가 있는가? <span ng-if="isAutoLogin" style="color:#0000ff;">OK!</span><br/>
-			2. wifi접속이 되어있는가? <span ng-if="isWIFIAccess" style="color:#0000ff;">OK!</span><br/>
-			3. 기타 체크사항 확인. <span ng-if="etcCheck" style="color:#0000ff;">OK!</span><br/>
-			<!--4. <md-button href="#/space/groupList">데모 시작하기</md-button>-->
-			</div>
-			<md-button style="width: 100%;height: 100px;" ng-if="!isLogin && go" ng-click="start()">데모 시작하기</md-button>
+			<!--<div ng-if="!isLogin">-->
+			<!--1. 자동로그인 정보가 있는가? <span ng-if="isAutoLogin" style="color:#0000ff;">OK!</span><br/>-->
+			<!--2. wifi접속이 되어있는가? <span ng-if="isWIFIAccess" style="color:#0000ff;">OK!</span><br/>-->
+			<!--3. 기타 체크사항 확인. <span ng-if="etcCheck" style="color:#0000ff;">OK!</span><br/>-->
+			<!--&lt;!&ndash;4. <md-button href="#/space/groupList">데모 시작하기</md-button>&ndash;&gt;-->
+			<!--</div>-->
+			<md-button style="width: 100%;height: 100px;" ng-if="!isLogin" ng-click="start()">데모 시작하기</md-button>
 			<md-button ng-if="isLogin" ng-click="signOut()">로그아웃</md-button>
 		</div>
 		<div style="position: absolute;bottom: 9%;width: 100%;text-align: center;">
