@@ -13,7 +13,7 @@
 
 			$http({
 				method : 'GET',
-				url : 'http://192.168.0.201:8080/v2/tasks/list/category/' + $routeParams.id + '/' + $routeParams.type,
+				url : AccountService.DevAPI_IP + '/v2/tasks/list/category/' + $routeParams.id + '/' + $routeParams.type,
 				headers : {
 					'X-Auth-Token' : AccountService.getCookiesInfoToken()
 				}
@@ -45,7 +45,7 @@
 
 					$http({
 						method : 'POST',
-						url : 'http://192.168.0.201:8080/v2/groups/add/task/' + $routeParams.id,
+						url : AccountService.DevAPI_IP + '/v2/groups/add/task/' + $routeParams.id,
 						data : {
 							id : $routeParams.id,
 							tasks : tmpArray

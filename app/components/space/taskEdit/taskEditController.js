@@ -13,7 +13,7 @@
 
 			$http({
 				method : 'GET',
-				url : 'http://192.168.0.201:8080/v2/tasks/get/' + $routeParams.id,
+				url : AccountService.DevAPI_IP + '/v2/tasks/get/' + $routeParams.id,
 				headers : {
 					'X-Auth-Token' : AccountService.getCookiesInfoToken()
 				}
@@ -248,7 +248,7 @@
 
 						$http({
 							method : 'POST',
-							url : 'http://192.168.0.201:8080/v2/tasks/update/' + $routeParams.id,
+							url : AccountService.DevAPI_IP + '/v2/tasks/update/' + $routeParams.id,
 							data : data,
 							headers : {
 								'X-Auth-Token' : AccountService.getCookiesInfoToken()
@@ -269,7 +269,7 @@
 						} else {
 							$http({
 								method : 'POST',
-								url : 'http://192.168.0.201:8080/v2/nodes/execute',
+								url : AccountService.DevAPI_IP + '/v2/nodes/execute',
 								data : {
 									"bssid":AccountService.getCookiesInfoBssId(),
 									"func":"power",
@@ -290,7 +290,7 @@
 						} else {
 							$http({
 								method: 'POST',
-								url: 'http://192.168.0.201:8080/v2/nodes/execute',
+								url: AccountService.DevAPI_IP + '/v2/nodes/execute',
 								data: {
 									"bssid": AccountService.getCookiesInfoBssId(),
 									"func": "setColor",
@@ -311,7 +311,7 @@
 						} else {
 							$http({
 								method: 'POST',
-								url: 'http://192.168.0.201:8080/v2/nodes/execute',
+								url: AccountService.DevAPI_IP + '/v2/nodes/execute',
 								data: {
 									"bssid": AccountService.getCookiesInfoBssId(),
 									"func": "setIntensity",
@@ -334,7 +334,7 @@
 						} else {
 							$http({
 								method: 'POST',
-								url: 'http://192.168.0.201:8080/v2/nodes/execute',
+								url: AccountService.DevAPI_IP + '/v2/nodes/execute',
 								data: {
 									"bssid": AccountService.getCookiesInfoBssId(),
 									"func": "speakerPower",
@@ -356,7 +356,7 @@
 						} else {
 							$http({
 								method: 'POST',
-								url: 'http://192.168.0.201:8080/v2/nodes/execute',
+								url: AccountService.DevAPI_IP + '/v2/nodes/execute',
 								data: {
 									"bssid": AccountService.getCookiesInfoBssId(),
 									"func": "setVolume",
@@ -378,7 +378,7 @@
 						} else {
 							$http({
 								method: 'POST',
-								url: 'http://192.168.0.201:8080/v2/nodes/execute',
+								url: AccountService.DevAPI_IP + '/v2/nodes/execute',
 								data: {
 									"bssid": AccountService.getCookiesInfoBssId(),
 									"func": "setChannel",

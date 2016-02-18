@@ -17,7 +17,7 @@
 			 */
 			$http({
 				method : 'GET',
-				url : 'http://192.168.0.201:8080/v2/button/authRequest/' + AccountService.getCookiesInfoBssId(),
+				url : AccountService.DevAPI_IP + '/v2/button/authRequest/' + AccountService.getCookiesInfoBssId(),
 				headers : {
 					'X-Auth-Token' : AccountService.getCookiesInfoToken()
 				}
@@ -36,7 +36,7 @@
 
 							$http({
 								method : 'GET',
-								url : 'http://192.168.0.201:8080/v2/button/authPolling/' + response.data.result.authKey,
+								url : AccountService.DevAPI_IP + '/v2/button/authPolling/' + response.data.result.authKey,
 								headers : {
 									'X-Auth-Token' : AccountService.getCookiesInfoToken()
 								}

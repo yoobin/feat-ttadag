@@ -14,7 +14,7 @@
 
 			$http({
 				method : 'GET',
-				url : 'http://192.168.0.201:8080/v2/tasks/list/' + $scope.type + '/' + $scope.id,
+				url : AccountService.DevAPI_IP + '/v2/tasks/list/' + $scope.type + '/' + $scope.id,
 				headers : {
 					'X-Auth-token' :AccountService.getCookiesInfoToken()
 				}
@@ -46,7 +46,7 @@
 				//console.log(id, status);
 				$http({
 					method : 'POST',
-					url : 'http://192.168.0.201:8080/v2/tasks/update/status/' + id,
+					url : AccountService.DevAPI_IP + '/v2/tasks/update/status/' + id,
 					data :{
 						"usable":status
 					},

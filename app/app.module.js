@@ -65,6 +65,7 @@ angular.module('ngSharedServices')
 		this.setCookiesInfoIsAuthorize = setCookiesInfoIsAuthorize;
 		this.getSpaceId = getSpaceId;
 		this.removeCookiesInfo = removeCookiesInfo;
+		this.DevAPI_IP = DevAPI_IP;
 
 
 
