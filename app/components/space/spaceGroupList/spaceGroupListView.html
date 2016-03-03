@@ -1,5 +1,5 @@
 <md-content layout="column" layout-align="center center">
-	<div style="background: #343434 url('http://192.168.0.201/ttadag_app/assets/images/D-0_top.png') no-repeat;background-size: 100%;width: 100%;padding-top:70px;">
+	<div style="background: #343434 url('http://ttadag.ipdisk.co.kr/ttadag_app/assets/images/D-0_top.png') no-repeat;background-size: 100%;width: 100%;padding-top:70px;">
 
 		<!--<div ng-show="cookiesInfoIsAuthorize" style="text-align: center;">-->
 			<!--<md-button> + 스페이스 추가</md-button>-->
@@ -19,7 +19,7 @@
 							<p style="text-align:left;color:#fff;">{{spaceItem.enableTaskCount}} Tasks, {{spaceItem.enableNodeCount}}Nodes 사용중</p>
 						</md-button>
 						<div style="position:absolute;right:0;width:23%;">
-							<md-button aria-label="btn" ng-click="spaceSetUrl();"><img src="http://192.168.0.201/ttadag_app/assets/images/D-0_option_01.png" style="width:23px;height:23px;"/></md-button>
+							<md-button aria-label="btn" ng-click="spaceSetUrl();"><img src="http://ttadag.ipdisk.co.kr/ttadag_app/assets/images/D-0_option_01.png" style="width:23px;height:23px;"/></md-button>
 						</div>
 					</div>
 					<md-list>
@@ -29,16 +29,16 @@
 									<h3 style="text-align: left;">{{item.alias}}({{item.enableTaskCount}} tasks <span ng-if="item.usable">사용중</span>)</h3>
 									<div style="text-align: left;">
 										<md-icon ng-repeat="unit in item.units" style="margin:0 5px 5px 5px;width: auto;height: 24px;">
-											<img ng-if="unit == 'ALARM'" src="http://192.168.0.201/ttadag_app/assets/images/D-0_alarm.png" style="width:25px;height:25px;"/>
-											<img ng-if="unit == 'LIGHT'" src="http://192.168.0.201/ttadag_app/assets/images/D-0_light.png" style="width:25px;height:25px;"/>
-											<img ng-if="unit == 'SPEAKER'" src="http://192.168.0.201/ttadag_app/assets/images/D-0_sound.png" style="width:25px;height:25px;"/>
-											<img ng-if="unit == 'BUTTON'" src="http://192.168.0.201/ttadag_app/assets/images/D-0_button.png" style="width:25px;height:25px;"/>
+											<img ng-if="unit == 'ALARM'" src="http://ttadag.ipdisk.co.kr/ttadag_app/assets/images/D-0_alarm.png" style="width:25px;height:25px;"/>
+											<img ng-if="unit == 'LIGHT'" src="http://ttadag.ipdisk.co.kr/ttadag_app/assets/images/D-0_light.png" style="width:25px;height:25px;"/>
+											<img ng-if="unit == 'SPEAKER'" src="http://ttadag.ipdisk.co.kr/ttadag_app/assets/images/D-0_sound.png" style="width:25px;height:25px;"/>
+											<img ng-if="unit == 'BUTTON'" src="http://ttadag.ipdisk.co.kr/ttadag_app/assets/images/D-0_button.png" style="width:25px;height:25px;"/>
 										</md-icon>
 									</div>
 									<md-icon ng-if="!item.usable" style="margin: 0px;width: auto;padding: 0px 10px 9px 10px;height: 18px;position: absolute;bottom: 0;right: 0;background-color: #9574F6;border-radius: 20px;color:#fff;">사용가능</md-icon>
 								</md-button>
 								<div style="position:absolute;right:0;">
-									<md-button aria-label="btn" ng-click="groupSettingLocation(item.id)" style="margin-left:0;margin-right:0;margin-bottom:0;padding:0;"><img src="http://192.168.0.201/ttadag_app/assets/images/D-0_option_02.png" style="width:23px;height:23px;"/></md-button>
+									<md-button aria-label="btn" ng-click="groupSettingLocation(item.id)" style="margin-left:0;margin-right:0;margin-bottom:0;padding:0;"><img src="http://ttadag.ipdisk.co.kr/ttadag_app/assets/images/D-0_option_02.png" style="width:23px;height:23px;"/></md-button>
 								</div>
 							</div>
 						</md-list-item>

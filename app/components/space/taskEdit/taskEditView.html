@@ -1,14 +1,14 @@
 <md-content layout="column" layout-align="center center" ng-cloak>
-	<div ng-if="template.url !== 'ALARM.html'" style="position:relative;width:100%;min-width:414px;min-height: 154px;width:100%;background:#8c9eff url('http://192.168.0.201/ttadag_app/assets/images/K-1_light_bg.png') no-repeat center center; background-size: 100%;">
+	<div ng-if="template.url !== 'ALARM.html'" style="position:relative;width:100%;min-width:414px;min-height: 154px;width:100%;background:#8c9eff url('http://ttadag.ipdisk.co.kr/ttadag_app/assets/images/K-1_light_bg.png') no-repeat center center; background-size: 100%;">
 		<div style="position: absolute;top: 50%;margin-top: -47px;width: 100%;">
 			<div style="text-align: center;">
 				<md-icon ng-repeat="nodeName in nodeNames" style="margin: 0 1px 1px 1px;width:auto;">
 					<md-button ng-click="nodeClick(nodeName)" style="margin: 0px;" aria-label="btn">
 						<!--<div>-->
-						<img ng-if="nodeName === 'LIGHT'" src="http://192.168.0.201/ttadag_app/assets/images/D-0_light.png" style="width:50%;"/>
-						<img ng-if="nodeName === 'ALARM'" src="http://192.168.0.201/ttadag_app/assets/images/D-0_alarm.png" style="width:50%;"/>
-						<img ng-if="nodeName === 'SPEAKER'" src="http://192.168.0.201/ttadag_app/assets/images/D-0_sound.png" style="width:50%;"/>
-						<img ng-if="nodeName === 'BUTTON'" src="http://192.168.0.201/ttadag_app/assets/images/D-0_button.png" style="width:50%;"/>
+						<img ng-if="nodeName === 'LIGHT'" src="http://ttadag.ipdisk.co.kr/ttadag_app/assets/images/D-0_light.png" style="width:50%;"/>
+						<img ng-if="nodeName === 'ALARM'" src="http://ttadag.ipdisk.co.kr/ttadag_app/assets/images/D-0_alarm.png" style="width:50%;"/>
+						<img ng-if="nodeName === 'SPEAKER'" src="http://ttadag.ipdisk.co.kr/ttadag_app/assets/images/D-0_sound.png" style="width:50%;"/>
+						<img ng-if="nodeName === 'BUTTON'" src="http://ttadag.ipdisk.co.kr/ttadag_app/assets/images/D-0_button.png" style="width:50%;"/>
 						<!--</div>-->
 						<!--{{nodeName}}-->
 					</md-button>
@@ -18,15 +18,15 @@
 		</div>
 	</div>
 
-	<div ng-if="template.url === 'ALARM.html'" style="position:relative;width:100%;min-width:414px;min-height: 154px;width:100%;background:#8c9eff url('http://192.168.0.201/ttadag_app/assets/images/K-1_alarm_bg.png') no-repeat center center; background-size: 100%;">
+	<div ng-if="template.url === 'ALARM.html'" style="position:relative;width:100%;min-width:414px;min-height: 154px;width:100%;background:#8c9eff url('http://ttadag.ipdisk.co.kr/ttadag_app/assets/images/K-1_alarm_bg.png') no-repeat center center; background-size: 100%;">
 		<div style="position: absolute;top: 50%;margin-top: -47px;width: 100%;">
 			<div style="text-align: center;">
 				<md-icon ng-repeat="nodeName in nodeNames" style="margin: 0 1px 1px 1px;width:auto;">
 					<md-button ng-click="nodeClick(nodeName)" style="margin: 0px;" aria-label="btn">
-						<img ng-if="nodeName === 'LIGHT'" src="http://192.168.0.201/ttadag_app/assets/images/D-0_light.png" style="width:50%;"/>
-						<img ng-if="nodeName === 'ALARM'" src="http://192.168.0.201/ttadag_app/assets/images/D-0_alarm.png" style="width:50%;"/>
-						<img ng-if="nodeName === 'SPEAKER'" src="http://192.168.0.201/ttadag_app/assets/images/D-0_sound.png" style="width:50%;"/>
-						<img ng-if="nodeName === 'BUTTON'" src="http://192.168.0.201/ttadag_app/assets/images/D-0_button.png" style="width:50%;"/>
+						<img ng-if="nodeName === 'LIGHT'" src="http://ttadag.ipdisk.co.kr/ttadag_app/assets/images/D-0_light.png" style="width:50%;"/>
+						<img ng-if="nodeName === 'ALARM'" src="http://ttadag.ipdisk.co.kr/ttadag_app/assets/images/D-0_alarm.png" style="width:50%;"/>
+						<img ng-if="nodeName === 'SPEAKER'" src="http://ttadag.ipdisk.co.kr/ttadag_app/assets/images/D-0_sound.png" style="width:50%;"/>
+						<img ng-if="nodeName === 'BUTTON'" src="http://ttadag.ipdisk.co.kr/ttadag_app/assets/images/D-0_button.png" style="width:50%;"/>
 					</md-button>
 				</md-icon>
 			</div>
@@ -119,11 +119,11 @@
 		<div style="margin-top:20px;color:#fff;">INTENSITY</div>
 		<div layout="row" layout-align="center center">
 			<md-icon style="width:15px;height:13px;">
-				<img src="http://192.168.0.201/ttadag_app/assets/images/L-0_intensity_max.png" style="width:100%;height:100%;"/>
+				<img src="http://ttadag.ipdisk.co.kr/ttadag_app/assets/images/L-0_intensity_max.png" style="width:100%;height:100%;"/>
 			</md-icon>
 			<md-slider flex min="0" max="100" ng-model="taskUnits.LIGHT.intensity" aria-label="intensity"></md-slider>
 			<md-icon style="width:21px;height:19px;">
-				<img src="http://192.168.0.201/ttadag_app/assets/images/L-0_intensity_min.png" style="width:100%;height:100%;"/>
+				<img src="http://ttadag.ipdisk.co.kr/ttadag_app/assets/images/L-0_intensity_min.png" style="width:100%;height:100%;"/>
 			</md-icon>
 		</div>
 	</div>
@@ -142,11 +142,11 @@
 		<div style="margin-top:20px;color:#fff;">VOLUME</div>
 		<div layout="row" layout-align="center center">
 			<md-icon style="width:15px;height:13px;">
-				<img src="http://192.168.0.201/ttadag_app/assets/images/L-0_vol_min.png" style="width:100%;height:100%;"/>
+				<img src="http://ttadag.ipdisk.co.kr/ttadag_app/assets/images/L-0_vol_min.png" style="width:100%;height:100%;"/>
 			</md-icon>
 			<md-slider flex min="0" max="100" ng-model="taskUnits.SPEAKER.volume" aria-label="volume"></md-slider>
 			<md-icon style="width:21px;height:19px;">
-				<img src="http://192.168.0.201/ttadag_app/assets/images/L-0_vol_max.png" style="width:100%;height:100%;"/>
+				<img src="http://ttadag.ipdisk.co.kr/ttadag_app/assets/images/L-0_vol_max.png" style="width:100%;height:100%;"/>
 			</md-icon>
 		</div>
 	</div>

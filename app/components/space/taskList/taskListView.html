@@ -1,6 +1,6 @@
 <md-content layout="column" layout-align="center center">
 	<div layout="column" layout-wrap style="width:100%;">
-		<div layout="row" style="position:relative;width:100%;padding-bottom:15px;background: url('http://192.168.0.201/ttadag_app/assets/images/I-0_top.png');background-size:100%;">
+		<div layout="row" style="position:relative;width:100%;padding-bottom:15px;background: url('http://ttadag.ipdisk.co.kr/ttadag_app/assets/images/I-0_top.png');background-size:100%;">
 			<md-button style="position: relative;width: 100%;">
 				<div style="margin:0 20px;text-align: left;">
 					<h2 style="margin-bottom:0;color:#fff;">{{taskInfo.alias}}</h2>
@@ -9,7 +9,7 @@
 			</md-button>
 			<div style="position: absolute;right: 0;top: 50%;margin-top: -24px;">
 				<md-button ng-click="settingChange()">
-					<img aria-label="img" src="http://192.168.0.201/ttadag_app/assets/images/D-0_option_01.png" style="width:24px;height:24px;"/>
+					<img aria-label="img" src="http://ttadag.ipdisk.co.kr/ttadag_app/assets/images/D-0_option_01.png" style="width:24px;height:24px;"/>
 				</md-button>
 			</div>
 		</div>
@@ -18,10 +18,10 @@
 				<div layout="column">
 					<div layout="row">
 						<md-icon ng-repeat="unit in task.units" style="margin:2px;">
-							<img ng-if="unit == 'ALARM'" src="http://192.168.0.201/ttadag_app/assets/images/D-0_alarm.png" style="width:100%;height:100%;"/>
-							<img ng-if="unit == 'LIGHT'" src="http://192.168.0.201/ttadag_app/assets/images/D-0_light.png" style="width:100%;height:100%;"/>
-							<img ng-if="unit == 'SPEAKER'" src="http://192.168.0.201/ttadag_app/assets/images/D-0_sound.png" style="width:100%;height:100%;"/>
-							<img ng-if="unit == 'BUTTON'" src="http://192.168.0.201/ttadag_app/assets/images/D-0_button.png" style="width:100%;height:100%;"/>
+							<img ng-if="unit == 'ALARM'" src="http://ttadag.ipdisk.co.kr/ttadag_app/assets/images/D-0_alarm.png" style="width:100%;height:100%;"/>
+							<img ng-if="unit == 'LIGHT'" src="http://ttadag.ipdisk.co.kr/ttadag_app/assets/images/D-0_light.png" style="width:100%;height:100%;"/>
+							<img ng-if="unit == 'SPEAKER'" src="http://ttadag.ipdisk.co.kr/ttadag_app/assets/images/D-0_sound.png" style="width:100%;height:100%;"/>
+							<img ng-if="unit == 'BUTTON'" src="http://ttadag.ipdisk.co.kr/ttadag_app/assets/images/D-0_button.png" style="width:100%;height:100%;"/>
 						</md-icon>
 					</div>
 					<md-switch class="md-secondary" style="margin:0;" ng-model="task.usable" ng-change="stateUdate(task.id, task.usable)" aria-label="Switch"></md-switch>
