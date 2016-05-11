@@ -382,7 +382,7 @@
 								data: {
 									"bssid": AccountService.getCookiesInfoBssId(),
 									"func": "setChannel",
-									"params": [channel],
+									"params": [channel.url, channel.port, channel.path],
 									"action": "command"
 								},
 								headers: {
