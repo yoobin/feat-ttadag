@@ -378,7 +378,8 @@
 						} else {
 							$http({
 								method: 'POST',
-								url: AccountService.DevAPI_IP + '/v2/nodes/execute',
+								//url: AccountService.DevAPI_IP + '/v2/nodes/execute',
+								url: 'http://ttadag.ipdisk.co.kr:8080/v2/nodes/execute',
 								data: {
 									"bssid": AccountService.getCookiesInfoBssId(),
 									"func": "setChannel",
