@@ -234,6 +234,23 @@
 						});
 					};
 
+					$scope.test = function (value) {
+						$http({
+							method: 'POST',
+							url: AccountService.DevAPI_IP + '/v2/nodes/execute',
+							data: {
+								"bssid": AccountService.getCookiesInfoBssId(),
+								"func": "setVolume",
+								"params": [value],
+								"action": "command"
+							},
+							headers: {
+								'X-Auth-Token': AccountService.getCookiesInfoToken()
+							}
+						}).then(function successCallback(response) {
+							console.log(response);
+						});
+					};
 
 					$scope.taskEditsave = function() {
 						$scope.taskUnits.id = $routeParams.id;
