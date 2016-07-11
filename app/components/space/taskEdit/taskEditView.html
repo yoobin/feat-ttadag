@@ -184,3 +184,31 @@
 		</div>
 	</div>
 </script>
+
+<!-- template4.html -->
+<script type="text/ng-template" id="WEATHER.html">
+	<div>
+		<div style="margin-top:20px;color:#fff;">ON/OFF</div>
+		<div layout="row" layout-align="center center">
+			<md-switch ng-model="taskUnits.WEATHER.power" aria-label="on/off"></md-switch>
+		</div>
+	</div>
+	<md-divider style="border-top-color:#3F3460"></md-divider>
+	<div>
+		<div style="margin-top:20px;color:#fff;">VOLUME</div>
+		<div layout="row" layout-align="center center">
+			<md-icon style="width:15px;height:13px;">
+				<img src="http://ttadag.ipdisk.co.kr/ttadag_app/assets/images/L-0_vol_min.png" style="width:100%;height:100%;"/>
+			</md-icon>
+			<md-slider flex min="0" max="100" ng-model="taskUnits.WEATHER.volume" aria-label="volume"></md-slider>
+			<md-icon style="width:21px;height:19px;">
+				<img src="http://ttadag.ipdisk.co.kr/ttadag_app/assets/images/L-0_vol_max.png" style="width:100%;height:100%;"/>
+			</md-icon>
+		</div>
+	</div>
+	<md-divider style="border-top-color:#3F3460"></md-divider>
+	<div>
+		<div style="margin-top:20px;color:#fff;">TTS</div>
+		<md-button ng-click="todayWEATHER()"> <span style="display:inline-block;color:#fff;border: 1px solid #fff;width: 138px;height: 38px;">오늘의 날씨</span></md-button>
+	</div>
+</script>

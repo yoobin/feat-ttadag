@@ -22,7 +22,6 @@
 				if (!!response.data.result) {
 					$scope.alias = response.data.result.alias;
 					for(; i < response.data.result.taskUnits.length; i++) {
-				//
 						if(response.data.result.taskUnits[i].hasOwnProperty('ALARM')) {
 							$scope.nodeNames.push('ALARM');
 							$scope.taskUnits.ALARM = response.data.result.taskUnits[i].ALARM;
@@ -176,6 +175,10 @@
 						} else if(response.data.result.taskUnits[i].hasOwnProperty('BUTTON')) {
 							$scope.taskUnits.BUTTON = response.data.result.taskUnits[i].BUTTON;
 
+						} else if (response.data.result.taskUnits[i].hasOwnProperty('WEATHER')) {
+							$scope.nodeNames.push('WEATHER');
+							$scope.taskUnits.WEATHER = response.data.result.taskUnits[i].WEATHER;
+							$scope.templates.WEATHER = 'WEATHER.html';
 						}
 					}
 
@@ -213,6 +216,24 @@
 
 					};
 
+					$scope.todayWEATHER = function () {
+						$http({
+							method: 'POST',
+							//url: AccountService.DevAPI_IP + '/v2/nodes/execute',
+							url: 'http://ttadag.ipdisk.co.kr:8080/v2/nodes/execute',
+							data: {
+								"bssid": AccountService.getCookiesInfoBssId(),
+								"func": "getWeather",
+								"action": "command"
+							},
+							headers: {
+								'X-Auth-Token': AccountService.getCookiesInfoToken()
+							}
+						}).then(function successCallback(response) {
+							console.log(response);
+						});
+					};
+
 
 					$scope.taskEditsave = function() {
 						$scope.taskUnits.id = $routeParams.id;
@@ -244,6 +265,10 @@
 								alert('라디오 채널을 선택하셔야합니다.');
 								return false;
 							}
+						}
+						if ($scope.taskUnits.hasOwnProperty('WEATHER')) {
+							data.weather = $scope.taskUnits.WEATHER;
+							data.weather.button = $scope.taskUnits.BUTTON;
 						}
 
 						$http({
