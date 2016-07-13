@@ -2,6 +2,10 @@
 	angular.module('ngTtadagApp.home.controller')
 	.controller('homeController', ['$scope','$location','$window','$timeout', 'AccountService', function($scope, $location, $window, $timeout, AccountService) {
 
+		if (AccountService.getCookiesInfoIsLogin()) {
+			$location.path('space/groupList');
+		}
+		
 		$scope.count = 5;
 		$scope.isAutoLogin = false;
 		$scope.isWIFIAccess = false;
