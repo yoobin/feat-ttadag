@@ -5,7 +5,7 @@
 		if (AccountService.getCookiesInfoIsLogin()) {
 			$location.path('space/groupList');
 		}
-		
+
 		$scope.count = 5;
 		$scope.isAutoLogin = false;
 		$scope.isWIFIAccess = false;
