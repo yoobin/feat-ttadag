@@ -1,6 +1,10 @@
 (function() {
 	angular.module('ngTtadagApp.account.signIn.controller')
-		.controller('signInController', ['$scope', 'NetworkService', 'AccountService', function($scope, NetworkService, AccountService) {
+		.controller('signInController', ['$scope', 'NetworkService', 'AccountService', '$location',function($scope, NetworkService, AccountService, $location) {
+
+			if (AccountService.getCookiesInfoIsLogin()) {
+				$location.path('space/groupList');
+			}
 
 			$scope.loginAction = function() {
 
